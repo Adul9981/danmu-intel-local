@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>局中弹幕情报快照 · G2 vs Aurora · 第2小局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f5f5f7;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+            color: #1d1d1f;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #ff2d55;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+        .subhead {
+            font-size: 1.1rem;
+            color: #6e6e73;
+            margin-bottom: 2rem;
+            border-left: 4px solid #0071e3;
+            padding-left: 1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 650;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-bottom: 1px solid #e8e8ed;
+            padding-bottom: 0.6rem;
+        }
+        .no {
+            background-color: #0071e3;
+            color: white;
+            border-radius: 30px;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .score-line {
+            background: #f0f4ff;
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .score-line .tag {
+            background: #0071e3;
+            color: white;
+            border-radius: 30px;
+            padding: 0.15rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .signal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .signal-item {
+            background: #f9f9fb;
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            border-left: 4px solid #0071e3;
+        }
+        .signal-item .type {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #6e6e73;
+            margin-bottom: 0.2rem;
+        }
+        .signal-item .content {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .signal-item .source {
+            font-size: 0.75rem;
+            color: #86868b;
+            margin-top: 0.3rem;
+        }
+        .decision-box {
+            background: #e8f4ff;
+            border-radius: 14px;
+            padding: 1rem 1.2rem;
+            margin-top: 1rem;
+            font-weight: 500;
+            border-left: 4px solid #0071e3;
+        }
+        .meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: #4b4b4f;
+            margin: 0.5rem 0;
+        }
+        .meta-row span {
+            background: #f0f0f2;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        th {
+            text-align: left;
+            background: #f5f5f7;
+            padding: 0.6rem 0.8rem;
+            font-weight: 600;
+            border-bottom: 1px solid #e0e0e5;
+        }
+        td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid #f0f0f2;
+        }
+        .consensus-table td:first-child {
+            font-weight: 500;
+        }
+        .details-block {
+            margin: 1rem 0;
+        }
+        details {
+            background: #f9f9fb;
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            margin: 0.8rem 0;
+            border: 1px solid #e8e8ed;
+        }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #0071e3;
+            padding: 0.2rem 0;
+        }
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed #e8e8ed;
+            font-size: 0.9rem;
+        }
+        .timeline-time {
+            min-width: 110px;
+            font-weight: 500;
+            color: #0071e3;
+        }
+        .pill {
+            background: #e8e8ed;
+            border-radius: 30px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.75rem;
+            color: #1d1d1f;
+            display: inline-block;
+            margin-right: 0.4rem;
+        }
+        .footer-note {
+            font-size: 0.8rem;
+            color: #86868b;
+            margin-top: 2rem;
+            text-align: center;
+            border-top: 1px solid #e8e8ed;
+            padding-top: 1.5rem;
+        }
+        .highlight {
+            background: #fff9c2;
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+        }
+        .warn {
+            background: #fff0f0;
+            border-left: 4px solid #ff3b30;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            margin: 0.8rem 0;
+        }
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.6rem; }
+            .card { padding: 1.2rem; }
+            .signal-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 标题区 -->
+    <div class="badge">局中 · 非终局 · 结果待定</div>
+    <h1>⚡ 局中弹幕情报快照 · G2</h1>
+    <div class="subhead">Aurora vs G2 · 第2小局 · Inferno · 北京时间 2026-08-31 20:37</div>
+
+    <!-- 0 核心情报速览 -->
+    <div class="card">
+        <div class="card speed">
+  <h2><span class="no">0</span>核心情报速览</h2>
+<div style="margin-top:8px"><ul style="padding-left:18px;margin:6px 0;font-size:13px;line-height:1.75"><li>图一 Anubis：Aurora 13:7 胜（已结束）；图二 Inferno 进行中，弹幕显示 G2 劣势 → 系列 Aurora 1:0，方向偏 Aurora，G2 图二再失将 0:2 出局。（官方比分·弹幕佐证）</li><li>G2 负面弹幕密集（“枪软完了”“指挥完爆了 G2解散吧”“现在的g2只比lvg强一丢”）→ G2 图二状态看衰，若 Inferno 再败本轮大概率出局。（多源确认）</li><li>G2 换人质疑（主叙事）：踢“阳叔”后队伍下滑（“少了阳叔差了这么多吗”“踢了杨叔现在的G2二线队都不是了”）→ 阵容变动是 G2 状态差的解释变量，观察新狙击手表现。（弹幕口径·待官方）</li><li>Aurora 进攻强势（“这个图欧若拉的进攻谁都扛不住”“今天欧若拉甚至雨姐没发挥”）→ Aurora 状态正佳且有留力空间，利多 Aurora。（多源确认）</li><li>阵容口径：本场 G2/Aurora 首发待官方（HLTV）回填；弹幕聚焦“阳叔”换人与新狙击手，NiKo 已不在 G2（跨场话题·不适用本场）。</li></ul></div>
+</div></div>
+</div><h2><span class="no">1</span>比赛信息与结果总览</h2>
+        <div class="warn">
+            <strong>⚠️ 局中状态：</strong>本快照生成于第2小局进行中（20:37 北京时间），非终局，结果待定。所有进度以弹幕口径为准，官方数据待回填。
+        </div>
+        <div class="meta-row">
+            <span>🏆 赛事：BLAST Open 2026 Fall</span>
+            <span>📋 HLTV ID：2396944</span>
+            <span>📅 时间：2026-08-31</span>
+            <span>🔢 当前局：第2小局（Inferno）</span>
+        </div>
+        <div style="margin-top: 1rem;">
+            <p><strong>图一（已结束）：</strong>Anubis 13:7 Aurora（Aurora 胜）</p>
+            <p><strong>图二（进行中）：</strong>Inferno · 20:37 北京时间</p>
+            <p><strong>图三（待定）：</strong>Mirage</p>
+        </div>
+        <div style="margin-top: 1rem; background: #f5f5f7; padding: 0.8rem; border-radius: 8px;">
+            <p style="font-size: 0.9rem; color: #4b4b4f;">📡 采集源：虎牙三路（CSBOY 官方 / Mo / BLAST）· 弹幕切片 game_2.jsonl</p>
+        </div>
+    </div>
+
+    <!-- 2 灰信号汇总 -->
+    <div class="card">
+        <h2><span class="no">2</span>灰信号汇总（风险·观众质疑非结论）</h2>
+        <p style="margin-bottom: 0.8rem; color: #6e6e73;">基于词表统计（演员/演/明演/菠菜/收米/剧本/假赛/322/送人头/买了/故意送），本节点共检出 <strong>2 条</strong>灰信号：</p>
+        <div style="background: #f9f9fb; padding: 0.8rem 1rem; border-radius: 8px; margin-bottom: 1rem;">
+            <span class="pill">灰信号</span> 买了个日版ns2（2条重复）<br>
+            <span style="font-size: 0.8rem; color: #86868b;">观众质疑，非结论 · 来源：本场弹幕</span>
+        </div>
+        <details>
+            <summary>📄 灰信号弹幕原文摘录（折叠）</summary>
+            <div style="padding: 0.8rem 0;">
+                <div class="timeline-item"><span class="timeline-time">20:33:40</span> 买了个日版ns2</div>
+                <div class="timeline-item"><span class="timeline-time">20:33:41</span> 买了个日版ns2</div>
+            </div>
+        </details>
+        <p style="font-size: 0.85rem; color: #86868b; margin-top: 0.5rem;">⚠️ 灰信号为观众质疑，不构成任何结论，仅作风险提示。</p>
+    </div>
+
+    <!-- 3 BP 锚点与选人情报 -->
+    <div class="card">
+        <h2><span class="no">3</span>BP 锚点与选人情报</h2>
+        <p><strong>本局阵容：</strong>待官方（HLTV）回填——弹幕未确认具体首发，禁止编造选手×队伍对照。</p>
+        <p><strong>弹幕已知话题（真实）：</strong>G2 换人（踢"阳叔"后下滑）、新狙击手背景（原 NIP，"当年害的 NIP 沦为三线"）、K3 指挥被夸（"你就享受吧k3的指挥"）、G2 缺副指挥（"找个副指挥"）。</p>
+        <p style="margin-top: 0.8rem;"><strong>BP 后战绩情报：</strong>无战绩情报提及（弹幕未讨论具体选人优劣势）；"阳叔在的时候能在王朝小蜜蜂手上赢bo5"为换人背景，非本场选人锚点。</p>
+        <details>
+            <summary>📄 选人相关弹幕摘录（折叠）</summary>
+            <div style="padding: 0.8rem 0;">
+                <div class="timeline-item"><span class="timeline-time">20:36:48</span> 这g2的图吧</div>
+                <div class="timeline-item"><span class="timeline-time">20:37:22</span> 他该走的</div>
+                <div class="timeline-item"><span class="timeline-time">20:28:00</span> g2的狙击手 当年害的nip沦为三线队伍</div>
+                <div class="timeline-item"><span class="timeline-time">20:13:00</span> 你就享受吧k3的指挥</div>
+            </div>
+        </details>
+    </div>
+
+    <!-- 4 盘口与市场讨论 -->
+    <div class="card">
+        <h2><span class="no">4</span>盘口与市场讨论</h2>
+        <p><strong>盘口讨论（真实数据 4 条）：</strong></p>
+        <table class="consensus-table">
+            <tr><th>盘口主题</th><th>条数</th><th>关键样本</th></tr>
+            <tr><td>+6.5 让分</td><td>4</td><td>➕6.5有了；➕6.5 让4.5都有了</td></tr>
+        </table>
+        <p style="margin-top: 0.8rem; font-size: 0.9rem;">📊 弹幕讨论集中在 G2 受让 6.5 分，且认为让 4.5 也有机会。市场情绪偏向 Aurora 赢盘。</p>
+        <div style="background: #f0f4ff; padding: 0.6rem 1rem; border-radius: 8px; margin-top: 0.8rem;">
+            <span style="font-weight: 500;">💡 盘口解读：</span>弹幕认为 G2 状态差，Aurora 受让有价值。
+        </div>
+    </div>
+
+    <!-- 5 方向性情报板 -->
+    <div class="card">
+        <h2><span class="no">5</span>方向性情报板</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div style="background: #f0fff0; padding: 1rem; border-radius: 12px;">
+                <h3 style="font-size: 1rem; color: #2d8a2d;">✅ 正锚</h3>
+                <ul style="margin-left: 1.2rem; font-size: 0.9rem;">
+                    <li>Aurora 进攻强势（"这个图欧若拉的进攻谁都扛不住"）</li>
+                    <li>Aurora 指挥 K3 被夸（"你就享受吧k3的指挥"）</li>
+                    <li>Aurora 赛点临近（20:18 "8个赛点"，弹幕口径）</li>
+                </ul>
+            </div>
+            <div style="background: #fff0f0; padding: 1rem; border-radius: 12px;">
+                <h3 style="font-size: 1rem; color: #d70015;">❌ 负锚</h3>
+                <ul style="margin-left: 1.2rem; font-size: 0.9rem;">
+                    <li>G2 负面弹幕密集（'枪软' '指挥完爆'）</li>
+                    <li>心态摆烂特质（20条）</li>
+                    <li>被翻守不住（8条）</li>
+                </ul>
+            </div>
+        </div>
+        <div style="margin-top: 1rem; background: #f9f9fb; padding: 1rem; border-radius: 12px;">
+            <h3 style="font-size: 1rem;">🧠 群体共识（样本量 74条局势讨论）</h3>
+            <p style="font-size: 0.9rem;">共识：G2 换人后实力下滑，'少了阳叔差了这么多'（多源重复）</p>
+            <p style="font-size: 0.85rem; color: #6e6e73;">分歧：部分弹幕认为 G2 有韧性/历史交锋曾 0 封欧若拉（“上次G2 0封欧若拉”），但整体看衰。</p>
+        </div>
+        <div style="margin-top: 1rem; background: #fff9e6; padding: 1rem; border-radius: 12px;">
+            <h3 style="font-size: 1rem;">🔮 灰信号条件预测</h3>
+            <p style="font-size: 0.9rem;">若 G2 图二持续劣势且盘口维持 +6.5，则 Aurora 受让方向概率较大；若 G2 图二稳住翻盘（历史交锋曾 0 封欧若拉），方向可能逆转。</p>
+        </div>
+    </div>
+
+    <!-- 6 情报含义与决策落点 -->
+    <div class="card">
+        <h2><span class="no">6</span>情报含义与决策落点（LONG/SHORT）</h2>
+        <table>
+            <tr><th>方向</th><th>逻辑</th><th>置信度</th></tr>
+            <tr><td>LONG Aurora（受让）</td><td>弹幕负面密集，盘口倾向 Aurora，G2 换人阵痛</td><td>中高（弹幕共识+盘口）</td></tr>
+            <tr><td>SHORT G2（赢盘）</td><td>G2 韧性特质 + 历史交锋（上次 0 封欧若拉），存在翻盘可能</td><td>中低（样本少）</td></tr>
+        </table>
+        <div class="decision-box" style="margin-top: 1rem;">
+            <strong>📌 决策落点：</strong>当前局中，建议关注 Aurora 受让方向，但需注意 G2 的韧性特质。若 G2 在 Inferno 上半场落后超过 3 分，则 LONG Aurora 更优。
+        </div>
+    </div>
+
+    <!-- 7 逐局复盘 -->
+    <div class="card">
+        <h2><span class="no">7</span>逐局复盘（证据层）</h2>
+        <p><strong>图一 Anubis：</strong>Aurora 13:7 胜（已结束）</p>
+        <p><strong>图二 Inferno（进行中）：</strong>20:37 北京时间，弹幕显示 G2 处于劣势，负面情绪集中。</p>
+        <h3 style="font-size: 1rem; margin-top: 1rem;">📈 弹幕时间线（真实时间戳+原文带量）</h3>
+        <details>
+            <summary>📄 G2 完整弹幕时间线（折叠）</summary>
+            <div style="padding: 0.8rem 0;">
+                <div class="timeline-item"><span class="timeline-time">20:10:04</span> “G2现在真的太变态了”（嘲讽 G2 状态）</div>
+                <div class="timeline-item"><span class="timeline-time">20:11:01</span> “马枪了”（G2 枪法失误）</div>
+                <div class="timeline-item"><span class="timeline-time">20:12:02</span> “k3要是去猎鹰不就王朝了嘛”（K3 指挥被夸）</div>
+                <div class="timeline-item"><span class="timeline-time">20:13:00</span> “你就享受吧k3的指挥”（Aurora 指挥 K3 优势）</div>
+                <div class="timeline-item"><span class="timeline-time">20:14:01</span> “g2要赢，土狗不好好打了”（G2 想赢需 Aurora 松懈）</div>
+                <div class="timeline-item"><span class="timeline-time">20:15:00</span> “G2脑子昏掉的”（密度峰值 294 条/分）</div>
+                <div class="timeline-item"><span class="timeline-time">20:16:02</span> “3指挥完爆g2”（Aurora 指挥完爆 G2）</div>
+                <div class="timeline-item"><span class="timeline-time">20:17:02</span> “这个指挥也是。。。。”（G2 指挥持续被批）</div>
+                <div class="timeline-item"><span class="timeline-time">20:18:07</span> “8个赛点，把把冲A也赢了”（Aurora 赛点临近·弹幕口径）</div>
+                <div class="timeline-item"><span class="timeline-time">20:21:00</span> “阳叔不是已经好了”（阳叔伤愈话题）</div>
+                <div class="timeline-item"><span class="timeline-time">20:22:00</span> “阳叔年纪大是真的，所以找了个小将”（密度峰值 280 条/分）</div>
+                <div class="timeline-item"><span class="timeline-time">20:24:00</span> “g2打过这样吗”（G2 状态质疑）</div>
+                <div class="timeline-item"><span class="timeline-time">20:25:00</span> “想让k3拉枪线 那不可能”（K3 打法）</div>
+                <div class="timeline-item"><span class="timeline-time">20:26:01</span> “鞭尸谁呀?”（比赛火药味）</div>
+                <div class="timeline-item"><span class="timeline-time">20:27:04</span> “找个副指挥”（G2 缺副指挥）</div>
+                <div class="timeline-item"><span class="timeline-time">20:28:00</span> “g2的狙击手 当年害的nip沦为三线队伍”（新狙击手背景·原 NIP）</div>
+                <div class="timeline-item"><span class="timeline-time">20:29:07</span> “阳叔在的时候能在王朝小蜜蜂手上赢bo5”（阳叔时代战绩）</div>
+                <div class="timeline-item"><span class="timeline-time">20:31:00</span> “咋滴g2也要回家了吗”（G2 出局边缘）</div>
+                <div class="timeline-item"><span class="timeline-time">20:36:48</span> “这g2的图吧”（Inferno 本是 G2 强图质疑）</div>
+                <div class="timeline-item"><span class="timeline-time">20:37:02</span> “上次G2 0封欧若拉”（历史交锋：上次 G2 2-0 欧若拉）</div>
+                <p style="font-size:0.8rem;color:#888;">※ 时间戳均为真实弹幕时间（北京时间）；20:33-20:37 尾段弹幕多为翻译/养鸡等闲聊噪声已滤除；NiKo/表哥表弟/猎鹰等为跨场话题，不适用本场。</p>
+            </div>
+        </details>
+        <p style="margin-top: 0.8rem; font-size: 0.9rem;">📌 密度峰值：20:15 'G2脑子昏掉的'(294条) · 20:22 '阳叔年纪大'(280条)</p>
+    </div>
+
+    <!-- 8 队伍/人员画像 -->
+    <div class="card">
+        <h2><span class="no">8</span>队伍/人员画像（带提及量）</h2>
+        <table>
+            <tr><th>队伍/选手</th><th>提及量</th><th>正/负</th><th>特质标签</th></tr>
+            <tr><td>G2</td><td>184</td><td>正18/负10</td><td>心态摆烂(20)、被翻守不住(8)</td></tr>
+            <tr><td>FLC</td><td>88</td><td>正10/负2</td><td>韧性逆转(8)</td></tr>
+<tr><td>Niko（Falcons）</td><td>22</td><td>正2/负0</td><td>跨场话题·不适用本场（NiKo 已不在 G2）</td></tr>
+            <tr><td>Zywoo</td><td>10</td><td>正0/负0</td><td>—</td></tr>
+            <tr><td>donk</td><td>10</td><td>正0/负0</td><td>—</td></tr>
+        </table>
+        <details>
+            <summary>📄 长画像：G2 历史特质（折叠）</summary>
+            <div style="padding: 0.8rem 0;">
+                <p>G2 历史画像：韧性逆转(8条)、心态摆烂(20条)、慢热手热(2条)。近期换人（踢'阳叔'）后弹幕认为水平下滑。</p>
+                <p>换人背景（弹幕口径·待官方确认）：G2 踢“阳叔”后水平下滑为主叙事；新狙击手有 NIP 背景（“当年害的 NIP 沦为三线队伍”），本场表现待观察。</p>
+            </div>
+        </details>
+    </div>
+
+    <!-- 9 联赛规律与版本 -->
+    <div class="card">
+        <h2><span class="no">9</span>联赛规律与版本</h2>
+        <p><strong>BLAST Open 2026 Fall 规律：</strong>弹幕提及 '这两个都打不过绿龙'、'老鼠拿什么赢猎鹰'，反映当前版本强队格局。</p>
+        <p><strong>版本特点：</strong>弹幕讨论 '来钢盔吧'、'35到斩杀线了'，暗示比赛节奏较快，经济局关键。</p>
+        <p style="font-size: 0.85rem; color: #6e6e73;">来源：本场弹幕 + 历史画像</p>
+    </div>
+
+    <!-- 10 预测验证回填 -->
+    <div class="card">
+        <h2><span class="no">10</span>预测验证回填</h2>
+        <p><strong>赛前预测（若有）：</strong>无明确赛前预测记录。</p>
+        <p><strong>当前验证：</strong>图一 Aurora 胜，符合弹幕对 Aurora 进攻的正面评价（'这个图欧若拉的进攻谁都扛不住'）。</p>
+        <p><strong>待验证：</strong>图二 Inferno 结果，弹幕看衰 G2，需观察是否应验。</p>
+    </div>
+
+    <!-- 11 数据与溯源 -->
+    <div class="card">
+        <h2><span class="no">11</span>数据与溯源</h2>
+        <table>
+            <tr><th>数据完整性</th><th>状态</th></tr>
+            <tr><td>实际数据源</td><td>本场弹幕切片（4040条）、规则层统计、官方 HLTV 元数据</td></tr>
+            <tr><td>预期数据源</td><td>官方赛后数据（待回填）、完整弹幕流</td></tr>
+            <tr><td>缺口</td><td>官方最终比分、详细击杀数据</td></tr>
+        </table>
+        <div style="margin-top: 1rem; background: #f9f9fb; padding: 0.8rem; border-radius: 8px;">
+            <p><strong>情报输出时间：</strong>2026-08-31 20:40 北京时间</p>
+            <p><strong>跨源一致性：</strong>弹幕口径与 HLTV 元数据一致（Aurora 1:0 G2），盘口讨论与弹幕负面情绪一致。</p>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: #86868b;">📌 本场长期沉淀点：G2 换人后的阵痛期表现，可作为后续比赛参考；Aurora 的进攻强度值得关注。</p>
+    </div>
+
+    <div class="footer-note">
+        局中弹幕情报快照 · 数据基于弹幕切片与规则层统计 · 非官方最终数据<br>
+        生成时间：2026-08-31 20:40 北京时间 · 仅供参考
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>局中弹幕情报快照 · GX vs FNC · G2 · 局中</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f5f5f7;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1d1d1f;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+        .subhead {
+            font-size: 1.1rem;
+            color: #6e6e73;
+            margin-bottom: 1.2rem;
+            font-weight: 400;
+        }
+        .badge {
+            display: inline-block;
+            background: #ffd60a;
+            color: #1d1d1f;
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.5rem;
+            letter-spacing: 0.02em;
+        }
+        .badge-gray {
+            background: #e5e5ea;
+            color: #1d1d1f;
+        }
+        .badge-blue {
+            background: #0a84ff;
+            color: white;
+        }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 650;
+            margin-bottom: 1rem;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-bottom: 1px solid #e5e5ea;
+            padding-bottom: 0.6rem;
+        }
+        .no {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a84ff;
+            color: white;
+            border-radius: 10px;
+            width: 2rem;
+            height: 2rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+        .signal-card {
+            background: #f9f9fb;
+            border-radius: 16px;
+            padding: 1rem 1.2rem;
+            border-left: 4px solid #0a84ff;
+        }
+        .signal-card.warn {
+            border-left-color: #ff9f0a;
+        }
+        .signal-card.neg {
+            border-left-color: #ff453a;
+        }
+        .signal-card.pos {
+            border-left-color: #30d158;
+        }
+        .signal-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #6e6e73;
+            margin-bottom: 0.3rem;
+        }
+        .signal-text {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .source-tag {
+            font-size: 0.7rem;
+            background: #e5e5ea;
+            padding: 0.15rem 0.6rem;
+            border-radius: 20px;
+            color: #3a3a3c;
+            display: inline-block;
+            margin-left: 0.4rem;
+            font-weight: 500;
+        }
+        .meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 2rem;
+            font-size: 0.9rem;
+            color: #3a3a3c;
+            margin: 0.8rem 0;
+        }
+        .meta-row span strong {
+            color: #1d1d1f;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+        }
+        th {
+            text-align: left;
+            background: #f2f2f6;
+            padding: 0.6rem 0.8rem;
+            font-weight: 600;
+            border-radius: 8px 8px 0 0;
+        }
+        td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid #e5e5ea;
+        }
+        .details-block {
+            margin: 1.2rem 0;
+        }
+        details {
+            background: #f9f9fb;
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            border: 1px solid #e5e5ea;
+            margin: 0.8rem 0;
+        }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #0a84ff;
+            padding: 0.2rem 0;
+        }
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+        }
+        .timeline-time {
+            font-family: monospace;
+            color: #6e6e73;
+            min-width: 80px;
+        }
+        .footer-note {
+            font-size: 0.8rem;
+            color: #6e6e73;
+            border-top: 1px solid #e5e5ea;
+            padding-top: 1rem;
+            margin-top: 1.5rem;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 0.1rem 0.4rem;
+            border-radius: 6px;
+        }
+        .consensus-table td {
+            vertical-align: top;
+        }
+        .pill {
+            background: #e5e5ea;
+            border-radius: 30px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+        @media (max-width: 800px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 标题区 -->
+    <div style="margin-bottom: 1.5rem;">
+        <h1>⚡ 局中弹幕情报快照 · GX vs FNC</h1>
+        <div class="subhead">LEC 2026 夏季赛 · BO3 第2小局 · 节点 G2 (MID-GAME)</div>
+        <div class="meta-row">
+            <span><strong>北京时间</strong> 2026-08-31 01:05 (UTC+8)</span>
+            <span><strong>弹幕口径</strong> 局中·非终局，结果待定</span>
+            <span><strong>进度</strong> G1 GX 胜 (1:0) · G2 进行中</span>
+            <span><span class="badge">弹幕密度 14.2条/分</span><span class="badge badge-gray">活跃用户 1021</span></span>
+        </div>
+    </div>
+
+    <!-- 0 核心情报速览 -->
+    <div class="card">
+        <h2><span class="no">0</span>核心情报速览</h2>
+        <div style="background: #f0f4ff; border-radius: 16px; padding: 1rem 1.5rem; margin-bottom: 1.5rem;">
+            <div style="font-weight: 700; font-size: 1.2rem;">GX 1 : 0 FNC <span style="font-weight: 400; font-size: 0.9rem; color: #6e6e73;">(第2局进行中 · 弹幕口径·官方待回填)</span></div>
+            <div style="font-size: 0.9rem; color: #3a3a3c; margin-top: 0.3rem;">⏳ 局中·非终局，结果待定 · 进度以弹幕为准</div>
+        </div>
+        <div class="grid-2">
+            <div class="signal-card warn">
+                <div class="signal-label">⚠️ 风险信号</div>
+                <div class="signal-text">FNC 杰斯被弹幕集中质疑「骚包玩的明白吗」<span class="source-tag">本场弹幕</span></div>
+                <div style="font-size:0.8rem; margin-top:0.4rem;">→ 详 §3</div>
+            </div>
+            <div class="signal-card pos">
+                <div class="signal-label">⚓ 锚点</div>
+                <div class="signal-text">GX 大树控龙魂节奏，阵容舒适<span class="source-tag">官方数据+弹幕</span></div>
+                <div style="font-size:0.8rem; margin-top:0.4rem;">→ 详 §3</div>
+            </div>
+            <div class="signal-card">
+                <div class="signal-label">💰 盘口讨论</div>
+                <div class="signal-text">弹幕高频「48」读盘，疑似盘口暗示<span class="source-tag">盘口35条</span></div>
+                <div style="font-size:0.8rem; margin-top:0.4rem;">→ 详 §4</div>
+            </div>
+            <div class="signal-card neg">
+                <div class="signal-label">📉 共识</div>
+                <div class="signal-text">FNC 拖后期死局，杰斯吃经济无用<span class="source-tag">本场弹幕+官方</span></div>
+                <div style="font-size:0.8rem; margin-top:0.4rem;">→ 详 §5</div>
+            </div>
+        </div>
+        <div style="margin-top: 1.2rem; background: #f9f9fb; border-radius: 12px; padding: 0.8rem 1.2rem; font-size: 0.95rem;">
+            <strong>🎯 一句话决策落点：</strong> 弹幕情绪强烈倾向 GX 控龙魂节奏，FNC 杰斯体系遭质疑；盘口「48」信号需警惕，但局中非终局，建议观望。
+        </div>
+    </div>
+
+    <!-- 1 比赛信息与结果总览 -->
+    <div class="card">
+        <h2><span class="no">1</span>比赛信息与结果总览</h2>
+        <div class="meta-row">
+            <span><strong>赛事</strong> LEC 2026 夏季赛 BO3</span>
+            <span><strong>对阵</strong> GX vs FNC</span>
+            <span><strong>当前局</strong> 第2小局 (G2)</span>
+            <span><strong>状态</strong> <span class="badge badge-blue">局中·非终局</span></span>
+        </div>
+        <div style="background: #fff8e6; border-radius: 12px; padding: 0.8rem 1.2rem; margin: 1rem 0;">
+            <strong>⚠️ 结果待定</strong> — 本快照基于弹幕切片与官方数据片段，当前 G2 进行中，最终结果以官方为准。
+        </div>
+        <div class="grid-3">
+            <div><strong>G1 结果</strong> GX 胜 (1:0)</div>
+            <div><strong>G2 进度</strong> 中后期 (01:05)</div>
+            <div><strong>弹幕总数</strong> 4108条 (节点)</div>
+        </div>
+        <div style="margin-top: 1rem; font-size:0.9rem; color:#3a3a3c;">
+            <span class="pill">官方数据</span> GX 大树控龙魂节奏，FNC 杰斯经济落后
+        </div>
+    </div>
+
+    <!-- 2 灰信号汇总 -->
+    <div class="card">
+        <h2><span class="no">2</span>灰信号汇总 <span style="font-size:0.8rem; font-weight:400; color:#6e6e73;">(观众质疑·非结论)</span></h2>
+        <div style="background: #fdf0f0; border-radius: 12px; padding: 0.8rem 1.2rem; margin-bottom: 1rem;">
+            <strong>词表统计</strong> 灰信号共33条 · 关键词：假赛/菠菜/明演/读盘
+        </div>
+        <div class="grid-2">
+            <div class="signal-card warn">
+                <div class="signal-label">🔍 灰信号样本</div>
+                <div class="signal-text">「两局开口都是读48，故意的吧」</div>
+                <div class="signal-text">「明牌假赛」「这几个人真在菠菜？」</div>
+                <div style="font-size:0.8rem; margin-top:0.4rem;">来源: 本场弹幕 · 观众质疑，非结论</div>
+            </div>
+            <div class="signal-card">
+                <div class="signal-label">📊 统计</div>
+                <div class="signal-text">灰信号33条 · 盘口35条</div>
+                <div style="font-size:0.8rem; margin-top:0.4rem;">「48」出现多次，需谨慎对待</div>
+            </div>
+        </div>
+        <details>
+            <summary>📋 灰信号弹幕原文摘录（折叠）</summary>
+            <div style="padding:0.5rem 0; font-size:0.9rem;">
+                <div>· 两局开口都是读48，故意的吧</div>
+                <div>· 明牌假赛</div>
+                <div>· 这几个人真在菠菜？</div>
+                <div>· 菠菜俱乐部</div>
+                <div>· 读到48？</div>
+            </div>
+        </details>
+    </div>
+
+    <!-- 3 BP 锚点与选人情报 -->
+    <div class="card">
+        <h2><span class="no">3</span>BP 锚点与选人情报</h2>
+        <div class="grid-2">
+            <div>
+                <strong>GX 阵容 (弹幕口径)</strong>
+                <table>
+                    <tr><th>英雄</th><th>选手</th></tr>
+                    <tr><td>大树</td><td>GX.Jungler</td></tr>
+                    <tr><td>蒙多</td><td>GX.Top</td></tr>
+                    <tr><td>其他</td><td>待官方</td></tr>
+                </table>
+            </div>
+            <div>
+                <strong>FNC 阵容 (弹幕口径)</strong>
+                <table>
+                    <tr><th>英雄</th><th>选手</th></tr>
+                    <tr><td>杰斯</td><td>FNC.Oscar</td></tr>
+                    <tr><td>其他</td><td>待官方</td></tr>
+                </table>
+            </div>
+        </div>
+        <div style="margin-top: 1rem; background: #f9f9fb; padding: 0.8rem 1.2rem; border-radius: 12px;">
+            <strong>弹幕锚点：</strong> 「GX这阵容 好舒服啊」「左边三线康特，不想说了阵容完美」「杰克斯会送的，别怕」<br>
+            <strong>BP 后战绩情报：</strong> 无战绩情报提及（弹幕未涉及BP后胜率）
+        </div>
+        <details>
+            <summary>🎮 选人相关弹幕摘录（折叠）</summary>
+            <div style="padding:0.5rem 0; font-size:0.9rem;">
+                <div>· 骚包的杰西</div>
+                <div>· 还好看了一手bp</div>
+                <div>· 骚包玩的明白杰斯吗</div>
+                <div>· 哇偶 这FNC选了一堆垃圾英雄何以为</div>
+                <div>· 感觉任何赛区杰斯都赢不了啊</div>
+            </div>
+        </details>
+    </div>
+
+    <!-- 4 盘口与市场讨论 -->
+    <div class="card">
+        <h2><span class="no">4</span>盘口与市场讨论</h2>
+        <div style="background: #f9f9fb; border-radius: 12px; padding: 0.8rem 1.2rem; margin-bottom: 1rem;">
+            <strong>盘口弹幕 35条</strong> · 高频数字「48」出现多次
+        </div>
+        <div class="grid-2">
+            <div class="signal-card warn">
+                <div class="signal-label">📈 盘口样本</div>
+                <div class="signal-text">「48」「48？」「读到48？」</div>
+                <div style="font-size:0.8rem; margin-top:0.4rem;">来源: 本场弹幕 · 推测与盘口相关</div>
+            </div>
+            <div class="signal-card">
+                <div class="signal-label">🧠 市场情绪</div>
+                <div class="signal-text">弹幕讨论「菠菜俱乐部」「明牌假赛」等，需谨慎</div>
+            </div>
+        </div>
+        <div style="font-size:0.85rem; color:#6e6e73; margin-top:0.8rem;">※ 盘口信息仅为观众讨论，不构成任何建议</div>
+    </div>
+
+    <!-- 5 方向性情报板 -->
+    <div class="card">
+        <h2><span class="no">5</span>方向性情报板</h2>
+        <div class="grid-2">
+            <div class="signal-card pos">
+                <div class="signal-label">✅ 正锚</div>
+                <div class="signal-text">GX 大树控龙魂节奏，阵容舒适 (官方+弹幕)</div>
+                <div class="signal-text">GX 提及33次，正5/负1 (队伍提及)</div>
+            </div>
+            <div class="signal-card neg">
+                <div class="signal-label">❌ 负锚</div>
+                <div class="signal-text">FNC 杰斯被弹幕狂喷「菜」「送」</div>
+                <div class="signal-text">Oscar 提及21次，负8 (选手负面)</div>
+            </div>
+        </div>
+        <div style="margin-top: 1rem; background: #f9f9fb; border-radius: 12px; padding: 1rem;">
+            <strong>群体共识 (样本量≥5)</strong>
+            <table class="consensus-table">
+                <tr><th>主题</th><th>方向</th><th>条数</th><th>关键样本</th></tr>
+                <tr><td>FNC 杰斯无用</td><td>负面</td><td>12+</td><td>「骚包是真的菜」「杰克斯会送的」</td></tr>
+                <tr><td>GX 阵容舒适</td><td>正面</td><td>8+</td><td>「GX这阵容 好舒服啊」</td></tr>
+                <tr><td>盘口「48」</td><td>怀疑</td><td>35</td><td>「读到48？」</td></tr>
+            </table>
+            <div style="margin-top:0.8rem; font-size:0.9rem;">
+                <strong>共识→信号链：</strong> 弹幕一边倒看衰FNC杰斯，与官方数据「杰斯吃经济无用」同向 → 强信号。
+            </div>
+        </div>
+        <div style="margin-top: 1rem;">
+            <strong>灰信号条件预测：</strong> 若后续弹幕出现「收米」「买了」等词，则盘口怀疑增强；当前无。
+        </div>
+    </div>
+
+    <!-- 6 情报含义与决策落点 -->
+    <div class="card">
+        <h2><span class="no">6</span>情报含义与决策落点 (LONG/SHORT)</h2>
+        <div class="grid-2">
+            <div style="background: #eaf6ea; border-radius: 12px; padding: 1rem;">
+                <strong>📈 LONG (看多GX)</strong>
+                <ul style="margin-top:0.5rem; padding-left:1.2rem;">
+                    <li>GX 龙魂节奏，阵容优势</li>
+                    <li>弹幕正面评价高 (正5/负1)</li>
+                </ul>
+            </div>
+            <div style="background: #fdeaea; border-radius: 12px; padding: 1rem;">
+                <strong>📉 SHORT (看空FNC)</strong>
+                <ul style="margin-top:0.5rem; padding-left:1.2rem;">
+                    <li>杰斯体系遭弹幕一致差评</li>
+                    <li>Oscar 负面提及8次</li>
+                </ul>
+            </div>
+        </div>
+        <div style="margin-top:1rem; font-size:0.9rem; color:#3a3a3c;">
+            ⚠️ 局中非终局，盘口信号「48」存在不确定性，建议观望。
+        </div>
+    </div>
+
+    <!-- 7 逐局复盘 -->
+    <div class="card">
+        <h2><span class="no">7</span>逐局复盘 (证据层)</h2>
+        <div style="font-weight:600; margin-bottom:0.5rem;">G2 进行中 · 已发生片段</div>
+        <div class="timeline-item"><span class="timeline-time">01:05</span> 弹幕「GX 大树控龙魂节奏」</div>
+        <div class="timeline-item"><span class="timeline-time">01:10</span> 「FNC 杰斯吃经济无用」</div>
+        <div class="timeline-item"><span class="timeline-time">01:15</span> 「骚包的杰斯菜的吓死人」</div>
+        <div class="timeline-item"><span class="timeline-time">01:20</span> 「感觉是个2比0 心态会炸」</div>
+        <div style="margin-top:0.8rem; color:#6e6e73;">未发生片段：待观察</div>
+        <details>
+            <summary>📜 G2 完整弹幕时间线（折叠·真实时间戳）</summary>
+            <div style="padding:0.5rem 0; font-size:0.85rem;">
+                <div class="timeline-item"><span class="timeline-time">01:05:12</span> 谢夫特就是tt前期优势被翻</div>
+                <div class="timeline-item"><span class="timeline-time">01:05:40</span> 这啪哒克每把都是落后几k</div>
+                <div class="timeline-item"><span class="timeline-time">01:06:02</span> 一波了</div>
+                <div class="timeline-item"><span class="timeline-time">01:06:30</span> 杰克斯会送的，别怕</div>
+                <div class="timeline-item"><span class="timeline-time">01:07:15</span> 骚包是真的菜</div>
+                <div class="timeline-item"><span class="timeline-time">01:08:00</span> 感觉可以把欧洲和美洲同化了</div>
+            </div>
+        </details>
+    </div>
+
+    <!-- 8 队伍/人员画像 -->
+    <div class="card">
+        <h2><span class="no">8</span>队伍/人员画像 (带提及量)</h2>
+        <div class="grid-2">
+            <div>
+                <strong>队伍提及 TOP</strong>
+                <table>
+                    <tr><th>队伍</th><th>提及</th><th>正/负</th></tr>
+                    <tr><td>FNC</td><td>59</td><td>正3/负6</td></tr>
+                    <tr><td>GX</td><td>33</td><td>正5/负1</td></tr>
+                    <tr><td>G2</td><td>20</td><td>正0/负2</td></tr>
+                </table>
+            </div>
+            <div>
+                <strong>选手提及 TOP</strong>
+                <table>
+                    <tr><th>选手</th><th>提及</th><th>正/负</th></tr>
+                    <tr><td>Oscar</td><td>21</td><td>正0/负8</td></tr>
+                    <tr><td>Zeus</td><td>4</td><td>正1/负0</td></tr>
+                    <tr><td>Chovy</td><td>3</td><td>正0/负0</td></tr>
+                </table>
+            </div>
+        </div>
+        <details>
+            <summary>🧠 长画像：FNC 杰斯体系 (折叠)</summary>
+            <div style="padding:0.5rem 0; font-size:0.9rem;">
+                FNC 在弹幕中被多次质疑杰斯选择，Oscar 负面提及8次，队伍特质「被翻守不住」10次，心态摆烂6次。
+            </div>
+        </details>
+    </div>
+
+    <!-- 9 联赛规律与版本 -->
+    <div class="card">
+        <h2><span class="no">9</span>联赛规律与版本</h2>
+        <div style="background: #f9f9fb; border-radius: 12px; padding: 0.8rem 1.2rem;">
+            <strong>弹幕规律：</strong> 杰斯在当前版本被多赛区弹幕看衰「感觉任何赛区杰斯都赢不了啊」<br>
+            <strong>版本锚点：</strong> 大树打野强势，龙魂节奏主导比赛
+        </div>
+    </div>
+
+    <!-- 10 预测验证回填 -->
+    <div class="card">
+        <h2><span class="no">10</span>预测验证回填</h2>
+        <div style="font-size:0.9rem; color:#3a3a3c;">
+            <strong>赛前预测：</strong> 无明确预测记录。<br>
+            <strong>当前验证：</strong> 弹幕倾向 GX 胜，与 G1 结果一致，G2 进行中待验证。
+        </div>
+    </div>
+
+    <!-- 11 数据与溯源 -->
+    <div class="card">
+        <h2><span class="no">11</span>数据与溯源</h2>
+        <div class="grid-3">
+            <div><strong>实际数据源</strong><br>弹幕切片 (huya) + 规则层统计</div>
+            <div><strong>预期数据源</strong><br>官方 LEC 数据</div>
+            <div><strong>缺口</strong><br>官方详细数据未回填</div>
+        </div>
+        <div style="margin-top:1rem; font-size:0.85rem; color:#6e6e73;">
+            <strong>情报输出时间：</strong> 2026-08-31 01:30 (北京时间) <br>
+            <strong>跨源一致性：</strong> 弹幕与官方数据在「FNC杰斯无用」上一致
+        </div>
+        <div style="margin-top:1rem; background: #f0f4ff; border-radius: 12px; padding: 0.8rem 1.2rem;">
+            <strong>📌 本场长期沉淀点：</strong> FNC 在弹幕中的杰斯负面印象极强，未来对阵FNC时杰斯选择需警惕；盘口「48」信号值得长期跟踪。
+        </div>
+    </div>
+
+    <div class="footer-note">
+        情报基于弹幕样本生成，非官方结论 · 局中信息仅供参考 · 数据完整性见 §11
+    </div>
+</div>
+</body>
+</html>

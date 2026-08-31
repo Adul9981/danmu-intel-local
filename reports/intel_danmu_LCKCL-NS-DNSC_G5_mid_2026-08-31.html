@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>局中弹幕情报快照 · LCK CL NS vs DNS.C G5 · 2026-08-31</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f5f5f7;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: #1d1d1f;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .badge {
+            display: inline-block;
+            background: #e8e8ed;
+            border-radius: 20px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            letter-spacing: 0.3px;
+            margin-right: 0.5rem;
+        }
+        .badge-red {
+            background: #ffd1d1;
+            color: #b30000;
+        }
+        .badge-blue {
+            background: #d1e3ff;
+            color: #0047b3;
+        }
+        .badge-gray {
+            background: #e8e8ed;
+            color: #555;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.3rem;
+        }
+        .subhead {
+            font-size: 1rem;
+            color: #6e6e73;
+            margin-bottom: 1.2rem;
+            font-weight: 400;
+        }
+        .meta-line {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .scoreboard {
+            background: #f0f0f5;
+            border-radius: 14px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+        }
+        .scoreboard .teams {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        .scoreboard .score {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: #fff;
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .signal-list {
+            list-style: none;
+            padding: 0;
+        }
+        .signal-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #f0f0f5;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+        }
+        .signal-list li:last-child {
+            border-bottom: none;
+        }
+        .signal-tag {
+            flex-shrink: 0;
+            background: #f0f0f5;
+            border-radius: 30px;
+            padding: 0.15rem 0.7rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #333;
+            margin-top: 0.2rem;
+        }
+        .signal-tag.risk { background: #ffe5e5; color: #a00000; }
+        .signal-tag.anchor { background: #e0f0ff; color: #0047b3; }
+        .signal-tag.odds { background: #e5f5e5; color: #006600; }
+        .signal-tag.consensus { background: #fff3d6; color: #8a6d00; }
+        .signal-tag.source { background: #e8e8ed; color: #444; }
+        .decision-box {
+            background: #f8f8fc;
+            border-left: 4px solid #0071e3;
+            padding: 1rem 1.2rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-bottom: 2px solid #f0f0f5;
+            padding-bottom: 0.5rem;
+        }
+        h2 .no {
+            background: #0071e3;
+            color: white;
+            border-radius: 30px;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 1.2rem 0 0.6rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        th, td {
+            text-align: left;
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid #e8e8ed;
+        }
+        th {
+            background: #f8f8fc;
+            font-weight: 600;
+        }
+        details {
+            background: #fafafc;
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            margin: 1rem 0;
+            border: 1px solid #e8e8ed;
+        }
+        summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: #0071e3;
+            font-size: 0.9rem;
+            padding: 0.3rem 0;
+        }
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed #e8e8ed;
+            font-size: 0.85rem;
+        }
+        .timeline-time {
+            flex-shrink: 0;
+            font-weight: 600;
+            color: #555;
+            width: 70px;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        @media (max-width: 700px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .scoreboard { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        }
+        .footer-note {
+            font-size: 0.8rem;
+            color: #86868b;
+            margin-top: 2rem;
+            text-align: center;
+            border-top: 1px solid #d2d2d7;
+            padding-top: 1.5rem;
+        }
+        .highlight {
+            background: #fff9db;
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+        }
+        .source-label {
+            font-size: 0.7rem;
+            background: #e8e8ed;
+            padding: 0.1rem 0.5rem;
+            border-radius: 20px;
+            color: #444;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 标题区 -->
+    <div style="margin-bottom: 1.5rem;">
+        <h1>⚡ 局中弹幕情报快照 · G5</h1>
+        <div class="subhead">NS vs DNS.C · LCK CL 2026-08-31 · 节点：G5 局中（MID-GAME）</div>
+        <div class="meta-line">
+            <span class="badge badge-red">局中·非终局</span>
+            <span class="badge badge-blue">弹幕口径</span>
+            <span class="badge badge-gray">官方待回填</span>
+            <span>北京时间 2026-08-31 20:08</span>
+        </div>
+    </div>
+
+    <!-- 0. 核心情报速览 -->
+    <div class="card">
+        <h2><span class="no">0</span>核心情报速览</h2>
+        <div class="scoreboard">
+            <div class="teams">NS <span style="font-weight:400;color:#555;">(红)</span> 2 : 2 DNS.C <span style="font-weight:400;color:#555;">(蓝)</span></div>
+            <div class="score">G5 进行中</div>
+        </div>
+        <div style="font-size:0.85rem;color:#666;margin-bottom:1rem;">弹幕口径 · 官方待回填 · 20:08 控龙/贾克斯压制</div>
+        <ul class="signal-list">
+            <li><span class="signal-tag risk">风险</span>灰信号12条：观众质疑“假赛”但非结论，需警惕节奏 <span class="source-label">本场弹幕</span> → 详§2</li>
+            <li><span class="signal-tag anchor">锚点</span>DNS控龙+贾克斯压酒桶，蓝方叙事强 <span class="source-label">本场弹幕</span> → 详§3/§5</li>
+            <li><span class="signal-tag odds">盘口</span>“今天全是蓝色胜利，农心选红就是放弃”蓝方叙事 <span class="source-label">本场弹幕</span> → 详§4</li>
+            <li><span class="signal-tag consensus">共识</span>MihawK梦魇被集中质疑（峰值334条/分） <span class="source-label">本场弹幕</span> → 详§8</li>
+            <li><span class="signal-tag source">决策</span>倾向DNS.C节奏领先，但灰信号+断采缺口需谨慎 <span class="source-label">综合</span> → 详§6</li>
+        </ul>
+        <div class="decision-box">
+            <strong>一句话决策落点：</strong> 当前局中DNS.C占据主动（控龙+上单压制），但灰信号与样本缺口并存，建议观望或轻仓倾向DNS.C，等待官方回填。
+        </div>
+    </div>
+
+    <!-- 1. 比赛信息与结果总览 -->
+    <div class="card">
+        <h2><span class="no">1</span>比赛信息与结果总览</h2>
+        <table>
+            <tr><th>项目</th><th>内容</th></tr>
+            <tr><td>赛事</td><td>LCK CL 2026-08-31 · NS vs DNS.C</td></tr>
+            <tr><td>当前局</td><td>第5小局（决胜局）· 局中（MID-GAME）</td></tr>
+            <tr><td>比分</td><td>NS 2 : 2 DNS.C（弹幕口径，官方待回填）</td></tr>
+            <tr><td>状态</td><td><span class="badge badge-red">局中·非终局，结果待定</span> 进度以弹幕口径为准</td></tr>
+            <tr><td>官方window阵容</td><td>DNS(蓝): Lancer贾克斯 / DDoiV悟空 / Flip阿狸 / Enosh厄斐琉斯 / Quantum塔姆<br>NS(红): Janus酒桶 / MihawK梦魇 / SeTab丽桑卓 / Lucy霞 / Pleata洛</td></tr>
+            <tr><td>数据完整性</td><td>实际: 弹幕切片+规则层统计 | 预期: 官方完整数据 | 缺口: G2/G3断采、官方未回填</td></tr>
+        </table>
+        <div style="font-size:0.85rem;color:#666;margin-top:0.8rem;">⚠️ 跨源一致性提示：官方window阵容与弹幕讨论一致（贾克斯/酒桶对位），但官方数据未回填，部分信息待验证。</div>
+    </div>
+
+    <!-- 2. 灰信号汇总 -->
+    <div class="card">
+        <h2><span class="no">2</span>灰信号汇总（风险·观众质疑非结论）</h2>
+        <p style="font-size:0.9rem;color:#555;margin-bottom:0.8rem;">灰信号词表统计：演员/演/明演/菠菜/收米/剧本/假赛/322/送人头/买了/故意送 → 共12条</p>
+        <ul class="signal-list">
+            <li><span class="signal-tag risk">灰信号</span>“这两个队伍最爱打假赛” ×12条（完全重复） <span class="source-label">本场弹幕</span></li>
+        </ul>
+        <div style="background:#fff5f5;border-radius:8px;padding:0.8rem;font-size:0.85rem;margin-top:0.8rem;">
+            ⚠️ 观众质疑，非结论。样本高度重复，可能为带节奏或玩梗，需结合官方数据验证。
+        </div>
+        <details>
+            <summary>📄 灰信号弹幕原文摘录（折叠）</summary>
+            <div style="padding:0.5rem 0;font-size:0.85rem;color:#444;">
+                “这两个队伍最爱打假赛”<br>“这两个队伍最爱打假赛”<br>“这两个队伍最爱打假赛”<br>……（共12条，完全一致）
+            </div>
+        </details>
+    </div>
+
+    <!-- 3. BP 锚点与选人情报 -->
+    <div class="card">
+        <h2><span class="no">3</span>BP 锚点与选人情报</h2>
+        <h3>本局阵容（英雄+选手）</h3>
+        <table>
+            <tr><th>队伍</th><th>上单</th><th>打野</th><th>中单</th><th>ADC</th><th>辅助</th></tr>
+            <tr><td>DNS.C (蓝)</td><td>Lancer 贾克斯</td><td>DDoiV 悟空</td><td>Flip 阿狸</td><td>Enosh 厄斐琉斯</td><td>Quantum 塔姆</td></tr>
+            <tr><td>NS (红)</td><td>Janus 酒桶</td><td>MihawK 梦魇</td><td>SeTab 丽桑卓</td><td>Lucy 霞</td><td>Pleata 洛</td></tr>
+        </table>
+        <h3>BP 后战绩情报</h3>
+        <p>无战绩情报提及（本场弹幕未讨论BP后胜率等）</p>
+        <h3>弹幕锚点</h3>
+        <ul class="signal-list">
+            <li><span class="signal-tag anchor">BP</span>“잭스 선픽맞냐 그럼 역으로 그라가스 가야지”（贾克斯先手？该反手酒桶）→ Lancer 贾克斯 vs Janus 酒桶 对位成 G5 焦点 <span class="source-label">本场弹幕</span></li>
+            <li><span class="signal-tag anchor">BP</span>“농심 조합 개좋네”/“녹턴 좋긴함 궁이” → NS 梦魇+丽桑卓+霞洛 开团联动被好评 <span class="source-label">本场弹幕</span></li>
+            <li><span class="signal-tag anchor">BP</span>“블루전승인데 농심레드갔네”（蓝方全胜 NS 却选红）→ 蓝方优势叙事 <span class="source-label">本场弹幕</span></li>
+            <li><span class="signal-tag anchor">对线</span>“武器要死了/酒桶被武器压爆” → 贾克斯压制酒桶 <span class="source-label">本场弹幕</span></li>
+            <li><span class="signal-tag anchor">节奏</span>“용 주면 농심은 걍 사망”（给龙NS就死） → DNS控龙 <span class="source-label">本场弹幕</span></li>
+        </ul>
+        <details>
+            <summary>📄 相关弹幕原文摘录（折叠）</summary>
+            <div style="padding:0.5rem 0;font-size:0.85rem;color:#444;">
+                · 19:58:53 “잭스 선픽맞냐 그럼 역으로 그라가스 가야지”（贾克斯先手该反手酒桶）<br>
+                · 19:58:25 “농심 조합 개좋네”（NS 阵容很好）<br>
+                · 19:57:12 “블루전승인데 농심레드갔네”（蓝方全胜，NS 却选红）<br>
+                · 20:04:14 “리산은 녹턴만 따라 들어가면 됌”（丽桑卓跟着梦魇进场就行）<br>
+                · 20:08 “武器要死了/酒桶被武器压爆”<br>
+                · 20:08:19 “용 주면 농심은 걍 사망”（给龙 NS 就死）<br>
+                · 20:06 “미호크 뭐함?”（MihawK 在干嘛——峰值 334 条/分）
+            </div>
+        </details>
+    </div>
+
+    <!-- 4. 盘口与市场讨论 -->
+    <div class="card">
+        <h2><span class="no">4</span>盘口与市场讨论</h2>
+        <ul class="signal-list">
+            <li><span class="signal-tag odds">蓝方叙事</span>“今天全是蓝色胜利，农心选红就是放弃了” <span class="source-label">本场弹幕</span></li>
+            <li><span class="signal-tag odds">讨论</span>未发现具体盘口赔率讨论，仅阵营倾向</li>
+        </ul>
+        <div style="font-size:0.85rem;color:#666;">样本不足：无具体盘口数字，仅叙事层面。</div>
+    </div>
+
+    <!-- 5. 方向性情报板 -->
+    <div class="card">
+        <h2><span class="no">5</span>方向性情报板（正锚×负锚×共识×灰信号条件预测）</h2>
+        <div class="grid-2">
+            <div>
+                <h3>✅ 正锚</h3>
+                <ul style="font-size:0.9rem;padding-left:1.2rem;">
+                    <li>DNS控龙（20:08）</li>
+                    <li>贾克斯压制酒桶</li>
+                    <li>蓝方叙事（今天蓝胜率高）</li>
+                </ul>
+            </div>
+            <div>
+                <h3>❌ 负锚</h3>
+                <ul style="font-size:0.9rem;padding-left:1.2rem;">
+                    <li>MihawK梦魇被质疑（“미호크 뭐함?”）</li>
+                    <li>NS选红被弹幕视为放弃</li>
+                </ul>
+            </div>
+        </div>
+        <h3>群体共识（+分歧+样本量）</h3>
+        <ul style="font-size:0.9rem;padding-left:1.2rem;">
+            <li>共识①蓝方叙事：“今天全是蓝色胜利，农心选红就是放弃了”（≥5 条，含“블루전승인데 농심레드갔네”）→ 偏向 DNS.C</li>
+            <li>共识②决胜局实力论：“5셋 가면 결국 기본 체급 높은 농심이 이기려나”“농심이 5셋가서 학살할꺼같은데”→ 观众偏 NS 底子更强</li>
+            <li>共识③阵容面：NS 梦魇+丽桑卓+霞洛开团联动被夸（“농심 조합 개좋네”“녹턴 좋긴함 궁이”“라칸 녹턴 이니시 좋은데”），DNS 贾克斯+悟空 对线压制力被认可（“잭스 좋다”“오공이 있네”）</li>
+            <li>分歧①MihawK 状态：既被“미호크 뭐함?”集中质疑（峰值 334 条/分），也有“경기력 기복 심함/경기지배”的波动定性 → NS 打野是最大变量</li>
+            <li>分歧②红蓝方：蓝方叙事 vs NS 阵容联动强，方向未定</li>
+            <li>灰信号：12 条“这两个队伍最爱打假赛”（观众质疑·非结论），20:06 峰值窗口集中出现</li>
+            <li>样本量：弹幕总数 2,043，活跃 214，密度 86.4 条/分（G5 窗口 19:45-20:08）</li>
+        </ul>
+        <h3>灰信号条件预测</h3>
+        <p style="font-size:0.9rem;">若后续出现“假赛”弹幕增加且DNS.C优势扩大，需警惕剧本论；当前仅12条重复，不构成条件预测。</p>
+    </div>
+
+    <!-- 6. 情报含义与决策落点 -->
+    <div class="card">
+        <h2><span class="no">6</span>情报含义与决策落点（LONG/SHORT）</h2>
+        <p><strong>LONG（倾向DNS.C）：</strong> 控龙+上单压制+蓝方叙事，弹幕共识偏向DNS.C。</p>
+        <p><strong>SHORT（倾向NS）：</strong> 无明显支撑，梦魇被质疑，选红被看衰。</p>
+        <div class="decision-box">
+            <strong>决策建议：</strong> 局中非终局，建议观望或轻仓DNS.C方向，注意灰信号和官方数据回填。若DNS.C持续控龙且贾克斯优势扩大，可适度加仓；若NS翻盘则及时止损。
+        </div>
+    </div>
+
+    <!-- 7. 逐局复盘（证据层） -->
+    <div class="card">
+        <h2><span class="no">7</span>逐局复盘（证据层）</h2>
+        <h3>当前局（G5）已发生片段</h3>
+        <table>
+            <tr><th>时间(北京)</th><th>事件</th><th>弹幕证据</th></tr>
+            <tr><td>20:06</td><td>弹幕密度峰值334条/分</td><td>“미호크 뭐함?”（MihawK梦魇被集中质疑）</td></tr>
+            <tr><td>20:08</td><td>DNS控龙</td><td>“용 주면 농심은 걍 사망”</td></tr>
+            <tr><td>20:08</td><td>贾克斯压酒桶</td><td>“武器要死了/酒桶被武器压爆”</td></tr>
+        </table>
+        <h3>未发生/待观察</h3>
+        <p>后续团战、龙魂、大龙等 → 待观察</p>
+        <details>
+            <summary>📄 G5 完整弹幕时间线（折叠）</summary>
+            <div style="padding:0.5rem 0;">
+                <div style="font-weight:600;margin:0.3rem 0;">BP 阶段（19:57-20:01 · 近似）</div>
+                <div class="timeline-item"><span class="timeline-time">19:57:12</span>“블루전승인데 농심레드갔네”（蓝方全胜，NS 却选红）</div>
+                <div class="timeline-item"><span class="timeline-time">19:57:22</span>“녹턴 좋긴함 궁이”（梦魇大招不错——NS MihawK）</div>
+                <div class="timeline-item"><span class="timeline-time">19:57:42</span>“오공이 있네”（有悟空——DNS DDoiV）</div>
+                <div class="timeline-item"><span class="timeline-time">19:57:56</span>“세탭 아칼리 잘하는데”（SeTab 阿卡丽玩得好）</div>
+                <div class="timeline-item"><span class="timeline-time">19:58:15</span>“자야 라칸”（霞+洛——NS 下路）</div>
+                <div class="timeline-item"><span class="timeline-time">19:58:25</span>“농심 조합 개좋네”（NS 阵容很好）</div>
+                <div class="timeline-item"><span class="timeline-time">19:58:47</span>“잭스 좋다”（贾克斯好——DNS Lancer）</div>
+                <div class="timeline-item"><span class="timeline-time">19:58:53</span>“잭스 선픽맞냐 그럼 역으로 그라가스 가야지”（贾克斯先手？该反手酒桶）</div>
+                <div class="timeline-item"><span class="timeline-time">20:01:16</span>“리산드라 맞췄죵”（丽桑卓锁定——SeTab）</div>
+                <div style="font-weight:600;margin:0.3rem 0;">开局/对线（20:02-20:05）</div>
+                <div class="timeline-item"><span class="timeline-time">20:04:14</span>“리산은 녹턴만 따라 들어가면 됌”（丽桑卓跟着梦魇进场就行）</div>
+                <div class="timeline-item"><span class="timeline-time">20:04:16</span>“이거 자야가 딜하러 들어가다가 잭스 오공한테 한방에 터진다”（霞进场会被贾克斯/悟空秒）</div>
+                <div class="timeline-item"><span class="timeline-time">20:04:20</span>“리산 미니언 줄줄 흘리네”（丽桑卓漏兵）</div>
+                <div style="font-weight:600;margin:0.3rem 0;">中期（20:06-20:08）</div>
+                <div class="timeline-item"><span class="timeline-time">20:06</span>“미호크 뭐함?”（MihawK 梦魇被集中质疑——峰值 334 条/分）</div>
+                <div class="timeline-item"><span class="timeline-time">20:08:17</span>“용을 주네”（放龙了）</div>
+                <div class="timeline-item"><span class="timeline-time">20:08:19</span>“용 주면 농심은 걍 사망임”（给龙 NS 就死）</div>
+                <div class="timeline-item"><span class="timeline-time">20:08:22</span>“너무맞는데”（被打得太惨）</div>
+                <div class="timeline-item"><span class="timeline-time">20:08</span>“武器要死了/酒桶被武器压爆”（贾克斯上单对位占优）</div>
+                <p style="font-size:0.8rem;color:#888;">※ 时间戳均来自弹幕样本原样引用（北京时间）；BP 起始为近似，待官方 VOD 校准。</p>
+            </div>
+        </details>
+    </div>
+
+    <!-- 8. 队伍/人员画像（带提及量） -->
+    <div class="card">
+        <h2><span class="no">8</span>队伍/人员画像（带提及量）</h2>
+        <table>
+            <tr><th>队伍/选手</th><th>提及量</th><th>正/负</th><th>画像标签</th></tr>
+            <tr><td>NS</td><td>49</td><td>正0/负0</td><td>心态摆烂(5条)</td></tr>
+            <tr><td>DNS.C</td><td>36</td><td>正0/负0</td><td>控龙/优势</td></tr>
+            <tr><td>WE</td><td>10</td><td>正0/负0</td><td>无关本局</td></tr>
+            <tr><td>GEN/TES/IG/DK</td><td>各5</td><td>正0/负0</td><td>无关本局</td></tr>
+            <tr><td>KT</td><td>2</td><td>正0/负0</td><td>无关本局</td></tr>
+        </table>
+        <p style="font-size:0.85rem;color:#666;">队伍特质统计：心态摆烂:5条（NS）</p>
+        <details>
+            <summary>📄 选手级画像（折叠·带量）</summary>
+            <div style="padding:0.5rem 0;font-size:0.85rem;">
+                · <strong>MihawK（NS 打野·梦魇）</strong>：本场最大变量——20:06 峰值 334 条/分集中质疑“미호크 뭐함?”；此前弹幕已定性“경기력 기복 ㅈㄴ 심함/경기지배”（状态波动极大/左右比赛），G4 大树“故意送”质疑也指向他（观众质疑·非结论）<br>
+                · <strong>SeTab（NS 中单·丽桑卓）</strong>：弹幕提“아칼리 잘하는데”（阿卡丽玩得好）但本局选丽桑卓，“리산 미니언 줄줄 흘리네”（漏兵）——中单被小批<br>
+                · <strong>Lancer（DNS.C 上单·贾克斯）</strong>：BP 先手贾克斯被质疑（“선픽은 꼴픽”），但 20:08 对位压制酒桶（“武器要死了/酒桶被武器压爆”）——负锚转正候选<br>
+                · <strong>DDoiV（DNS.C 打野·悟空）</strong>：被夸“오공 사람아니다”（悟空不是人），控龙节奏推进<br>
+                · <strong>Enosh（DNS.C ADC·厄斐琉斯）</strong>：弹幕提“아펠?..”（对厄斐琉斯选择有疑问），配合塔姆保排
+            </div>
+        </details>
+    </div>
+
+    <!-- 9. 联赛规律与版本 -->
+    <div class="card">
+        <h2><span class="no">9</span>联赛规律与版本</h2>
+        <ul style="font-size:0.9rem;padding-left:1.2rem;">
+            <li>蓝方叙事：弹幕称“今天全是蓝色胜利”，但样本有限，需验证。</li>
+            <li>版本：贾克斯/酒桶对位，弹幕认为贾克斯压制酒桶。</li>
+            <li>无更多联赛规律提及。</li>
+        </ul>
+    </div>
+
+    <!-- 10. 预测验证回填 -->
+    <div class="card">
+        <h2><span class="no">10</span>预测验证回填</h2>
+        <p>本局为局中，暂无预测可回填。历史预测：无。</p>
+        <p style="font-size:0.85rem;color:#666;">待终局后回填。</p>
+    </div>
+
+    <!-- 11. 数据与溯源 -->
+    <div class="card">
+        <h2><span class="no">11</span>数据与溯源</h2>
+        <table>
+            <tr><th>数据源</th><th>状态</th></tr>
+            <tr><td>规则层情报JSON</td><td>已读取</td></tr>
+            <tr><td>弹幕切片 game_5.jsonl</td><td>部分读取（样本读取失败：'<' not supported...）</td></tr>
+            <tr><td>官方Riot数据</td><td>部分回填（阵容/比分），待完整</td></tr>
+        </table>
+        <h3>数据完整性</h3>
+        <ul style="font-size:0.9rem;padding-left:1.2rem;">
+            <li>实际数据源：弹幕切片+规则层统计</li>
+            <li>预期数据源：官方完整数据+全量弹幕</li>
+            <li>缺口：G2/G3断采、弹幕样本读取失败、官方未回填</li>
+        </ul>
+        <p style="font-size:0.85rem;color:#666;margin-top:0.8rem;">情报输出时间：2026-08-31 20:10（北京时间）</p>
+        <p style="font-size:0.85rem;color:#666;">本场长期沉淀点：蓝方叙事+贾克斯压制酒桶的组合值得关注；灰信号重复度高，需警惕节奏。</p>
+    </div>
+
+    <div class="footer-note">
+        局中弹幕情报快照 · 非终局 · 结果待定 · 数据基于弹幕样本，仅供参考
+    </div>
+</div>
+</body>
+</html>

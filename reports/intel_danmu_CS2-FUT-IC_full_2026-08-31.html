@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS2 整场复盘情报 · FUT vs IC · 2026-08-31</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f5f5f7;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text", "Helvetica Neue", "PingFang SC", "Segoe UI", Roboto, sans-serif;
+            color: #1d1d1f;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+        .page-wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.8rem 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 0 2px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+        .subhead {
+            font-size: 1.1rem;
+            color: #6e6e73;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid #e8e8ed;
+            padding-bottom: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .score-badge {
+            background: #1d1d1f;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            display: inline-block;
+        }
+        .score-badge span {
+            color: #a1a1a6;
+            font-weight: 400;
+            margin-left: 8px;
+            font-size: 0.9rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 650;
+            margin: 1.8rem 0 1rem;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #f0f0f2;
+            padding-bottom: 0.4rem;
+        }
+        h2 .no {
+            background: #0071e3;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+        .tag {
+            display: inline-block;
+            background: #f0f0f2;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #3a3a3c;
+            margin-right: 0.5rem;
+        }
+        .tag.risk { background: #fde8e8; color: #b42318; }
+        .tag.anchor { background: #e3f2fd; color: #0a5fa3; }
+        .tag.odds { background: #f3e8ff; color: #6b21a8; }
+        .tag.consensus { background: #e6f7e6; color: #1a7f37; }
+        .tag.gray { background: #f1f0e8; color: #7d6b1f; }
+        .evidence {
+            background: #f9f9fb;
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            font-size: 0.9rem;
+            color: #4b4b4f;
+            margin-top: 0.6rem;
+            border-left: 4px solid #d2d2d7;
+        }
+        .evidence strong { color: #1d1d1f; }
+        .flex-between { display: flex; justify-content: space-between; align-items: center; }
+        .details-block {
+            background: #fbfbfd;
+            border-radius: 16px;
+            padding: 1rem 1.2rem;
+            margin: 1rem 0;
+        }
+        details {
+            background: #f9f9fb;
+            border-radius: 14px;
+            padding: 0.8rem 1.2rem;
+            margin: 0.8rem 0;
+            border: 1px solid #eaeaef;
+        }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #0071e3;
+            font-size: 0.95rem;
+        }
+        .timeline-item {
+            font-size: 0.9rem;
+            padding: 0.25rem 0;
+            border-bottom: 1px dashed #e3e3e8;
+            display: flex;
+            gap: 12px;
+        }
+        .timeline-time { color: #6e6e73; font-family: monospace; flex-shrink: 0; }
+        .consensus-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin: 0.8rem 0;
+        }
+        .consensus-table th {
+            text-align: left;
+            background: #f5f5f7;
+            padding: 0.5rem;
+            font-weight: 600;
+        }
+        .consensus-table td {
+            padding: 0.5rem;
+            border-bottom: 1px solid #e8e8ed;
+        }
+        .top-list {
+            list-style: none;
+        }
+        .top-list li {
+            margin-bottom: 0.6rem;
+            padding-left: 1.4rem;
+            position: relative;
+        }
+        .top-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #0071e3;
+        }
+        .meta-info {
+            font-size: 0.85rem;
+            color: #6e6e73;
+            background: #f5f5f7;
+            padding: 0.6rem 1rem;
+            border-radius: 30px;
+        }
+        .pill {
+            background: #f0f0f2;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+        .source-label {
+            font-size: 0.75rem;
+            color: #8e8e93;
+            margin-top: 0.3rem;
+        }
+        @media (max-width: 800px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .card { padding: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 标题区 -->
+    <div class="card" style="padding-bottom: 1.2rem;">
+        <div class="flex-between">
+            <h1>🎮 FUT vs IC · 整场弹幕复盘</h1>
+            <span class="score-badge">FUT 2:0 IC <span>官方确认（Liquipedia/HLTV）· Polymarket 一致</span></span>
+        </div>
+        <div class="subhead">
+            <span>2026-08-31 · 系列复盘 · FINAL</span>
+            <span class="meta-info">slug: cs2-fut-ic-2026-08-30 | 节点: SERIES-REVIEW</span>
+        </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px;">
+            <span class="pill">✅ 官方结果: FUT 2:0 IC (Liquipedia/HLTV)</span>
+            <span class="pill">💰 Polymarket 结算一致</span>
+            <span class="pill">📊 弹幕 15678条 / 活跃4846 / 密度95.0条/分</span>
+        </div>
+    </div>
+
+    <!-- 0. 核心情报速览 -->
+    <div class="card">
+        <h2><span class="no">0</span>核心情报速览</h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="background: #f0f4f8; border-radius: 16px; padding: 1rem;">
+                <div style="font-weight: 700; margin-bottom: 8px;">📌 比分/进度</div>
+                <div style="font-size: 1.4rem; font-weight: 600;">FUT 2:0 IC <span style="font-size: 0.9rem; font-weight: 400; color: #6e6e73;">(G1 Mirage 13:9, G2 Nuke 13:6) · 官方确认 · Polymarket 一致</span></div>
+            </div>
+            <div class="grid-2">
+                <div class="evidence" style="border-left-color: #b42318;">
+                    <span class="tag risk">风险</span> <strong>灰信号41条</strong> 观众质疑“剧本”“绿龙剧本”，但无实据，仅情绪表达。<br>
+                    <span class="source-label">→ 详 §2 | 决策: 不构成操作依据</span>
+                </div>
+                <div class="evidence" style="border-left-color: #0a5fa3;">
+                    <span class="tag anchor">锚点</span> <strong>donk提及168(正12/负0)</strong> 但 donk 属 Spirit、Zywoo/Niko 亦非本场参赛队，均为跨场话题，不构成本场锚点。<br>
+                    <span class="source-label">→ 详 §5/§8 | 决策: 本场无参赛选手级正锚，锚点以队伍共识为准</span>
+                </div>
+                <div class="evidence" style="border-left-color: #6b21a8;">
+                    <span class="tag odds">盘口</span> <strong>“送人头”类8条</strong> 观众调侃“mo送人头”，但非真实盘口信号。<br>
+                    <span class="source-label">→ 详 §4 | 决策: 无明确盘口倾向</span>
+                </div>
+                <div class="evidence" style="border-left-color: #1a7f37;">
+                    <span class="tag consensus">共识</span> <strong>FUT胜利共识</strong> 弹幕多次“futgg”“gg”，结合结果FUT 2:0，共识与结果同向。<br>
+                    <span class="source-label">→ 详 §5/§10 | 决策: 说明弹幕方向与结果一致，可作验证样本</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. 比赛信息与结果总览/状态核验 -->
+    <div class="card">
+        <h2><span class="no">1</span>比赛信息与结果总览/状态核验</h2>
+        <div class="grid-2">
+            <div>
+                <div style="font-weight: 600;">比赛元数据</div>
+                <div>全称: FUT vs IC (CS2) <br> league: 默认联赛 | slug: cs2-fut-ic-2026-08-30 <br> 赛制: BO3 (Mirage/Nuke) </div>
+                <div style="margin-top: 12px; background: #f5f5f7; padding: 0.8rem; border-radius: 12px;">
+                    <strong>✅ 结果确认</strong><br>FUT 2:0 IC (13:9 Mirage, 13:6 Nuke) <br> 来源: Liquipedia/HLTV + Polymarket结算一致
+                </div>
+            </div>
+            <div>
+                <div style="font-weight: 600;">状态核验</div>
+                <div>弹幕多信号确认比赛结束；官方比分（Liquipedia/HLTV）与 Polymarket 结算一致，结果已确认。</div>
+                <div style="margin-top: 12px; background: #f5f5f7; padding: 0.8rem; border-radius: 12px;">
+                    <strong>⏱️ 情报输出时间</strong> 2026-08-31 00:45 (北京时间) <br>
+                    <span class="source-label">数据窗口: 2026-08-31 00:37~00:38 样本等</span>
+                </div>
+            </div>
+        </div>
+        <div class="evidence" style="margin-top: 1rem;">
+            <strong>数据完整性</strong> 实际数据源: 弹幕切片+规则层统计 | 预期数据源: 官方API (未提供) | 缺口: 官方详细数据、选手视角、BP顺序。缺源不交付完整结论。
+        </div>
+    </div>
+
+    <!-- 2. 灰信号汇总 -->
+    <div class="card">
+        <h2><span class="no">2</span>灰信号汇总（风险·观众质疑非结论）</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+            <span class="tag gray">41条灰信号</span>
+            <span class="tag gray">剧本/绿龙剧本</span>
+            <span class="tag gray">lvg剧本</span>
+        </div>
+        <div class="evidence">
+            <strong>词表统计</strong> 灰词命中41条：其中“剧本”类最多（约30条），“送人头”8条，“演员/演”3条。均为观众调侃/质疑，无实据。
+        </div>
+        <details>
+            <summary>📄 灰信号原文摘录（带量）</summary>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:26北京]</span> 剧本。</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:28北京]</span> 绿龙剧本</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:29北京]</span> 昨天lvg剧本，谢谢</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:31北京]</span> lvg啥剧本啊？</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:40北京]</span> mo送人头，不怪你</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:47北京]</span> 人机去送人头</div>
+            <div class="source-label">以上为观众质疑，非结论，不构成盘口依据。</div>
+        </details>
+        <div style="margin-top: 8px; font-size: 0.9rem; color: #6e6e73;">⚠️ 灰信号仅代表观众情绪，与比赛结果无直接因果。</div>
+    </div>
+
+    <!-- 3. BP 锚点与选人情报 -->
+    <div class="card">
+        <h2><span class="no">3</span>BP 锚点与选人情报</h2>
+        <div class="grid-2">
+            <div>
+                <div style="font-weight: 600;">地图BP (基于结果反推)</div>
+                <div>G1 Mirage (FUT 13:9) / G2 Nuke (FUT 13:6) </div>
+                <div style="background: #f5f5f7; padding: 0.6rem; border-radius: 12px; margin-top: 8px;">
+                    <strong>弹幕提及地图</strong> 无直接BP讨论，但“Mirage”“Nuke”未出现在样本中。无战绩情报提及。
+                </div>
+            </div>
+            <div>
+                <div style="font-weight: 600;">选人/阵容</div>
+                <div>逐局阵容: 弹幕未提供具体选手英雄/位置；提及的 donk/Zywoo/Niko 均非本场参赛选手（跨场话题）。无明确BP情报。</div>
+                <div class="source-label">无战绩情报提及</div>
+            </div>
+        </div>
+        <div class="evidence">📌 弹幕未讨论BP细节，仅能确认地图结果。BP后战绩情报: 无提及。</div>
+    </div>
+
+    <!-- 4. 盘口与市场讨论 -->
+    <div class="card">
+        <h2><span class="no">4</span>盘口与市场讨论</h2>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <span class="tag odds">盘口相关8条</span>
+            <span class="tag odds">送人头/人机</span>
+        </div>
+        <div class="evidence">
+            <strong>样本</strong> “人机去送人头”“mo送人头，不怪你”“你给别人送人头”“人头优势就是送”等8条，均为调侃，无实际盘口数据。
+        </div>
+        <div style="margin-top: 8px;">盘口讨论集中在“送人头”情绪，无明确让分/大小盘讨论。市场无有效信号。</div>
+    </div>
+
+    <!-- 5. 方向性情报板 -->
+    <div class="card">
+        <h2><span class="no">5</span>方向性情报板</h2>
+        <div class="grid-3">
+            <div class="evidence" style="border-left-color: #0a5fa3;">
+                <span class="tag anchor">正锚</span> <strong>FUT 整体压制（队伍级）</strong> 弹幕多次“futgg”“gg”“fut还这么多钱啊”，结合官方 2:0，队伍级正锚成立。<br>
+                <span class="source-label">本场弹幕 | 时间: 00:37-00:45（北京时间）</span>
+            </div>
+            <div class="evidence" style="border-left-color: #b42318;">
+                <span class="tag risk">负锚</span> <strong>IC (提及92, 正1负10)</strong> 弹幕对IC负面评价多，负10正1，看衰IC。<br>
+                <span class="source-label">本场弹幕 | 时间: 00:37-00:38</span>
+            </div>
+            <div class="evidence" style="border-left-color: #1a7f37;">
+                <span class="tag consensus">共识</span> <strong>FUT胜利共识</strong> “futgg”“gg”等88条局势弹幕，多数指向FUT获胜。<br>
+                <span class="source-label">本场弹幕 | 样本量88条</span>
+            </div>
+        </div>
+        <div style="margin-top: 1rem; background: #f5f5f7; padding: 0.8rem; border-radius: 12px;">
+            <strong>灰信号条件预测:</strong> 若“剧本”类灰信号兑现，指向FUT轻松获胜（与结果一致），但灰信号无实据，仅作参考。
+        </div>
+    </div>
+
+    <!-- 6. 情报含义与决策落点 -->
+    <div class="card">
+        <h2><span class="no">6</span>情报含义与决策落点 (LONG/SHORT)</h2>
+        <div class="grid-2">
+            <div>
+                <span class="tag anchor">LONG</span> <strong>FUT胜/大分</strong> 弹幕共识+结果验证，FUT 2:0，队伍级正锚成立（donk 等跨场选手不计入本场决策）。<br>
+                <span class="source-label">本场弹幕+官方结果</span>
+            </div>
+            <div>
+                <span class="tag risk">SHORT</span> <strong>IC表现</strong> 弹幕负面评价多，负锚明显，IC被看衰，但需注意盘口无实际数据。<br>
+                <span class="source-label">本场弹幕</span>
+            </div>
+        </div>
+        <div class="evidence" style="margin-top: 1rem;">决策落点: 弹幕情绪与结果同向，但盘口信号弱，建议谨慎参考。</div>
+    </div>
+
+    <!-- 7. 逐局复盘（证据层） -->
+    <div class="card">
+        <h2><span class="no">7</span>逐局复盘（证据层）</h2>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <div style="flex:1; min-width: 200px; background: #f5f5f7; padding: 0.8rem; border-radius: 12px;">
+                <strong>G1 Mirage</strong> FUT 13:9 IC<br>
+                <span class="source-label">官方结果</span>
+            </div>
+            <div style="flex:1; min-width: 200px; background: #f5f5f7; padding: 0.8rem; border-radius: 12px;">
+                <strong>G2 Nuke</strong> FUT 13:6 IC<br>
+                <span class="source-label">官方结果</span>
+            </div>
+        </div>
+        <details>
+            <summary>📈 弹幕时间线（真实时间戳，≥10条/局，近似归属）</summary>
+            <div style="font-size: 0.85rem; color: #6e6e73;">以下时间窗按弹幕样本近似划分，跨局边界不精确。</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:26北京]</span> 傻子</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:27北京]</span> ？？？</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:28北京]</span> 哈哈哈</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:29北京]</span> 斗地主也圈</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:30北京]</span> 你也打斗地主</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:32北京]</span> demo回主队大笔踢</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:33北京]</span> 五五开</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:37北京]</span> 小苍蝇还有脸叫，没被donk打疼是不是</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:38北京]</span> ？？？？？？？？？</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:43北京]</span> 17张牌你能秒我</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:47北京]</span> 对55开拙劣的模仿</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:52北京]</span> 看mo吃鸡吧</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:37:55北京]</span> 在等丢包</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:38:00北京]</span> 哈哈哈哈哈哈哈</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:38:04北京]</span> 在当区</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:38:10北京]</span> 蹲丢包撤呢</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:38:14北京]</span> 好的 mo 队么么</div>
+            <div class="timeline-item"><span class="timeline-time">[08-31 00:38:19北京]</span> 当老六</div>
+            <div class="source-label">以上为整场弹幕样本，按时间窗近似归属，非精确分局。</div>
+        </details>
+    </div>
+
+    <!-- 8. 队伍/人员画像 -->
+    <div class="card">
+        <h2><span class="no">8</span>队伍/人员画像（带提及量）</h2>
+        <div class="grid-2">
+            <div>
+                <strong>队伍提及 TOP</strong>
+                <ul class="top-list">
+                    <li>Vitality: 419 (正14/负25)</li>
+                    <li>Spirit: 207 (正28/负6)</li>
+                    <li>FLC: 100 (正1/负10)</li>
+                    <li>IC: 92 (正1/负10) ⬅️ 本场队伍</li>
+                    <li>Navi/NAVI: 86 (正6/负5)</li>
+                </ul>
+            </div>
+            <div>
+                <strong>选手提及 TOP</strong>
+                <ul class="top-list">
+                    <li>donk: 168 (正12/负0) ⭐</li>
+                    <li>Zywoo: 79 (正5/负3)</li>
+                    <li>Niko: 77 (正13/负0)</li>
+                    <li>Apex: 4 | 33: 4 | ropz: 3</li>
+                    <li style="color:#86868b;">※ 上述选手均非 FUT/IC 参赛队员（Spirit/FaZe/Vitality 等），仅反映跨场话题热度，不进入本场队伍/选手画像。</li>
+                </ul>
+            </div>
+        </div>
+        <div class="evidence" style="margin-top: 1rem;">
+            <strong>队伍特质统计</strong> 顺风隐身2, 被翻守不住8, 韧性逆转2, 心态摆烂14, 打法风格75, 选手特质34。<br>
+            <span class="source-label">历史画像+本场弹幕</span>
+        </div>
+        <details>
+            <summary>📄 画像原文证据链</summary>
+            <div>“小苍蝇还有脸叫，没被donk打疼是不是” → donk正向提及（跨场话题，非本场选手）。</div>
+            <div>“futgg” → FUT胜利共识。</div>
+            <div>“IC提及92, 正1负10” → 弹幕对IC负面评价多。</div>
+        </details>
+    </div>
+
+    <!-- 9. 联赛规律与版本 -->
+    <div class="card">
+        <h2><span class="no">9</span>联赛规律与版本</h2>
+        <div>本场弹幕未讨论版本或联赛规律，但“斗地主”“吃鸡”等跨游戏梗出现，反映观众娱乐化倾向。</div>
+        <div class="evidence">无明确版本规律信息，样本不足。</div>
+    </div>
+
+    <!-- 10. 预测验证回填 -->
+    <div class="card">
+        <h2><span class="no">10</span>预测验证回填</h2>
+        <div style="background: #f0f7f0; padding: 1rem; border-radius: 12px;">
+            <strong>赛前预测（若有）</strong> 未提供预测数据。但弹幕共识FUT胜，实际FUT 2:0，共识正确。<br>
+            <strong>Polymarket结算一致</strong> 确认FUT获胜。
+        </div>
+        <div style="margin-top: 0.8rem;">预测验证: 弹幕共识方向正确，但无具体盘口预测。</div>
+    </div>
+
+    <!-- 11. 数据与溯源 -->
+    <div class="card">
+        <h2><span class="no">11</span>数据与溯源</h2>
+        <div class="grid-2">
+            <div>
+                <strong>数据源</strong><br>
+                - 弹幕切片: docs/data/danmu/slices/2026-08-31_fut_ic/all.jsonl<br>
+                - 规则层统计: runtime/danmu_sessions/fut_ic_full_2026-08-31/intel.json<br>
+                - 官方数据: 未提供 (Liquipedia/HLTV 结果已确认)
+            </div>
+            <div>
+                <strong>情报输出时间</strong> 2026-08-31 09:20 (北京时间)<br>
+                <strong>跨源一致性</strong> 弹幕共识与官方结果一致，Polymarket结算一致。
+            </div>
+        </div>
+        <div class="evidence" style="margin-top: 1rem;">
+            <strong>数据完整性</strong> 实际数据源: 弹幕+规则层 | 预期: 官方API | 缺口: 官方详细数据、选手第一视角。
+        </div>
+    </div>
+
+    <!-- 12. 共识提炼表 & 关键信息TOP -->
+    <div class="card">
+        <h2><span class="no">12</span>共识提炼表 & 关键信息TOP</h2>
+        <table class="consensus-table">
+            <tr><th>主题</th><th>方向</th><th>条数</th><th>关键样本</th><th>多源状态</th></tr>
+            <tr><td>FUT胜利</td><td>正向</td><td>88条局势</td><td>“futgg”“gg”</td><td>双源(弹幕+官方)</td></tr>
+            <tr><td>donk发挥（跨场话题）</td><td>正向</td><td>168提及</td><td>“没被donk打疼”</td><td>单源(弹幕)·不适用本场</td></tr>
+            <tr><td>IC负面</td><td>负向</td><td>92提及</td><td>负10条</td><td>单源(弹幕)</td></tr>
+            <tr><td>灰信号剧本</td><td>质疑</td><td>41条</td><td>“绿龙剧本”</td><td>单源(观众质疑)</td></tr>
+        </table>
+        <div class="evidence">共识→信号链: 弹幕共识FUT胜，与官方结果同向，强信号。</div>
+
+        <h3 style="margin-top: 1.5rem;">🔑 关键信息 TOP</h3>
+        <ul class="top-list">
+            <li><span class="tag">结果</span> FUT 2:0 IC (13:9, 13:6) — 确认 (多源共振)</li>
+            <li><span class="tag">胜负手</span> IC 负面提及 92（正1负10）为全场最集中负面对象，FUT 队伍级正锚 — 弹幕口径·待官方</li>
+            <li><span class="tag">共识盲区</span> 盘口无实际数据，仅“送人头”调侃 — 分歧信号</li>
+            <li><span class="tag">锚点</span> IC 负面形象固化（92提及/负10）为全场最集中负面对象；FUT 队伍级正锚 — 弹幕口径·待官方</li>
+            <li><span class="tag">灰信号</span> 41条“剧本”质疑，无实据 — 观众质疑·非结论</li>
+            <li><span class="tag">共识</span> 弹幕88条局势指向FUT胜 — 多源共振</li>
+        </ul>
+    </div>
+
+    <!-- 长期沉淀点 -->
+    <div class="card" style="background: #f0f4f8;">
+        <h2 style="border-bottom: none;">📌 本场长期沉淀点</h2>
+        <p>弹幕对donk的极高正向评价（正12负0）仅反映跨场话题热度（donk 属 Spirit，非本场参赛），不构成 FUT/IC 本场信号；IC 在弹幕中负面形象固化（负10），未来对阵 IC 时弹幕情绪可能持续看衰。灰信号“剧本”高频出现，反映观众对比赛结果的心理预期，但不可作为事实依据。</p>
+    </div>
+
+    <!-- 结尾 -->
+    <div style="text-align: center; color: #8e8e93; font-size: 0.8rem; padding: 1rem 0;">
+        CS2 整场复盘情报 · 生成于 2026-08-31 北京时间 · 数据源弹幕+官方结果
+    </div>
+</div>
+</body>
+</html>

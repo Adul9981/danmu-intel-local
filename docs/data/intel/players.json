@@ -1,0 +1,4659 @@
+{
+ "schema_version": 1,
+ "description": "选手情报库（2026-08-29 建立）· team_id 关联 team_names.json；anchors 为弹幕锚点（正/负）· 跨场累积",
+ "players": [
+  {
+   "id": "cs2-kscerato",
+   "name": "KSCERATO（卡神/卡萨瑞托）",
+   "game": "cs2",
+   "team_id": "furia",
+   "role": "rifler",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "稳定大腿（'他根本拼不过卡萨瑞托'）"
+    ],
+    "tone": "正",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "note": "2026-08-29 FURIA vs M80 G1"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "cs2-furia-heishan",
+   "name": "黑闪/黑蛆（FURIA 激进位·对象待确认）",
+   "game": "cs2",
+   "team_id": "furia",
+   "role": "unknown",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "太狂/出来拼抢被批（个人浪）——激进位画像"
+    ],
+    "tone": "负（浪）",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "note": "对象待确认（molodoy/yuurih 候选），确认后回填"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "lol-fiesta",
+   "name": "FIESTA（VIT 中单）",
+   "game": "lol",
+   "team_id": "vit",
+   "role": "mid",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "辛德拉被批'空地交闪→送''除了刺客都是一坨'——非刺客英雄执行负锚"
+    ],
+    "tone": "负（单源）",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "summoner_name": "VIT FIESTA",
+    "role": "mid",
+    "riot_player_id": "105501850450507181"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "lol-vladi",
+   "name": "Vladi（瓦拉迪·FNC 中单）",
+   "game": "lol",
+   "team_id": "fnc",
+   "role": "mid",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "瑞兹被赞'最近有点猛'——正锚候选"
+    ],
+    "tone": "正（单源）",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "summoner_name": "FNC Vladi",
+    "role": "mid",
+    "riot_player_id": "107045034481599547"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "lol-upset",
+   "name": "Upset（FNC ADC）",
+   "game": "lol",
+   "team_id": "fnc",
+   "role": "bottom",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "G1 选芸阿娜（同日 Taeyoon 五杀同英雄）——版本 ADC 正锚候选"
+    ],
+    "tone": "待验证",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "summoner_name": "FNC Upset",
+    "role": "bottom",
+    "riot_player_id": "99322214653265200"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "lol-soboro",
+   "name": "Soboro（骚波肉·FNC 上单）",
+   "game": "lol",
+   "team_id": "fnc",
+   "role": "top",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "G1 兰博（'师从晒哥'调侃）"
+    ],
+    "tone": "中",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "summoner_name": "FNC Soboro",
+    "role": "top",
+    "riot_player_id": "107492129389636107"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "lol-nakanako",
+   "name": "Naak Nako（VIT 上单）",
+   "game": "lol",
+   "team_id": "vit",
+   "role": "top",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "G1 杰斯被批'失忆了'（表现质疑）"
+    ],
+    "tone": "负（单条）",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "note": "2026-08-29 VIT vs FNC G1 杰斯"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "cs2-makazze",
+   "name": "makazze（马卡泽）",
+   "game": "cs2",
+   "team_id": "navi",
+   "role": "rifler",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "被吹 TOP1 后情绪反转（吹→批）",
+     "G2 Mirage 后期被批'蠢'，与 iM 轮流摊"
+    ],
+    "tone": "负（高波动）",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "liquipedia_id": "makazze",
+    "name": "Drin Shaqiri",
+    "flag": "",
+    "role": "rifler",
+    "team": "Natus Vincere（NAVI）"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "cs2-b1t",
+   "name": "b1t（大b哥）",
+   "game": "cs2",
+   "team_id": "navi",
+   "role": "rifler",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "稳定大腿（'枪法比马卡泽高不少档次'）"
+    ],
+    "tone": "正",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "liquipedia_id": "b1t",
+    "name": "Valerii Vakhovskyi",
+    "flag": "",
+    "role": "rifler",
+    "team": "Natus Vincere（NAVI）"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "cs2-try",
+   "name": "try（潘帕斯闪光）",
+   "game": "cs2",
+   "team_id": "legacy",
+   "role": "awper",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "'敌我狙击手'正锚",
+     "3打5 翻盘/5杀",
+     "Dust II 强图预判兑现"
+    ],
+    "tone": "正（MVP）",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "liquipedia_id": "try",
+    "name": "Santino Rigal",
+    "flag": "",
+    "role": "rifler",
+    "team": "Legacy（菊花，巴西）"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "cs2-cmtry",
+   "name": "cmtry（厘米try）",
+   "game": "cs2",
+   "team_id": "fut",
+   "role": "awper",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "'敌我狙击手'负锚（vs try）",
+     "被质疑'FUT还不换掉cmtry吗'"
+    ],
+    "tone": "负",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "liquipedia_id": "cmtry",
+    "name": "Mykyta Samolotov",
+    "flag": "",
+    "role": "rifler",
+    "team": "FUT"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "cs2-tn1r",
+   "name": "tN1R",
+   "game": "cs2",
+   "team_id": "spirit",
+   "role": "rifler",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [],
+    "tone": "正",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "liquipedia_id": "tN1R",
+    "name": "Andrey Tatarinovich",
+    "flag": "",
+    "role": "rifler",
+    "team": "Spirit（Team Spirit/绿龙/雪碧）"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "cs2-donk",
+   "name": "donk",
+   "game": "cs2",
+   "team_id": "spirit",
+   "role": "rifler",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "状态平平无碍（非胜负手）",
+     "逆风没声音/只能打顺风（观众口径·跨场）",
+     "大赛软脚质疑（'决赛软脚王''上限 top3'）",
+     "快攻刷数据打法（'CS詹姆斯'）"
+    ],
+    "tone": "中",
+    "traits": {
+     "逆风崩盘": 2,
+     "选手特质": 32,
+     "心态摆烂": 13,
+     "打法风格": 134
+    },
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "liquipedia_id": "donk",
+    "name": "Danil Kryshkovets",
+    "flag": "",
+    "role": "rifler",
+    "team": "Spirit（Team Spirit/绿龙/雪碧）"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "cs2-r1nkle",
+   "name": "r1nkle",
+   "game": "cs2",
+   "team_id": "g2",
+   "role": "awper",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "G2 唯一正分独苗（19-8/+11）"
+    ],
+    "tone": "正（独木难支）",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "liquipedia_id": "r1nkle",
+    "name": "Artem Moroz",
+    "flag": "",
+    "role": "rifler",
+    "team": "G2"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "lol-vicla",
+   "name": "VicLa（大光）",
+   "game": "lol",
+   "team_id": "bfx",
+   "role": "mid",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "大法师正锚（发条 G4 三杀·兑现）",
+     "刺客/加里奥执行被质疑"
+    ],
+    "tone": "分歧（大法师正/刺客负）",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "note": "2026-08-28 BFX 3-2 BRO：G4 发条三杀逆转"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "lol-clear",
+   "name": "Clear（BFX 上单）",
+   "game": "lol",
+   "team_id": "bfx",
+   "role": "top",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "三图 carry（G1 奎桑提/G4 剑魔三杀/G5 女刀运营）"
+    ],
+    "tone": "正（系列 MVP）",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "note": "2026-08-28 BFX 3-2 BRO"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "lol-taeyoon",
+   "name": "Taeyoon（泰勇）",
+   "game": "lol",
+   "team_id": "bfx",
+   "role": "adc",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "芸阿娜（Yunara）五杀收尾（G4·兑现）",
+     "G3 卢锡安+悠米体系未兑现"
+    ],
+    "tone": "正（新英雄执行力）",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "note": "2026-08-28 BFX 3-2 BRO：G4 芸阿娜五杀"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "lol-teddy",
+   "name": "Teddy（BRO 下路）",
+   "game": "lol",
+   "team_id": "bro",
+   "role": "adc",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "女警体系正锚（G2 乱杀）",
+     "G3 德莱文高风险（被盯）"
+    ],
+    "tone": "正（体系依赖）",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "note": "2026-08-28 BRO 2-3 BFX：G2 女警乱杀扳平"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "lol-nuc",
+   "name": "nuc（SHFT 中单）",
+   "game": "lol",
+   "team_id": "shft",
+   "role": "mid",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "核心位延续（G1 维克托电龙魂 → G2 小炮）两局制胜"
+    ],
+    "tone": "正",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "summoner_name": "SHFT nuc",
+    "role": "mid",
+    "riot_player_id": "105554437688383476"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "lol-daglas",
+   "name": "Daglas（TH 打野）",
+   "game": "lol",
+   "team_id": "th",
+   "role": "jungle",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "悟空被批'演员'（表现差）"
+    ],
+    "tone": "负",
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "summoner_name": "TH Daglas",
+    "role": "jungle",
+    "riot_player_id": "107621095379170267"
+   },
+   "updated": "2026-08-29"
+  },
+  {
+   "id": "cs2-niko",
+   "name": "NiKo（尼公子）",
+   "game": "cs2",
+   "team_id": "flc",
+   "role": "rifler/igl",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": [
+     "大赛软脚争议（'niko软脚'53 条）",
+     "战术指挥正锚（'Niko藏战术'，指挥解放大表哥火力）"
+    ],
+    "tone": "正/负并存",
+    "traits": {
+     "选手特质": 53,
+     "心态摆烂": 6,
+     "打法风格": 10
+    },
+    "pos": 0,
+    "neg": 0
+   },
+   "official": {
+    "liquipedia_id": "NiKo",
+    "name": "Nikola Kovač",
+    "flag": "",
+    "role": "rifler",
+    "team": "FLC（Team Falcons）"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "chovy",
+   "name": "Chovy（超威）",
+   "game": "lol",
+   "team_id": "gen",
+   "danmu": {
+    "mentions_total": 46,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "超威不是Gen的嘛",
+     "主播，超威怎么在dns，不是在gen吗",
+     "主播超威转队了吗？",
+     "瑞兹要是超威就能赢",
+     "我超威 真的变态",
+     "我感觉chovy有机会",
+     "chovy粉怎么那么恨BDD啊",
+     "啥荣誉都没有的bdd配给超威提鞋吗"
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30",
+   "role": "mid"
+  },
+  {
+   "id": "kingen",
+   "name": "kingen",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 80,
+    "pos": 15,
+    "neg": 7,
+    "anchors": [
+     "kingen这奥拉夫不如昨天的海苔",
+     "kingen加学弟加大菠萝弄不过dns",
+     "右边除了kingen都是菜b",
+     "这kingen被暴揍",
+     "kingen现在真的坑啊",
+     "kingen会玩个几把兰博"
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "mikyx",
+   "name": "Mikyx（米人）",
+   "game": "lol",
+   "team_id": "sk",
+   "danmu": {
+    "mentions_total": 94,
+    "pos": 12,
+    "neg": 7,
+    "anchors": [
+     "不如米人",
+     "米人？",
+     "豆豆最讨厌的 米人",
+     "豆豆和米人什么仇",
+     "米人解放火力了啊",
+     "他跟米人 supa 阿尔瓦罗是打西班牙地区联赛的",
+     "那米人里面有人吗？"
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30",
+   "role": "support",
+   "official": {
+    "summoner_name": "SK Mikyx",
+    "role": "support",
+    "riot_player_id": "99322214629661297"
+   }
+  },
+  {
+   "id": "scout",
+   "name": "scout",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 62,
+    "pos": 1,
+    "neg": 11,
+    "anchors": [
+     "Scout不知道又买了多少",
+     "scout",
+     "这把scout能c么",
+     "scout太菜了",
+     "scout也是LPL老队员了，挺怀念的",
+     "scout 这么想赢，泪目了"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "yike",
+   "name": "Yike",
+   "game": "lol",
+   "team_id": "kc",
+   "danmu": {
+    "mentions_total": 6,
+    "pos": 0,
+    "neg": 3,
+    "anchors": [
+     "不如昨天yike的一根毛",
+     "yike也是不知道装什么",
+     "yike闪现干什么",
+     "yike跟你妈畜生一样，赵信全输出",
+     "yike真的太尼玛出生了",
+     "yike红了 KC 要寄",
+     "yike的蔚真的臭",
+     "Yike送太多了"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "role": "jungle",
+   "official": {
+    "summoner_name": "KC Yike",
+    "role": "jungle",
+    "riot_player_id": "105537190986692036"
+   }
+  },
+  {
+   "id": "diable",
+   "name": "diable",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 38,
+    "pos": 1,
+    "neg": 1,
+    "anchors": [
+     "早说了diable会送",
+     "diable跟第一赛段",
+     "diable第一赛段 不是这样的吧",
+     "diable 不是不想交，是不想玩了",
+     "diable 不带净化 绝对死烂",
+     "diable现在泯了…像bin，只会莽"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "m0nesy",
+   "name": "m0NESY（小孩/海参）",
+   "game": "cs2",
+   "team_id": "flc",
+   "danmu": {
+    "mentions_total": 279,
+    "pos": 36,
+    "neg": 6,
+    "anchors": [
+     "pv全靠那个小孩哥",
+     "小孩哥",
+     "小孩哥不是很厉害吗？",
+     "小孩哥不是很厉害吗？  什么时候厉害过，，，都是吹的"
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30",
+   "role": "awper"
+  },
+  {
+   "id": "33",
+   "name": "33",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 39,
+    "pos": 9,
+    "neg": 1,
+    "anchors": [
+     "33-21=12",
+     "33-28",
+     "大33怎么输我想写本书",
+     "你别说还挺贵5瓶33",
+     "33",
+     "20分钟水龙魂，能打33分钟，服了",
+     "20分钟结束的局能给你拖到33分钟 这就是lec"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "zeus",
+   "name": "Zeus（宙斯）",
+   "game": "lol",
+   "team_id": "hle",
+   "danmu": {
+    "mentions_total": 20,
+    "pos": 4,
+    "neg": 0,
+    "anchors": [
+     "宙斯：22年上路互换我也是FMVP！",
+     "宙斯的杰斯都输了",
+     "宙斯的杰斯都赢不了 K嗨选出来就是送",
+     "对啊，宙斯的杰斯都抱头鼠窜",
+     "kingen只能打打宙斯",
+     "很难相信这杰斯是宙斯的第一个爹",
+     "只打宙斯的kin嗨",
+     "目前只看见宙斯的蒙多很猛",
+     "宙斯蒙多肥，不像别人纯混到16，没啥用"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "role": "top"
+  },
+  {
+   "id": "kyousuke",
+   "name": "kyousuke（京介）",
+   "game": "cs2",
+   "team_id": "flc",
+   "danmu": {
+    "mentions_total": 1172,
+    "pos": 89,
+    "neg": 68,
+    "anchors": [
+     "荆芥这头发我看看还要多久剪！",
+     "低配京介",
+     "荆芥啥发型",
+     "京介是人越多我越豪",
+     "京介人越多我越豪",
+     "京介也就仗着年反应块菜能豪"
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30",
+   "role": "rifler"
+  },
+  {
+   "id": "karrigan",
+   "name": "karrigan（大表哥）",
+   "game": "cs2",
+   "team_id": "flc",
+   "danmu": {
+    "mentions_total": 1260,
+    "pos": 49,
+    "neg": 80,
+    "anchors": [
+     "这不和大表哥互动一下",
+     "他们怎么这么喜欢学大表哥啊",
+     "5个大表哥",
+     "大表哥play",
+     "大表哥的一队传人"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "role": "igl"
+  },
+  {
+   "id": "zywoo",
+   "name": "ZywOo（载物）",
+   "game": "cs2",
+   "team_id": "vitality",
+   "danmu": {
+    "mentions_total": 12,
+    "pos": 0,
+    "neg": 3,
+    "anchors": [
+     "载物还我faze命来",
+     "载物好不尊重",
+     "载物主场",
+     "zywoo",
+     "载物怀孕了",
+     "副载物",
+     "zywoo菜比",
+     "zywoo呢？",
+     "载物？废物！！",
+     "载物肯定是goat啊"
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30",
+   "role": "awper"
+  },
+  {
+   "id": "apex",
+   "name": "apex",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 154,
+    "pos": 5,
+    "neg": 5,
+    "anchors": [
+     "MO 怎么看待APEX跟ZYWOO合同到28年",
+     "apex算大哥啊，纯自由交火",
+     "apex续约了",
+     "这跟apex的环节一样",
+     "apex头发白这么多，这么显老",
+     "最后那是apex的声音吗"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "ropz",
+   "name": "ropz",
+   "game": "cs2",
+   "team_id": "faze",
+   "danmu": {
+    "mentions_total": 206,
+    "pos": 7,
+    "neg": 14,
+    "anchors": [
+     "要是ropz就绕到平台，近大远小打了",
+     "dzuigss长得有点像ropz",
+     "ropz"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "role": "rifler"
+  },
+  {
+   "id": "jee",
+   "name": "jee",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 388,
+    "pos": 17,
+    "neg": 22,
+    "anchors": [
+     "jee",
+     "不如JEE",
+     "我说jee来了有懂的吗",
+     "phzy最怕的就是jee",
+     "这不就是jee吗",
+     "本质jee"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "yatoro",
+   "name": "Yatoro（亚托罗/雨神）",
+   "game": "dota2",
+   "team_id": "iron_wing",
+   "danmu": {
+    "mentions_total": 128,
+    "pos": 5,
+    "neg": 1,
+    "anchors": [
+     "雨神也30多了没俩年了",
+     "雨神呢",
+     "不愧是继雨神之后的手枪王。",
+     "这雅各布的手枪真和雨神的一样强吧，太准了。",
+     "雨神",
+     "雨神开始请神"
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30",
+   "role": "carry"
+  },
+  {
+   "id": "dumau",
+   "name": "dumau",
+   "game": "cs2",
+   "team_id": "legacy",
+   "danmu": {
+    "mentions_total": 15,
+    "pos": 2,
+    "neg": 0,
+    "anchors": [
+     "dumau来了",
+     "dumau！！！！！！！！！！"
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30",
+   "role": "rifler"
+  },
+  {
+   "id": "starry",
+   "name": "Starry（叶哥哥）",
+   "game": "cs2",
+   "team_id": "lvg",
+   "danmu": {
+    "mentions_total": 96,
+    "pos": 3,
+    "neg": 1,
+    "anchors": [
+     "starry来了",
+     "lvg只能看看叶哥哥发挥一下",
+     "叶哥哥牛逼",
+     "波黑starry",
+     "nuke三楼叶哥哥扫转",
+     "杀3剩2还要你叶哥哥杀几个"
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30",
+   "role": "rifler"
+  },
+  {
+   "id": "guma",
+   "name": "Gumayusi（姑妈）",
+   "game": "lol",
+   "team_id": "t1",
+   "danmu": {
+    "mentions_total": 63,
+    "pos": 0,
+    "neg": 2,
+    "anchors": [
+     "姑妈玩炸弹人也赢不了啊",
+     "这谁怎么长得跟姑妈 有点像",
+     "姑妈想换辅助了",
+     "这芸阿娜在草丛里出来两三次，姑妈硬是不走",
+     "姑妈怎么一个人走到那",
+     "guma 的地位还不如在 t1",
+     "AL抢姑妈的金克斯",
+     "谁都能杀guma，没有说服力",
+     "姑妈也是垃圾啊，被单杀最多的AD选手"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "role": "adc"
+  },
+  {
+   "id": "poby",
+   "name": "poby",
+   "game": "lol",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 3,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "原来TES的教练 是这个Poby 难怪",
+     "navi这种队怎么可以菜成这样poby",
+     "poby强就在对面了",
+     "poby也就只能玩工具人吧，安妮感觉还行",
+     "poby这么帅",
+     "跟poby学的",
+     "这是之前t1的替补poby啊"
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "NAVI Poby",
+    "role": "mid",
+    "riot_player_id": "107840393299826151"
+   },
+   "role": "mid"
+  },
+  {
+   "id": "larl",
+   "name": "Larl（拉尔）",
+   "game": "dota2",
+   "team_id": "iron_wing",
+   "danmu": {
+    "mentions_total": 48,
+    "pos": 6,
+    "neg": 1,
+    "anchors": [
+     "拉尔招牌",
+     "拉尔和崩溃真是拉啊",
+     "拉尔这把还有用的",
+     "拉尔真的拉啊",
+     "这拉尔好厉害啊",
+     "拉尔也是拉狗"
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30",
+   "role": "mid"
+  },
+  {
+   "id": "caliste",
+   "name": "Caliste",
+   "game": "lol",
+   "team_id": "kc",
+   "danmu": {
+    "mentions_total": 17,
+    "pos": 1,
+    "neg": 4,
+    "anchors": [
+     "卡里斯的阿卡莉 是lpl第一阿卡莉 放心看吧",
+     "卡莉斯塔只要拿个头 就止不住了",
+     "卡莎一个暴风骤雨，卡莉斯塔就死了，",
+     "卡莉斯塔闪现直接拉开了啊，打tm呢？有毛病",
+     "这卡莉斯塔不走 还上去滑",
+     "卡莉斯塔也不好发挥",
+     "霞洛开团不是特别怕卡莉斯塔",
+     "卡莉斯塔中路带着辅助送了一波就翻盘了"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "role": "bottom",
+   "official": {
+    "summoner_name": "KC Caliste",
+    "role": "bottom",
+    "riot_player_id": "109461265532592848"
+   }
+  },
+  {
+   "id": "ice",
+   "name": "ice",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 26,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "ice经典装模作样",
+     "ice",
+     "Ice应该最后一年了吧",
+     "就是ice",
+     "和ICE一个鸟样"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "collapse",
+   "name": "Collapse（崩溃哥）",
+   "game": "dota2",
+   "team_id": "iron_wing",
+   "danmu": {
+    "mentions_total": 49,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "它脏他妈崩溃了这队友",
+     "崩溃哥真帅",
+     "崩溃哥是人吗",
+     "崩溃哥退了吧",
+     "酸酸刷到队友全部崩溃",
+     "崩溃有点难受"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "role": "offlane"
+  },
+  {
+   "id": "art",
+   "name": "arT",
+   "game": "cs2",
+   "team_id": "legacy",
+   "danmu": {
+    "mentions_total": 60,
+    "pos": 0,
+    "neg": 1,
+    "anchors": [
+     "art太变态了哈哈",
+     "这art东西还是多啊",
+     "art要艺术冲锋了",
+     "art有点难受了",
+     "ART发狂了"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "role": "igl"
+  },
+  {
+   "id": "twistzz",
+   "name": "Twistzz",
+   "game": "cs2",
+   "team_id": "faze",
+   "danmu": {
+    "mentions_total": 8,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "twistzz去死吧",
+     "twistzz？",
+     "twistzzplay",
+     "twistzz",
+     "twistzzzzzzzzzzzzzzzzzzzzz"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "role": "rifler"
+  },
+  {
+   "id": "latto",
+   "name": "latto",
+   "game": "cs2",
+   "team_id": "legacy",
+   "danmu": {
+    "mentions_total": 118,
+    "pos": 13,
+    "neg": 4,
+    "anchors": [
+     "latto怎么没杀起来",
+     "当时是latto给对面打爆了",
+     "这看到3个真的绝望。latto",
+     "这latto绝望了",
+     "latto不发挥，菊花很难赢",
+     "latto？？"
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30",
+   "role": "rifler"
+  },
+  {
+   "id": "sh1ro",
+   "name": "sh1ro（西若）",
+   "game": "cs2",
+   "team_id": "spirit",
+   "danmu": {
+    "mentions_total": 148,
+    "pos": 8,
+    "neg": 8,
+    "anchors": [
+     "直接去绿龙把 sh1ro 和 tinr 换不玩了",
+     "西若打辅助",
+     "sh1ro什么表情",
+     "科隆西若限时回归吗",
+     "西若这把状态真好啊"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "role": "awper"
+  },
+  {
+   "id": "winner",
+   "name": "winner",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 71,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "次级那是个winner 别尬黑了",
+     "一级的叫willer，二级的叫winner",
+     "下午二队的叫winner，眼睛不要就去捐了",
+     "下午是winner不是Willer",
+     "二哥这个winner多大啊，我看他这几把都很c啊",
+     "二哥请问这个winner多大啊，感觉打的不错诶"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "bzm",
+   "name": "bzm（泽马）",
+   "game": "dota2",
+   "team_id": "iron_wing",
+   "danmu": {
+    "mentions_total": 82,
+    "pos": 3,
+    "neg": 5,
+    "anchors": [
+     "bzm:这都赢不了吗",
+     "泽马真的尽力了",
+     "我要是本泽马，原地把丁真和33头打烂",
+     "那bzm怎么吧",
+     "bzm 真尽力了",
+     "泽马太努力了",
+     "BZM  尽力了"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "role": "mid"
+  },
+  {
+   "id": "pure",
+   "name": "Pure",
+   "game": "dota2",
+   "team_id": "iron_wing",
+   "danmu": {
+    "mentions_total": 52,
+    "pos": 1,
+    "neg": 2,
+    "anchors": [
+     "泽马打完把33和普洱头按进显示器里",
+     "3-11普洱",
+     "普洱和33多一个是人上把输不了",
+     "野狗pure",
+     "pure玩啥都这么菜，老是被抓就死",
+     "pure好死"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "role": "mid"
+  },
+  {
+   "id": "not me",
+   "name": "not me",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 10,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "not me也花不中",
+     "not me这胡子能不能剃了",
+     "@caedrel_meal why mean and not meals? Susge",
+     "ogg not me",
+     "HuntingBaron Tssk Not me"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "rue",
+   "name": "rue",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 12,
+    "pos": 4,
+    "neg": 0,
+    "anchors": [
+     "这个rue真的好厉害啊",
+     "rue越来越厉害了",
+     "这rue是在干嘛呢",
+     "这个rue别的英雄没他发条这么厉害",
+     "rue特别厉害",
+     "rue的发条早就秀过了"
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "jun",
+   "name": "Jun",
+   "game": "lol",
+   "team_id": "gx",
+   "danmu": {
+    "mentions_total": 274,
+    "pos": 0,
+    "neg": 2,
+    "anchors": [
+     "jun",
+     "jun出",
+     "jun jia 去哪了？",
+     "jun真的菜啊",
+     "这个jun是以前那个jun吗",
+     "有，俊日的jun"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "role": "support",
+   "official": {
+    "summoner_name": "GX Jun",
+    "role": "support",
+    "riot_player_id": "105501802535116331"
+   }
+  },
+  {
+   "id": "canna",
+   "name": "Canna（金东河）",
+   "game": "lol",
+   "team_id": "kc",
+   "danmu": {
+    "mentions_total": 60,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "canna怎么不混个冠军？不想？",
+     "canna为什么混不了冠军？",
+     "canna装b抗塔",
+     "canna是人吗",
+     "canna都能玩上阿卡丽了",
+     "zeus偷了canna的人生，有感觉吗"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "role": "top",
+   "official": {
+    "summoner_name": "KC Canna",
+    "role": "top",
+    "riot_player_id": "103495716771322725"
+   }
+  },
+  {
+   "id": "wunder",
+   "name": "Wunder",
+   "game": "lol",
+   "team_id": "sk",
+   "danmu": {
+    "mentions_total": 3,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "WUNDER不就是納爾，，老將就玩這些老英雄",
+     "加油啊，wunder大哥哥",
+     "wunder咋还有比赛打",
+     "wunder是演员不难看出来",
+     "能被wunder单杀，终极老者都能单杀他",
+     "wunder都能c了",
+     "wunder你走这个位置是要付出生命的代价的"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "role": "top",
+   "official": {
+    "summoner_name": "SK Wunder",
+    "role": "top",
+    "riot_player_id": "99322214618656216"
+   }
+  },
+  {
+   "id": "jopa",
+   "name": "Jopa",
+   "game": "lol",
+   "team_id": "sk",
+   "danmu": {
+    "mentions_total": 14,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "jopa的飞机是绝活",
+     "JOPA笑的好开心",
+     "supa和jopa是什么关系",
+     "LOSPA < JOPA",
+     "jopa will cook",
+     "@44bulldogismypet Jopa MYGOAT"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "role": "bottom",
+   "official": {
+    "summoner_name": "SK Jopa",
+    "role": "bottom",
+    "riot_player_id": "105553696718837337"
+   }
+  },
+  {
+   "id": "samd",
+   "name": "SamD",
+   "game": "lol",
+   "team_id": "navi",
+   "danmu": {
+    "mentions_total": 80,
+    "pos": 6,
+    "neg": 22,
+    "anchors": [
+     "samd是不是和老谢做过队友",
+     "samd",
+     "相信samd不如母猪会飞",
+     "不过他的ID是 samd",
+     "没机会的 换个人我就信了 samd不行",
+     "samd不行",
+     "上场SAMD可是非常Ｃ的",
+     "上一个bo3也是啊 samd狂c"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "role": "bottom",
+   "official": {
+    "summoner_name": "NAVI SamD",
+    "role": "bottom",
+    "riot_player_id": "104287359934240404"
+   }
+  },
+  {
+   "id": "sheo",
+   "name": "sheo",
+   "game": "lol",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 42,
+    "pos": 1,
+    "neg": 7,
+    "anchors": [
+     "我还记得sheo上次电龙魂开香槟",
+     "这个sheo绝对是最菜打野",
+     "这个sheo比小天厉害吧"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "SHFT Sheo",
+    "role": "jungle",
+    "riot_player_id": "105830645287286396"
+   },
+   "role": "jungle"
+  },
+  {
+   "id": "n1ssim",
+   "name": "n1ssim",
+   "game": "cs2",
+   "team_id": "legacy",
+   "danmu": {
+    "mentions_total": 109,
+    "pos": 3,
+    "neg": 7,
+    "anchors": [
+     "太野了nissim",
+     "nissim选为有问题,没人知道应该贴近点,,手枪在多个掩体",
+     "完了手感要炸了nissim",
+     "try 和nissim太强了",
+     "nissimct没杀人吗",
+     "nissim不杀人"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "role": "rifler"
+  },
+  {
+   "id": "hype",
+   "name": "hype",
+   "game": "lol",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 41,
+    "pos": 0,
+    "neg": 1,
+    "anchors": [
+     "这个 hype 之前在bro 坑的批爆",
+     "who else most hype for FNC",
+     "Navi hype",
+     "DK vs FNC sounds so hype until the draft starts",
+     "POLICE HYPE THE SKINS, WE NEED TO SELL MORE",
+     "who’s hype for the new TFT set in 2 days?"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "TH Hype ",
+    "role": "bottom",
+    "riot_player_id": "109625891896082370"
+   },
+   "role": "bottom"
+  },
+  {
+   "id": "frog",
+   "name": "frog",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 8,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "被frog附体了",
+     "frog呢",
+     "frog上完一队之后打小ck有点降维打击了",
+     "frog不是1队的吗",
+     "frog＞bladd"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "isma",
+   "name": "ISMA",
+   "game": "lol",
+   "team_id": "gx",
+   "danmu": {
+    "mentions_total": 21,
+    "pos": 1,
+    "neg": 6,
+    "anchors": [
+     "最丑的是isma闪现撞墙",
+     "这isma是真的菜",
+     "这个isma跟张硕的打野一样菜 无语了",
+     "这个isma 才是真的垃圾",
+     "isma咋不点闪现",
+     "isma纯坑逼一个",
+     "isma选择站着死",
+     "这个isma老菜了"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "role": "jungle",
+   "official": {
+    "summoner_name": "GX ISMA",
+    "role": "jungle",
+    "riot_player_id": "107464179845128878"
+   }
+  },
+  {
+   "id": "slowq",
+   "name": "SlowQ",
+   "game": "lol",
+   "team_id": "sk",
+   "danmu": {
+    "mentions_total": 8,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "Slowq",
+     "WAIT DID THE SLOWQ VIKTOR ULT NOW MOVE BECAUSE OF THE BUF ???",
+     "Did SlowQ Viktor ult not move because of the bug?",
+     "Did SlowQ Viktor ult not move because of the bug? ͏"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "role": "mid",
+   "official": {
+    "summoner_name": "SK SlowQ",
+    "role": "mid",
+    "riot_player_id": "106302003665923326"
+   }
+  },
+  {
+   "id": "lancer",
+   "name": "lancer",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 42,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "骚包不如lancer有感觉吗",
+     "caps the balancer",
+     "SingeIncapable en fait faut se lancer au hasard jai compris",
+     "a la fin de ta run t'as envie de lancer 73 runs pcq y a tlmt de lore qui se croise",
+     "booooon, il s'agirait de lancer le liveee"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "vincenzo",
+   "name": "vincenzo",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 5,
+    "pos": 1,
+    "neg": 0,
+    "anchors": [
+     "这个vincenzo 不是骚硕在t1 的打野爱将吗？",
+     "这两个ad比vincenzo强",
+     "KRX vincenzo#kr4",
+     "Vincenzo fighting "
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "akaje",
+   "name": "akaje",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 4,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "akaje！",
+     "akaje老师",
+     "AKAJEE"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "z4kr",
+   "name": "z4kr",
+   "game": "cs2",
+   "team_id": "lvg",
+   "danmu": {
+    "mentions_total": 5,
+    "pos": 1,
+    "neg": 0,
+    "anchors": [
+     "到了沙二你就看z4kr怎么狙吧",
+     "z4kr还回去了",
+     "说z4kr比jee强，也就是矮子里面挑高个。强一点但也没那么",
+     "z4kr不拿狙吗",
+     "FUT老板打完这场比赛要求购z4kr"
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30",
+   "role": "rifler"
+  },
+  {
+   "id": "teses",
+   "name": "TeSeS",
+   "game": "cs2",
+   "team_id": "flc",
+   "danmu": {
+    "mentions_total": 5,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "teses on fire",
+     "teses"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "role": "rifler"
+  },
+  {
+   "id": "way",
+   "name": "way",
+   "game": "lol",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 269,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "way和这个paduck才是kt二队的吧",
+     "way好像是Peter的弟弟",
+     "NO WAY",
+     "LOVE THE WAY Y OU LIE",
+     "love the way you lie",
+     "love the way you lied BANGER"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "TH Way",
+    "role": "support",
+    "riot_player_id": "107492119089043087"
+   },
+   "role": "support"
+  },
+  {
+   "id": "flip",
+   "name": "flip",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 53,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "Flip은 너무 못하는데",
+     "@Double_Gio Oh that's just classic Mkoi coin flip.",
+     "flip the game on crab classic",
+     "HOLD elder flip",
+     "what the flip was that exhaust",
+     "F for crab flip"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "rhilech",
+   "name": "Rhilech",
+   "game": "lol",
+   "team_id": "navi",
+   "danmu": {
+    "mentions_total": 104,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "Rhilech counter Razork",
+     "Lol Rhilech more like LOGITECH xdd",
+     "Rhilech ZzzzZZz",
+     "RHILECH SON",
+     "rhilech carieis anyways we chiilliing",
+     "rhilech is so cooked"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "role": "jungle",
+   "official": {
+    "summoner_name": "NAVI Rhilech",
+    "role": "jungle",
+    "riot_player_id": "105548731617719496"
+   }
+  },
+  {
+   "id": "maynter",
+   "name": "Maynter",
+   "game": "lol",
+   "team_id": "navi",
+   "danmu": {
+    "mentions_total": 70,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "MAYNTER = MODRIC ON CRACK",
+     "Thoughts on Soboro vs Maynter @Caedrel ?",
+     "??? maynter",
+     "Maynter in big 2026",
+     "MAYNTER TP WTF",
+     "finishing off maynter sadE"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "role": "top",
+   "official": {
+    "summoner_name": "NAVI Maynter",
+    "role": "top",
+    "riot_player_id": "105700869624784693"
+   }
+  },
+  {
+   "id": "parus",
+   "name": "Parus",
+   "game": "lol",
+   "team_id": "navi",
+   "danmu": {
+    "mentions_total": 83,
+    "pos": 2,
+    "neg": 0,
+    "anchors": [
+     "Parus is a known dogshit shen tho hesRight",
+     "Parus is fckn sleeping",
+     "parus = Baus",
+     "PARUS LO",
+     "is parus baus lil bro @Caedrel",
+     "LOL parus"
+    ],
+    "tone": "正"
+   },
+   "updated": "2026-08-30",
+   "role": "support",
+   "official": {
+    "summoner_name": "NAVI Parus",
+    "role": "support",
+    "riot_player_id": "103805069759346933"
+   }
+  },
+  {
+   "id": "labrov",
+   "name": "labrov",
+   "game": "lol",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 131,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "Parus over labrov LOL",
+     "BLOCKED BY LABROV JAMES",
+     "labrov seraphine vs lyon LOL",
+     "HEY LABROV",
+     "Labrov has gone from 0 to hero these 2 years",
+     "LABROV JAMES plink"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "G2 Labrov",
+    "role": "support",
+    "riot_player_id": "102787200059605684"
+   },
+   "role": "support"
+  },
+  {
+   "id": "none",
+   "name": "none",
+   "game": "unknown",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 8,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "@optimusprime060 Current stream delay is - none",
+     "no wonder none ever types in this chat LUL everyone is either banned or deleted msg by mod",
+     "That's just the difference between having Koreans and having none",
+     "wideOmE 50 new mods but none in offlinechat"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30"
+  },
+  {
+   "id": "jackies",
+   "name": "Jackies",
+   "game": "lol",
+   "team_id": "gx",
+   "danmu": {
+    "mentions_total": 253,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "@Caedrel Better if Jackies picks trist and Caps goes \"Perkkz, we gotta go Vayne here\" LOL",
+     "who does jackies think he is holy",
+     "Jackies is yone otp",
+     "GIVE THE SKIN TO JACKIES",
+     "JACKIES MYGOAT",
+     "you are hall of legends jackies"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "role": "mid",
+   "official": {
+    "summoner_name": "GX Jackies",
+    "role": "mid",
+    "riot_player_id": "105647947016264573"
+   }
+  },
+  {
+   "id": "flakked",
+   "name": "Flakked",
+   "game": "lol",
+   "team_id": "gx",
+   "danmu": {
+    "mentions_total": 582,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "FLAKKED IN TIER 1",
+     "FLAKKED SO BAD",
+     "Flakkedrel",
+     "G2 FLAKKED XD",
+     "flakked in 2026",
+     "no its flakked"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "role": "bottom",
+   "official": {
+    "summoner_name": "GX Flakked",
+    "role": "bottom",
+    "riot_player_id": "103461966879623046"
+   }
+  },
+  {
+   "id": "busio",
+   "name": "Busio",
+   "game": "lol",
+   "team_id": "kc",
+   "danmu": {
+    "mentions_total": 8,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "Ptite question qui n'a pas trop de rapport. Est-ce que t'aimerais bien parler mieux anglai",
+     "si un ricain busio il a mis tellement peut de tempsd a faire les 500 assistes LUL LUL",
+     "@df0109 busio jveux sa seraphine moi",
+     "ça ressemble plus à Busio que Caps mdrrr",
+     "@blackshaadow974 bah meme busio il a dit que c'etait surtout de la chance",
+     "mais on dirait busio ça me fume"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "role": "support",
+   "official": {
+    "summoner_name": "KC Busio",
+    "role": "support",
+    "riot_player_id": "106625308523122120"
+   }
+  },
+  {
+   "id": "serin",
+   "name": "serin",
+   "game": "lol",
+   "team_id": null,
+   "danmu": {
+    "mentions_total": 7,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "@AirWann69 il est meilleur que SERIN et c'est tout mdr",
+     "@IulianGmur et serin et omon avec ca?",
+     "@DidierLeVolant Pour mettre qui? Omon Serin?",
+     "la midlane est faible en erl, et serin est faible, si nuc pars ya 2 places gratuites",
+     "sheo est l’un des pires joueurs avec serin",
+     "En ERL tu as Serin Omon ou Czekolad"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "TH Serin",
+    "role": "mid",
+    "riot_player_id": "102174699705191142"
+   },
+   "role": "mid"
+  },
+  {
+   "id": "faker",
+   "name": "Faker（李相赫）",
+   "game": "lol",
+   "team_id": "t1",
+   "danmu": {
+    "mentions_total": 204,
+    "pos": 0,
+    "neg": 1,
+    "anchors": [
+     "faker没教好。。",
+     "打岳伦得让Faker来",
+     "我像月轮道歉  再也不说是被faker打到cs来了",
+     "faker呢",
+     "岳伦是LOL的粳，被飞科劫单杀",
+     "当年lolfakers3双劫大战赢的就是kt ryu",
+     "有巢右边中单是不是飞科替补？",
+     "右边中路是不是飞科哪个替补？"
+    ],
+    "tone": "负"
+   },
+   "updated": "2026-08-30",
+   "role": "mid"
+  },
+  {
+   "id": "oscarinin",
+   "name": "Oscarinin",
+   "game": "lol",
+   "team_id": "gx",
+   "danmu": {
+    "mentions_total": 47,
+    "pos": 0,
+    "neg": 0,
+    "anchors": [
+     "oscarinin was way better than soboro xdd",
+     "oscarinin was way better than soboro xdd ͏",
+     "@ShootOfLove oscarinin alt Susge",
+     "where is oscarinin playing??",
+     "I heard the caster say oscarinin and i tought fnatic is playing im a larper now i guess",
+     "oscarinin why so bad even in like low tier team too"
+    ],
+    "tone": "中性"
+   },
+   "updated": "2026-08-30",
+   "role": "top",
+   "official": {
+    "summoner_name": "GX Oscarinin",
+    "role": "top",
+    "riot_player_id": "103536968829352943"
+   }
+  },
+  {
+   "id": "brokenblade",
+   "name": "BrokenBlade",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "G2 BrokenBlade",
+    "role": "top",
+    "riot_player_id": "99566406047571736"
+   },
+   "role": "top"
+  },
+  {
+   "id": "skewmond",
+   "name": "SkewMond",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "G2 SkewMond",
+    "role": "jungle",
+    "riot_player_id": "107128052280762804"
+   },
+   "role": "jungle"
+  },
+  {
+   "id": "caps",
+   "name": "Caps",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "G2 Caps",
+    "role": "mid",
+    "riot_player_id": "98767975968177297"
+   },
+   "role": "mid"
+  },
+  {
+   "id": "hanssama",
+   "name": "Hans Sama",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "G2 Hans Sama",
+    "role": "bottom",
+    "riot_player_id": "98767975961872793"
+   },
+   "role": "bottom"
+  },
+  {
+   "id": "tracyn",
+   "name": "Tracyn",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "TH Tracyn",
+    "role": "top",
+    "riot_player_id": "107156544177574787"
+   },
+   "role": "top"
+  },
+  {
+   "id": "rooster",
+   "name": "Rooster",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "SHFT Rooster",
+    "role": "top",
+    "riot_player_id": "107767810249714879"
+   },
+   "role": "top"
+  },
+  {
+   "id": "paduck",
+   "name": "Paduck",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "SHFT Paduck",
+    "role": "bottom",
+    "riot_player_id": "107492114500277895"
+   },
+   "role": "bottom"
+  },
+  {
+   "id": "stend",
+   "name": "Stend",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "SHFT Stend",
+    "role": "support",
+    "riot_player_id": "107462755349678558"
+   },
+   "role": "support"
+  },
+  {
+   "id": "razork",
+   "name": "Razork",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "FNC Razork",
+    "role": "jungle",
+    "riot_player_id": "100238780551262852"
+   },
+   "role": "jungle"
+  },
+  {
+   "id": "lospa",
+   "name": "Lospa",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "FNC Lospa",
+    "role": "support",
+    "riot_player_id": "107492067202132417"
+   },
+   "role": "support"
+  },
+  {
+   "id": "naaknako",
+   "name": "Naak Nako",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "VIT Naak Nako",
+    "role": "top",
+    "riot_player_id": "107605411481021064"
+   },
+   "role": "top"
+  },
+  {
+   "id": "lyncas",
+   "name": "Lyncas",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "VIT Lyncas",
+    "role": "jungle",
+    "riot_player_id": "105503548109547493"
+   },
+   "role": "jungle"
+  },
+  {
+   "id": "carzzy",
+   "name": "Carzzy",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "VIT Carzzy",
+    "role": "bottom",
+    "riot_player_id": "102787200044335760"
+   },
+   "role": "bottom"
+  },
+  {
+   "id": "fleshy",
+   "name": "Fleshy",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "VIT Fleshy",
+    "role": "support",
+    "riot_player_id": "107605583684952312"
+   },
+   "role": "support"
+  },
+  {
+   "id": "kyeahoo",
+   "name": "kyeahoo",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "KC kyeahoo",
+    "role": "mid",
+    "riot_player_id": "108205130709313212"
+   },
+   "role": "mid"
+  },
+  {
+   "id": "skeanz",
+   "name": "Skeanz",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "SK Skeanz",
+    "role": "jungle",
+    "riot_player_id": "101389808348806587"
+   },
+   "role": "jungle"
+  },
+  {
+   "id": "momo",
+   "name": "Momo",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "DFM Momo",
+    "role": "top",
+    "riot_player_id": "106304305078654334"
+   },
+   "role": "top"
+  },
+  {
+   "id": "citrus",
+   "name": "Citrus",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "DFM Citrus",
+    "role": "jungle",
+    "riot_player_id": "106288133167060072"
+   },
+   "role": "jungle"
+  },
+  {
+   "id": "fisher",
+   "name": "Fisher",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "DFM Fisher",
+    "role": "mid",
+    "riot_player_id": "108511159661913839"
+   },
+   "role": "mid"
+  },
+  {
+   "id": "kakkun",
+   "name": "Kakkun",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "DFM Kakkun",
+    "role": "bottom",
+    "riot_player_id": "107618427663806057"
+   },
+   "role": "bottom"
+  },
+  {
+   "id": "woody",
+   "name": "Woody",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "DFM Woody",
+    "role": "support",
+    "riot_player_id": "99566406444168246"
+   },
+   "role": "support"
+  },
+  {
+   "id": "1jiang",
+   "name": "1Jiang",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "GZ 1Jiang",
+    "role": "top",
+    "riot_player_id": "111760351183343187"
+   },
+   "role": "top"
+  },
+  {
+   "id": "husha",
+   "name": "Husha",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "GZ Husha",
+    "role": "jungle",
+    "riot_player_id": "106470320886575308"
+   },
+   "role": "jungle"
+  },
+  {
+   "id": "uniboy",
+   "name": "Uniboy",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "GZ Uniboy",
+    "role": "mid",
+    "riot_player_id": "99566406481429847"
+   },
+   "role": "mid"
+  },
+  {
+   "id": "betty",
+   "name": "Betty",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "GZ Betty",
+    "role": "bottom",
+    "riot_player_id": "98767975924333750"
+   },
+   "role": "bottom"
+  },
+  {
+   "id": "kaiwing",
+   "name": "Kaiwing",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "GZ Kaiwing",
+    "role": "support",
+    "riot_player_id": "98767975956663486"
+   },
+   "role": "support"
+  },
+  {
+   "id": "pun",
+   "name": "Pun",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "TSW Pun",
+    "role": "top",
+    "riot_player_id": "107251636998679351"
+   },
+   "role": "top"
+  },
+  {
+   "id": "hizto",
+   "name": "Hizto",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "TSW Hizto",
+    "role": "jungle",
+    "riot_player_id": "113662600335177587"
+   },
+   "role": "jungle"
+  },
+  {
+   "id": "dire",
+   "name": "Dire",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "TSW Dire",
+    "role": "mid",
+    "riot_player_id": "113661875306288886"
+   },
+   "role": "mid"
+  },
+  {
+   "id": "eddie",
+   "name": "Eddie",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "TSW Eddie",
+    "role": "bottom",
+    "riot_player_id": "107251694749147163"
+   },
+   "role": "bottom"
+  },
+  {
+   "id": "bie",
+   "name": "Bie",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "TSW Bie",
+    "role": "support",
+    "riot_player_id": "107251574398720447"
+   },
+   "role": "support"
+  },
+  {
+   "id": "rest",
+   "name": "Rest",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "CFO Rest",
+    "role": "top",
+    "riot_player_id": "99566406483009320"
+   },
+   "role": "top"
+  },
+  {
+   "id": "shad0w",
+   "name": "Shad0w",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "CFO Shad0w",
+    "role": "jungle",
+    "riot_player_id": "102808727762706248"
+   },
+   "role": "jungle"
+  },
+  {
+   "id": "pout",
+   "name": "POUT",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "CFO POUT",
+    "role": "mid",
+    "riot_player_id": "108443043135317375"
+   },
+   "role": "mid"
+  },
+  {
+   "id": "doggo",
+   "name": "Doggo",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "CFO Doggo",
+    "role": "bottom",
+    "riot_player_id": "104573129055417270"
+   },
+   "role": "bottom"
+  },
+  {
+   "id": "kino",
+   "name": "Kino",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "CFO Kino",
+    "role": "support",
+    "riot_player_id": "100668757020706361"
+   },
+   "role": "support"
+  },
+  {
+   "id": "kratos",
+   "name": "Kratos",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "MVK Kratos",
+    "role": "top",
+    "riot_player_id": "109828407662355333"
+   },
+   "role": "top"
+  },
+  {
+   "id": "gury",
+   "name": "Gury",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "MVK Gury",
+    "role": "jungle",
+    "riot_player_id": "109828289393968653"
+   },
+   "role": "jungle"
+  },
+  {
+   "id": "chika",
+   "name": "Chika",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "MVK Chika",
+    "role": "mid",
+    "riot_player_id": "113628612585554951"
+   },
+   "role": "mid"
+  },
+  {
+   "id": "harky",
+   "name": "Harky",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "MVK Harky",
+    "role": "bottom",
+    "riot_player_id": "109828431746365782"
+   },
+   "role": "bottom"
+  },
+  {
+   "id": "siuloong",
+   "name": "SiuLoong",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "MVK SiuLoong",
+    "role": "support",
+    "riot_player_id": "112834609700454416"
+   },
+   "role": "support"
+  },
+  {
+   "id": "lol-kiaya",
+   "name": "Kiaya",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "GAM Kiaya",
+    "role": "top",
+    "riot_player_id": "107330029738468255"
+   },
+   "role": "top"
+  },
+  {
+   "id": "lol-draktharr",
+   "name": "Draktharr",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "GAM Draktharr",
+    "role": "jungle",
+    "riot_player_id": "107255592262151792"
+   },
+   "role": "jungle"
+  },
+  {
+   "id": "lol-gloryy",
+   "name": "Gloryy",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "GAM Gloryy",
+    "role": "mid",
+    "riot_player_id": "107255594187103787"
+   },
+   "role": "mid"
+  },
+  {
+   "id": "lol-artemis",
+   "name": "Artemis",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "GAM Artemis",
+    "role": "bottom",
+    "riot_player_id": "107251647709372417"
+   },
+   "role": "bottom"
+  },
+  {
+   "id": "lol-taki",
+   "name": "Taki",
+   "game": "lol",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "summoner_name": "GAM Taki",
+    "role": "support",
+    "riot_player_id": "107251533987191201"
+   },
+   "role": "support"
+  },
+  {
+   "id": "cs2-teses",
+   "name": "René Madsen",
+   "game": "cs2",
+   "team_id": "flc",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "TeSeS",
+    "name": "René Madsen",
+    "flag": "",
+    "role": "rifler",
+    "team": "FLC（Team Falcons）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-m0nesy",
+   "name": "Ilya Osipov",
+   "game": "cs2",
+   "team_id": "flc",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "m0NESY",
+    "name": "Ilya Osipov",
+    "flag": "",
+    "role": "rifler",
+    "team": "FLC（Team Falcons）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-kyousuke",
+   "name": "Maksim Lukin",
+   "game": "cs2",
+   "team_id": "flc",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "kyousuke",
+    "name": "Maksim Lukin",
+    "flag": "",
+    "role": "rifler",
+    "team": "FLC（Team Falcons）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-karrigan",
+   "name": "Finn Andersen",
+   "game": "cs2",
+   "team_id": "flc",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "karrigan",
+    "name": "Finn Andersen",
+    "flag": "",
+    "role": "rifler",
+    "team": "FLC（Team Falcons）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-zonic",
+   "name": "Danny Sørensen",
+   "game": "cs2",
+   "team_id": "flc",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "zonic",
+    "name": "Danny Sørensen",
+    "flag": "",
+    "role": "Coach",
+    "team": "FLC（Team Falcons）"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-latto",
+   "name": "Bruno Rebelatto",
+   "game": "cs2",
+   "team_id": "legacy",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "latto",
+    "name": "Bruno Rebelatto",
+    "flag": "",
+    "role": "rifler",
+    "team": "Legacy（菊花，巴西）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-dumau",
+   "name": "Eduardo Wolkmer",
+   "game": "cs2",
+   "team_id": "legacy",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "dumau",
+    "name": "Eduardo Wolkmer",
+    "flag": "",
+    "role": "rifler",
+    "team": "Legacy（菊花，巴西）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-n1ssim",
+   "name": "Vinicius Pereira",
+   "game": "cs2",
+   "team_id": "legacy",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "n1ssim",
+    "name": "Vinicius Pereira",
+    "flag": "",
+    "role": "rifler",
+    "team": "Legacy（菊花，巴西）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-art",
+   "name": "Andrei Piovezan",
+   "game": "cs2",
+   "team_id": "legacy",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "arT",
+    "name": "Andrei Piovezan",
+    "flag": "",
+    "role": "rifler",
+    "team": "Legacy（菊花，巴西）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-adr",
+   "name": "Alan Riveros",
+   "game": "cs2",
+   "team_id": "legacy",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "adr",
+    "name": "Alan Riveros",
+    "flag": "",
+    "role": "Interim Coach",
+    "team": "Legacy（菊花，巴西）"
+   },
+   "role": "Interim Coach"
+  },
+  {
+   "id": "cs2-rivas",
+   "name": "Bruno Rivetti",
+   "game": "cs2",
+   "team_id": "legacy",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "RiVAS",
+    "name": "Bruno Rivetti",
+    "flag": "",
+    "role": "Coach",
+    "team": "Legacy（菊花，巴西）"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-westmelon",
+   "name": "Niu Zhe",
+   "game": "cs2",
+   "team_id": "lvg",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "westmelon",
+    "name": "Niu Zhe",
+    "flag": "",
+    "role": "rifler",
+    "team": "LVG（Lynn Vision）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-z4kr",
+   "name": "Zhang Sike",
+   "game": "cs2",
+   "team_id": "lvg",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "z4kr",
+    "name": "Zhang Sike",
+    "flag": "",
+    "role": "rifler",
+    "team": "LVG（Lynn Vision）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-emiliaqaq",
+   "name": "Tang Junjie",
+   "game": "cs2",
+   "team_id": "lvg",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "EmiliaQAQ",
+    "name": "Tang Junjie",
+    "flag": "",
+    "role": "rifler",
+    "team": "LVG（Lynn Vision）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-starry",
+   "name": "Ye Lizhi",
+   "game": "cs2",
+   "team_id": "lvg",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "Starry",
+    "name": "Ye Lizhi",
+    "flag": "",
+    "role": "rifler",
+    "team": "LVG（Lynn Vision）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-c4llm3su3",
+   "name": "Su Qihao",
+   "game": "cs2",
+   "team_id": "lvg",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "C4LLM3SU3",
+    "name": "Su Qihao",
+    "flag": "",
+    "role": "rifler",
+    "team": "LVG（Lynn Vision）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-gum",
+   "name": "Dai Yifei",
+   "game": "cs2",
+   "team_id": "lvg",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "GUM",
+    "name": "Dai Yifei",
+    "flag": "",
+    "role": "Coach",
+    "team": "LVG（Lynn Vision）"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-dem0n",
+   "name": "Dmytro Myroshnychenko",
+   "game": "cs2",
+   "team_id": "fut",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "dem0n",
+    "name": "Dmytro Myroshnychenko",
+    "flag": "",
+    "role": "rifler",
+    "team": "FUT"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-krabeni",
+   "name": "Aulon Fazlija",
+   "game": "cs2",
+   "team_id": "fut",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "Krabeni",
+    "name": "Aulon Fazlija",
+    "flag": "",
+    "role": "rifler",
+    "team": "FUT"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-dziugss",
+   "name": "Džiugas Steponavičius",
+   "game": "cs2",
+   "team_id": "fut",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "dziugss",
+    "name": "Džiugas Steponavičius",
+    "flag": "",
+    "role": "rifler",
+    "team": "FUT"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-xfl0ud",
+   "name": "Yasin Koç",
+   "game": "cs2",
+   "team_id": "fut",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "xfl0ud",
+    "name": "Yasin Koç",
+    "flag": "",
+    "role": "rifler",
+    "team": "FUT"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-coolio",
+   "name": "András Fercsák",
+   "game": "cs2",
+   "team_id": "fut",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "coolio",
+    "name": "András Fercsák",
+    "flag": "",
+    "role": "Coach",
+    "team": "FUT"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-launx",
+   "name": "Laurențiu Țârlea",
+   "game": "cs2",
+   "team_id": "fut",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "lauNX",
+    "name": "Laurențiu Țârlea",
+    "flag": "",
+    "role": "rifler",
+    "team": "FUT"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-swisher",
+   "name": "Michael Schmid",
+   "game": "cs2",
+   "team_id": "m80",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "Swisher",
+    "name": "Michael Schmid",
+    "flag": "",
+    "role": "rifler",
+    "team": "M80（M80）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-slaxz-",
+   "name": "Fritz Dietrich",
+   "game": "cs2",
+   "team_id": "m80",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "slaxz-",
+    "name": "Fritz Dietrich",
+    "flag": "",
+    "role": "rifler",
+    "team": "M80（M80）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-s1n",
+   "name": "Elias Stein",
+   "game": "cs2",
+   "team_id": "m80",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "s1n",
+    "name": "Elias Stein",
+    "flag": "",
+    "role": "rifler",
+    "team": "M80（M80）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-lake",
+   "name": "Mason Sanderson",
+   "game": "cs2",
+   "team_id": "m80",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "Lake",
+    "name": "Mason Sanderson",
+    "flag": "",
+    "role": "rifler",
+    "team": "M80（M80）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-jba",
+   "name": "Joshua Barutt",
+   "game": "cs2",
+   "team_id": "m80",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "JBa",
+    "name": "Joshua Barutt",
+    "flag": "",
+    "role": "rifler",
+    "team": "M80（M80）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-dephh",
+   "name": "Rory Jackson",
+   "game": "cs2",
+   "team_id": "m80",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "dephh",
+    "name": "Rory Jackson",
+    "flag": "",
+    "role": "Coach",
+    "team": "M80（M80）"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-biguzera",
+   "name": "Rodrigo Bittencourt",
+   "game": "cs2",
+   "team_id": "pain",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "biguzera",
+    "name": "Rodrigo Bittencourt",
+    "flag": "",
+    "role": "rifler",
+    "team": "paiN（paiN Gaming）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-snow",
+   "name": "João Vinicius",
+   "game": "cs2",
+   "team_id": "pain",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "snow",
+    "name": "João Vinicius",
+    "flag": "",
+    "role": "rifler",
+    "team": "paiN（paiN Gaming）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-piriajr",
+   "name": "Guilherme Barbosa",
+   "game": "cs2",
+   "team_id": "pain",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "piriajr",
+    "name": "Guilherme Barbosa",
+    "flag": "",
+    "role": "rifler",
+    "team": "paiN（paiN Gaming）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-v$m",
+   "name": "Vinicius Moreira",
+   "game": "cs2",
+   "team_id": "pain",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "v$m",
+    "name": "Vinicius Moreira",
+    "flag": "",
+    "role": "rifler",
+    "team": "paiN（paiN Gaming）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-saffee",
+   "name": "Rafael Costa",
+   "game": "cs2",
+   "team_id": "pain",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "saffee",
+    "name": "Rafael Costa",
+    "flag": "",
+    "role": "rifler",
+    "team": "paiN（paiN Gaming）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-rikz",
+   "name": "Henrique Waku",
+   "game": "cs2",
+   "team_id": "pain",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "rikz",
+    "name": "Henrique Waku",
+    "flag": "",
+    "role": "Coach",
+    "team": "paiN（paiN Gaming）"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-dgt",
+   "name": "Franco Garcia",
+   "game": "cs2",
+   "team_id": "9z",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "dgt",
+    "name": "Franco Garcia",
+    "flag": "",
+    "role": "Loan",
+    "team": "9z（9z Team）"
+   },
+   "role": "On Loan"
+  },
+  {
+   "id": "cs2-kauez",
+   "name": "Kaue Kaschuk",
+   "game": "cs2",
+   "team_id": "pain",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "kauez",
+    "name": "Kaue Kaschuk",
+    "flag": "",
+    "role": "On Loan",
+    "team": "paiN（paiN Gaming）"
+   },
+   "role": "On Loan"
+  },
+  {
+   "id": "cs2-max",
+   "name": "Maximiliano Gonzalez",
+   "game": "cs2",
+   "team_id": "9z",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "max",
+    "name": "Maximiliano Gonzalez",
+    "flag": "",
+    "role": "rifler",
+    "team": "9z（9z Team）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-huasopeek",
+   "name": "Matías Ibañez",
+   "game": "cs2",
+   "team_id": "9z",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "HUASOPEEK",
+    "name": "Matías Ibañez",
+    "flag": "",
+    "role": "rifler",
+    "team": "9z（9z Team）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-luchov",
+   "name": "Luciano Herrera",
+   "game": "cs2",
+   "team_id": "9z",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "luchov",
+    "name": "Luciano Herrera",
+    "flag": "",
+    "role": "rifler",
+    "team": "9z（9z Team）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-meyern",
+   "name": "Ignacio Meyer",
+   "game": "cs2",
+   "team_id": "9z",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "meyern",
+    "name": "Ignacio Meyer",
+    "flag": "",
+    "role": "rifler",
+    "team": "9z（9z Team）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-bit",
+   "name": "Bruno Lima",
+   "game": "cs2",
+   "team_id": "9z",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "BIT",
+    "name": "Bruno Lima",
+    "flag": "",
+    "role": "Coach",
+    "team": "9z（9z Team）"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-magixx",
+   "name": "Boris Vorobyev",
+   "game": "cs2",
+   "team_id": "spirit",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "magixx",
+    "name": "Boris Vorobyev",
+    "flag": "",
+    "role": "rifler",
+    "team": "Spirit（Team Spirit/绿龙/雪碧）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-zont1x",
+   "name": "Myroslav Plakhotia",
+   "game": "cs2",
+   "team_id": "spirit",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "zont1x",
+    "name": "Myroslav Plakhotia",
+    "flag": "",
+    "role": "rifler",
+    "team": "Spirit（Team Spirit/绿龙/雪碧）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-sh1ro",
+   "name": "Dmitriy Sokolov",
+   "game": "cs2",
+   "team_id": "spirit",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "sh1ro",
+    "name": "Dmitriy Sokolov",
+    "flag": "",
+    "role": "rifler",
+    "team": "Spirit（Team Spirit/绿龙/雪碧）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-hally",
+   "name": "Sergey Shavayev",
+   "game": "cs2",
+   "team_id": "spirit",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "hally",
+    "name": "Sergey Shavayev",
+    "flag": "",
+    "role": "Coach",
+    "team": "Spirit（Team Spirit/绿龙/雪碧）"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-chopper",
+   "name": "Leonid Vishnyakov",
+   "game": "cs2",
+   "team_id": "spirit",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "chopper",
+    "name": "Leonid Vishnyakov",
+    "flag": "",
+    "role": "rifler",
+    "team": "Spirit（Team Spirit/绿龙/雪碧）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-apex",
+   "name": "Dan Madesclaire",
+   "game": "cs2",
+   "team_id": "vitality",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "apEX",
+    "name": "Dan Madesclaire",
+    "flag": "",
+    "role": "rifler",
+    "team": "Vitality（小蜜蜂）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-zywoo",
+   "name": "Mathieu Herbaut",
+   "game": "cs2",
+   "team_id": "vitality",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "ZywOo",
+    "name": "Mathieu Herbaut",
+    "flag": "",
+    "role": "rifler",
+    "team": "Vitality（小蜜蜂）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-flamez",
+   "name": "Shahar Shushan",
+   "game": "cs2",
+   "team_id": "vitality",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "flameZ",
+    "name": "Shahar Shushan",
+    "flag": "",
+    "role": "rifler",
+    "team": "Vitality（小蜜蜂）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-mezii",
+   "name": "William Merriman",
+   "game": "cs2",
+   "team_id": "vitality",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "mezii",
+    "name": "William Merriman",
+    "flag": "",
+    "role": "rifler",
+    "team": "Vitality（小蜜蜂）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-ropz",
+   "name": "Robin Kool",
+   "game": "cs2",
+   "team_id": "vitality",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "ropz",
+    "name": "Robin Kool",
+    "flag": "",
+    "role": "rifler",
+    "team": "Vitality（小蜜蜂）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-xtqzzz",
+   "name": "Rémy Quoniam",
+   "game": "cs2",
+   "team_id": "vitality",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "XTQZZZ",
+    "name": "Rémy Quoniam",
+    "flag": "",
+    "role": "Coach",
+    "team": "Vitality（小蜜蜂）"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-hunter-",
+   "name": "Nemanja Kovač",
+   "game": "cs2",
+   "team_id": "g2",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "huNter-",
+    "name": "Nemanja Kovač",
+    "flag": "",
+    "role": "rifler",
+    "team": "G2"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-heavygod",
+   "name": "Nikita Martynenko",
+   "game": "cs2",
+   "team_id": "g2",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "HeavyGod",
+    "name": "Nikita Martynenko",
+    "flag": "",
+    "role": "rifler",
+    "team": "G2"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-matys",
+   "name": "Matúš Šimko",
+   "game": "cs2",
+   "team_id": "g2",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "matys",
+    "name": "Matúš Šimko",
+    "flag": "",
+    "role": "rifler",
+    "team": "G2"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-nertz",
+   "name": "Guy Iluz",
+   "game": "cs2",
+   "team_id": "g2",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "NertZ",
+    "name": "Guy Iluz",
+    "flag": "",
+    "role": "rifler",
+    "team": "G2"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-saw",
+   "name": "Eetu Saha",
+   "game": "cs2",
+   "team_id": "g2",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "sAw",
+    "name": "Eetu Saha",
+    "flag": "",
+    "role": "Coach",
+    "team": "G2"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-sunpayus",
+   "name": "Álvaro García",
+   "game": "cs2",
+   "team_id": "g2",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "SunPayus",
+    "name": "Álvaro García",
+    "flag": "",
+    "role": "rifler",
+    "team": "G2"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-aleksib",
+   "name": "Aleksi Virolainen",
+   "game": "cs2",
+   "team_id": "navi",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "Aleksib",
+    "name": "Aleksi Virolainen",
+    "flag": "",
+    "role": "rifler",
+    "team": "Natus Vincere（NAVI）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-im",
+   "name": "Mihai Ivan",
+   "game": "cs2",
+   "team_id": "navi",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "iM",
+    "name": "Mihai Ivan",
+    "flag": "",
+    "role": "rifler",
+    "team": "Natus Vincere（NAVI）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-w0nderful",
+   "name": "Ihor Zhdanov",
+   "game": "cs2",
+   "team_id": "navi",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "w0nderful",
+    "name": "Ihor Zhdanov",
+    "flag": "",
+    "role": "rifler",
+    "team": "Natus Vincere（NAVI）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-b1ad3",
+   "name": "Andrii Horodenskyi",
+   "game": "cs2",
+   "team_id": "navi",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "B1ad3",
+    "name": "Andrii Horodenskyi",
+    "flag": "",
+    "role": "Coach",
+    "team": "Natus Vincere（NAVI）"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-frozen",
+   "name": "David Čerňanský",
+   "game": "cs2",
+   "team_id": "faze",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "frozen",
+    "name": "David Čerňanský",
+    "flag": "",
+    "role": "rifler",
+    "team": "FaZe"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-jcobbb",
+   "name": "Jakub Pietruszewski",
+   "game": "cs2",
+   "team_id": "faze",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "jcobbb",
+    "name": "Jakub Pietruszewski",
+    "flag": "",
+    "role": "rifler",
+    "team": "FaZe"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-twistzz",
+   "name": "Russel Van Dulken",
+   "game": "cs2",
+   "team_id": "faze",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "Twistzz",
+    "name": "Russel Van Dulken",
+    "flag": "",
+    "role": "rifler",
+    "team": "FaZe"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-jboen",
+   "name": "Jason Nielsen",
+   "game": "cs2",
+   "team_id": "faze",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "JBOEN",
+    "name": "Jason Nielsen",
+    "flag": "",
+    "role": "Loan",
+    "team": "FaZe"
+   },
+   "role": "Loan"
+  },
+  {
+   "id": "cs2-neityu",
+   "name": "Ryan Aubry",
+   "game": "cs2",
+   "team_id": "faze",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "Neityu",
+    "name": "Ryan Aubry",
+    "flag": "",
+    "role": "rifler",
+    "team": "FaZe"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-enkay j",
+   "name": "Niclas Krumhorn",
+   "game": "cs2",
+   "team_id": "faze",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "enkay J",
+    "name": "Niclas Krumhorn",
+    "flag": "",
+    "role": "Coach",
+    "team": "FaZe"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-broky",
+   "name": "Helvijs Saukants",
+   "game": "cs2",
+   "team_id": "faze",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "broky",
+    "name": "Helvijs Saukants",
+    "flag": "",
+    "role": "rifler",
+    "team": "FaZe"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-torzsi",
+   "name": "Ádám Torzsás",
+   "game": "cs2",
+   "team_id": "mouz",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "torzsi",
+    "name": "Ádám Torzsás",
+    "flag": "",
+    "role": "rifler",
+    "team": "MOUZ（老鼠）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-xertion",
+   "name": "Dorian Berman",
+   "game": "cs2",
+   "team_id": "mouz",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "xertioN",
+    "name": "Dorian Berman",
+    "flag": "",
+    "role": "rifler",
+    "team": "MOUZ（老鼠）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-spinx",
+   "name": "Lotan Giladi",
+   "game": "cs2",
+   "team_id": "mouz",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "Spinx",
+    "name": "Lotan Giladi",
+    "flag": "",
+    "role": "rifler",
+    "team": "MOUZ（老鼠）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-xelex",
+   "name": "Adrian Vincze",
+   "game": "cs2",
+   "team_id": "mouz",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "xelex",
+    "name": "Adrian Vincze",
+    "flag": "",
+    "role": "rifler",
+    "team": "MOUZ（老鼠）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-pr",
+   "name": "Oldřich Nový",
+   "game": "cs2",
+   "team_id": "mouz",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "PR",
+    "name": "Oldřich Nový",
+    "flag": "",
+    "role": "rifler",
+    "team": "MOUZ（老鼠）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-sycrone",
+   "name": "Dennis Nielsen",
+   "game": "cs2",
+   "team_id": "mouz",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "sycrone",
+    "name": "Dennis Nielsen",
+    "flag": "",
+    "role": "Coach",
+    "team": "MOUZ（老鼠）"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-xantares",
+   "name": "İsmailcan Dörtkardeş",
+   "game": "cs2",
+   "team_id": "aurora",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "XANTARES",
+    "name": "İsmailcan Dörtkardeş",
+    "flag": "",
+    "role": "rifler",
+    "team": "Aurora（欧若拉）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-wicadia",
+   "name": "Ali Haydar Yalçın",
+   "game": "cs2",
+   "team_id": "aurora",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "Wicadia",
+    "name": "Ali Haydar Yalçın",
+    "flag": "",
+    "role": "rifler",
+    "team": "Aurora（欧若拉）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-woxic",
+   "name": "Özgür Eker",
+   "game": "cs2",
+   "team_id": "aurora",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "woxic",
+    "name": "Özgür Eker",
+    "flag": "",
+    "role": "rifler",
+    "team": "Aurora（欧若拉）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-jimpphat",
+   "name": "Jimi Salo",
+   "game": "cs2",
+   "team_id": "aurora",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "Jimpphat",
+    "name": "Jimi Salo",
+    "flag": "",
+    "role": "rifler",
+    "team": "Aurora（欧若拉）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-kyxsan",
+   "name": "Damjan Stoilkovski",
+   "game": "cs2",
+   "team_id": "aurora",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "kyxsan",
+    "name": "Damjan Stoilkovski",
+    "flag": "",
+    "role": "rifler",
+    "team": "Aurora（欧若拉）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-ashhh",
+   "name": "Ashley Battye",
+   "game": "cs2",
+   "team_id": "aurora",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "ashhh",
+    "name": "Ashley Battye",
+    "flag": "",
+    "role": "Coach",
+    "team": "Aurora（欧若拉）"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-maj3r",
+   "name": "Engin Küpeli",
+   "game": "cs2",
+   "team_id": "aurora",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "MAJ3R",
+    "name": "Engin Küpeli",
+    "flag": "",
+    "role": "rifler",
+    "team": "Aurora（欧若拉）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-fabre",
+   "name": "Sezgin Kalaycı",
+   "game": "cs2",
+   "team_id": "aurora",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "Fabre",
+    "name": "Sezgin Kalaycı",
+    "flag": "",
+    "role": "Coach",
+    "team": "Aurora（欧若拉）"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-deko",
+   "name": "Denis Zhukov",
+   "game": "cs2",
+   "team_id": "aurora",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "deko",
+    "name": "Denis Zhukov",
+    "flag": "",
+    "role": "rifler",
+    "team": "Aurora（欧若拉）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-tauson",
+   "name": "Sebastian Lindelof",
+   "game": "cs2",
+   "team_id": "gl",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "Tauson",
+    "name": "Sebastian Lindelof",
+    "flag": "",
+    "role": "rifler",
+    "team": "GL（GamerLegion）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-rez",
+   "name": "Fredrik Sterner",
+   "game": "cs2",
+   "team_id": "gl",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "REZ",
+    "name": "Fredrik Sterner",
+    "flag": "",
+    "role": "rifler",
+    "team": "GL（GamerLegion）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-hypex",
+   "name": "Milan Polowiec",
+   "game": "cs2",
+   "team_id": "gl",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "hypex",
+    "name": "Milan Polowiec",
+    "flag": "",
+    "role": "rifler",
+    "team": "GL（GamerLegion）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-snax",
+   "name": "Janusz Pogorzelski",
+   "game": "cs2",
+   "team_id": "gl",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "Snax",
+    "name": "Janusz Pogorzelski",
+    "flag": "",
+    "role": "rifler",
+    "team": "GL（GamerLegion）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-fl4mus",
+   "name": "Timur Maryev",
+   "game": "cs2",
+   "team_id": "gl",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "FL4MUS",
+    "name": "Timur Maryev",
+    "flag": "",
+    "role": "rifler",
+    "team": "GL（GamerLegion）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-imd",
+   "name": "Adrian Pieper",
+   "game": "cs2",
+   "team_id": "gl",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "imd",
+    "name": "Adrian Pieper",
+    "flag": "",
+    "role": "Coach",
+    "team": "GL（GamerLegion）"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-ztr",
+   "name": "Erik Gustafsson",
+   "game": "cs2",
+   "team_id": "gl",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "ztr",
+    "name": "Erik Gustafsson",
+    "flag": "",
+    "role": "On Loan",
+    "team": "GL（GamerLegion）"
+   },
+   "role": "On Loan"
+  },
+  {
+   "id": "cs2-staehr",
+   "name": "Victor Staehr",
+   "game": "cs2",
+   "team_id": "astralis",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "Staehr",
+    "name": "Victor Staehr",
+    "flag": "",
+    "role": "rifler",
+    "team": "Astralis（A队）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-jabbi",
+   "name": "Jakob Nygaard",
+   "game": "cs2",
+   "team_id": "astralis",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "jabbi",
+    "name": "Jakob Nygaard",
+    "flag": "",
+    "role": "rifler",
+    "team": "Astralis（A队）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-hooxi",
+   "name": "Rasmus Nielsen",
+   "game": "cs2",
+   "team_id": "astralis",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "HooXi",
+    "name": "Rasmus Nielsen",
+    "flag": "",
+    "role": "rifler",
+    "team": "Astralis（A队）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-phzy",
+   "name": "Love Smidebrant",
+   "game": "cs2",
+   "team_id": "astralis",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "phzy",
+    "name": "Love Smidebrant",
+    "flag": "",
+    "role": "rifler",
+    "team": "Astralis（A队）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-ryu",
+   "name": "Gytis Glušauskas",
+   "game": "cs2",
+   "team_id": "astralis",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "ryu",
+    "name": "Gytis Glušauskas",
+    "flag": "",
+    "role": "rifler",
+    "team": "Astralis（A队）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-neo",
+   "name": "Filip Kubski",
+   "game": "cs2",
+   "team_id": "astralis",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "NEO",
+    "name": "Filip Kubski",
+    "flag": "",
+    "role": "Coach",
+    "team": "Astralis（A队）"
+   },
+   "role": "Coach"
+  },
+  {
+   "id": "cs2-masval",
+   "name": "Svyatoslav Masko",
+   "game": "cs2",
+   "team_id": "magic",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "MaSvAl",
+    "name": "Svyatoslav Masko",
+    "flag": "",
+    "role": "rifler",
+    "team": "Magic（魔术）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-tenzy",
+   "name": "Nikita Kochenyuk",
+   "game": "cs2",
+   "team_id": "magic",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "tenzy",
+    "name": "Nikita Kochenyuk",
+    "flag": "",
+    "role": "rifler",
+    "team": "Magic（魔术）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-sfade8",
+   "name": "Vitalii Marushka",
+   "game": "cs2",
+   "team_id": "magic",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "sFade8",
+    "name": "Vitalii Marushka",
+    "flag": "",
+    "role": "rifler",
+    "team": "Magic（魔术）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-aw",
+   "name": "Andrey Anisimov",
+   "game": "cs2",
+   "team_id": "magic",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "AW",
+    "name": "Andrey Anisimov",
+    "flag": "",
+    "role": "rifler",
+    "team": "Magic（魔术）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-mo0n",
+   "name": "Abdurahim İsa",
+   "game": "cs2",
+   "team_id": "magic",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "mo0N",
+    "name": "Abdurahim İsa",
+    "flag": "",
+    "role": "rifler",
+    "team": "Magic（魔术）"
+   },
+   "role": "rifler"
+  },
+  {
+   "id": "cs2-eksiver",
+   "name": "Danila Yurkov",
+   "game": "cs2",
+   "team_id": "magic",
+   "danmu": {
+    "mentions_total": 0,
+    "anchors": []
+   },
+   "updated": "2026-08-30",
+   "official": {
+    "liquipedia_id": "eksiver",
+    "name": "Danila Yurkov",
+    "flag": "",
+    "role": "Coach",
+    "team": "Magic（魔术）"
+   },
+   "role": "Coach"
+  }
+ ],
+ "updated_at": "2026-08-30"
+}

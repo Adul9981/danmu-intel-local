@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>胜负胜模式回测 · G2 买强队整场 · 2026-08-30</title><style>
+:root{--bg:#f5f5f7;--card:#fff;--ink:#1d1d1f;--sub:#86868b;--accent:#0071e3;--warn:#a1420c;--warnbg:#fff1e8;--ok:#1a7f37;--okbg:#eaf6ee;--line:#e8e8ed;}
+*{box-sizing:border-box;margin:0;padding:0;}body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Arial,sans-serif;line-height:1.55;padding:28px 16px 60px;}
+.wrap{max-width:920px;margin:0 auto;}h1{font-size:25px;font-weight:700;}.sub{color:var(--sub);font-size:13px;margin-top:6px;}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:18px 0;}@media(min-width:700px){.stats{grid-template-columns:repeat(4,1fr);}}
+.stat{background:var(--card);border-radius:14px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.05);}.stat b{display:block;font-size:23px;font-weight:700;}.stat span{font-size:12px;color:var(--sub);}
+.card{background:var(--card);border-radius:14px;padding:16px 18px;box-shadow:0 1px 3px rgba(0,0,0,.05);margin:14px 0;}
+h2{font-size:16px;margin-bottom:10px;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--line);}th{background:#fafafc;color:var(--sub);font-weight:600;font-size:11.5px;}tr:last-child td{border-bottom:none;}
+.warnbox{background:var(--warnbg);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--warn);}
+.okbox{background:var(--okbg);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--ok);}
+.foot{margin-top:22px;color:var(--sub);font-size:11.5px;}
+</style></head><body><div class="wrap">
+<h1>"胜负胜"模式回测：G2 买强队整场</h1>
+<div class="sub">2026-08-30 · 数据：100+ 场快照（docs/data/snapshots）· 条件：G1 强队赢 + G2 弱队扳平 · 20 个有效样本</div>
+<div class="stats">
+<div class="stat"><b>50%</b><span>全样本命中率（10/20）</span></div>
+<div class="stat"><b>-11%</b><span>全样本平均收益（负期望）</span></div>
+<div class="stat"><b>80%</b><span>G2结束强整≥0.5 命中率</span></div>
+<div class="stat"><b>+28%</b><span>G2结束强整≥0.5 平均收益</span></div>
+</div>
+<div class="card"><h2>核心结论：假设整体不成立，加过滤后成立</h2>
+<div class="warnbox"><b>无条件"G2 买强队整场" = 负期望</b>：20 场中只有 10 场"胜负胜"（强队最终赢），命中率恰好 50%，平均收益 -11%（赢 +50~174% / 输 -100%，盈亏比约 1.7:1 但 50% 命中下期望仍负）。</div>
+<div class="okbox" style="margin-top:10px;"><b>关键过滤（数据给出的答案）</b>：G2 结束时强队整场价格仍 ≥0.5 → 命中 80%（8/10）、平均 +28%；<0.5 → 命中仅 20%（2/10）、平均 -51%。<br>
+含义：弱队扳平后，<b>市场是否仍站在强队一边（整场价未破 50c）是决定性信号</b>——价格没破位说明市场认可强队，G3 大概率收回；价格破位说明市场已经转向。</div></div>
+<div class="card"><h2>分层明细</h2>
+<table>
+<tr><th>条件</th><th>场次</th><th>命中率</th><th>平均收益</th></tr>
+<tr><td>全样本</td><td>20</td><td>50%</td><td>-11%</td></tr>
+<tr><td><b>G2 结束强整 ≥0.5</b></td><td>10</td><td><b>80%</b></td><td><b>+28%</b></td></tr>
+<tr><td>G2 结束强整 &lt;0.5</td><td>10</td><td>20%</td><td>-51%</td></tr>
+<tr><td>赛前强队 0.5-0.65（中等热门）</td><td>4</td><td>100%</td><td>+81%</td></tr>
+<tr><td>赛前强队 ≥0.65（大热）</td><td>6</td><td>67%</td><td>-7%</td></tr>
+<tr><td>赛前强队 &lt;0.5（五五开/下狗）</td><td>10</td><td>20%</td><td>-51%</td></tr>
+</table>
+<p style="font-size:12.5px;color:var(--sub);margin-top:8px;">注：子集样本小（4-10 场），结论方向可靠但幅度需更多数据验证；"赛前强队 0.5-0.65 + G2 结束 ≥0.5"组合可作优先验证项。</p></div>
+<div class="card"><h2>可操作规则（待扩大回测）</h2>
+<div class="okbox"><b>候选规则</b>：BO3 中，G1 强队赢、G2 弱队扳平，且 G2 结束时强队整场价格 ≥0.5 → 买入强队整场；止损：强队整场跌破 0.35（G3 早期破位）；<br>
+<b>反指标</b>：G2 结束强整 &lt;0.5（市场转向）→ 不买，甚至可反向考虑弱队整场。</div></div>
+<div class="foot">数据：20 场候选（10 胜 10 负），原始 /tmp/wlw_bt.json · 边界：样本有限、幸存者偏差已通过含"胜负负"样本消除 · 下一步：扩大数据验证 + 统计"胜负胜 vs 胜负负"占比</div>
+</div></body></html>

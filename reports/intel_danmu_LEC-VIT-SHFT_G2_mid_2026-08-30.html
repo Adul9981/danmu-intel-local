@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>局中弹幕情报快照 · LEC VIT vs SHFT G2 (MID-GAME)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f5f5f7;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 24px 16px;
+            color: #1d1d1f;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #ff3b30;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+        .meta-line {
+            font-size: 14px;
+            color: #6e6e73;
+            margin-bottom: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: 650;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #e8e8ed;
+            padding-bottom: 12px;
+        }
+        .no {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0071e3;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+        .signal-item {
+            background: #f9f9fb;
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            border-left: 4px solid #0071e3;
+        }
+        .signal-risk {
+            border-left-color: #ff3b30;
+        }
+        .signal-consensus {
+            border-left-color: #34c759;
+        }
+        .signal-odds {
+            border-left-color: #ff9500;
+        }
+        .tag {
+            display: inline-block;
+            background: #e8f0fe;
+            color: #0071e3;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-right: 8px;
+            text-transform: uppercase;
+        }
+        .tag-risk {
+            background: #feeeee;
+            color: #d70015;
+        }
+        .tag-consensus {
+            background: #e8f8ee;
+            color: #1a7f37;
+        }
+        .tag-odds {
+            background: #fff4e5;
+            color: #c93400;
+        }
+        .tag-source {
+            background: #f0f0f5;
+            color: #6e6e73;
+            font-size: 10px;
+        }
+        .source-label {
+            font-size: 11px;
+            color: #86868b;
+            margin-top: 6px;
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+        th {
+            text-align: left;
+            background: #f5f5f7;
+            padding: 8px 12px;
+            font-weight: 600;
+        }
+        td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #e8e8ed;
+        }
+        details {
+            background: #f9f9fb;
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin: 16px 0;
+            border: 1px solid #e8e8ed;
+        }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #0071e3;
+            font-size: 14px;
+        }
+        .density-bar {
+            background: #f0f0f5;
+            border-radius: 20px;
+            height: 8px;
+            margin: 8px 0;
+        }
+        .density-fill {
+            background: #0071e3;
+            height: 8px;
+            border-radius: 20px;
+        }
+        .footer-note {
+            font-size: 12px;
+            color: #86868b;
+            text-align: center;
+            margin-top: 32px;
+            border-top: 1px solid #d2d2d7;
+            padding-top: 16px;
+        }
+        .highlight {
+            background: #fff9e6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .flex-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+        .progress-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            h1 { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 标题区 -->
+    <div class="badge">局中 · 非终局 · 结果待定</div>
+    <h1>⚡ 局中弹幕情报快照 · VIT vs SHFT</h1>
+    <div class="meta-line">
+        <span>📅 2026-08-30 · 北京时间</span>
+        <span>🏷️ 节点: G2 (MID-GAME)</span>
+        <span>📊 弹幕口径 · 官方待回填</span>
+        <span>🕒 情报输出: 2026-08-30 21:42 (CST)</span>
+    </div>
+
+    <!-- 0 核心情报速览 -->
+    <div class="card">
+        <h2><span class="no">0</span>核心情报速览</h2>
+        <div style="background: #f0f0f5; border-radius: 12px; padding: 16px; margin-bottom: 16px;">
+            <div style="font-size: 18px; font-weight: 700;">比分: VIT 1 : 0 SHFT <span style="font-size: 14px; font-weight: 400; color: #6e6e73;">(G2进行中 · 弹幕口径)</span></div>
+            <div style="font-size: 13px; color: #6e6e73; margin-top: 4px;">G1 VIT已赢 · G2 当前无终局信号</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div class="signal-item signal-risk">
+                <span class="tag tag-risk">风险</span> 弹幕出现“演/买了”等灰信号词 (12条) <span class="tag tag-source">本场弹幕</span>
+                <div class="source-label">→ 详 §2 灰信号汇总</div>
+            </div>
+            <div class="signal-item">
+                <span class="tag">锚点</span> VIT G1阵容: 兰博/蔚/阿狸/卡莎/洛 · 胜率讨论高 <span class="tag tag-source">本场弹幕</span>
+                <div class="source-label">→ 详 §3 BP锚点</div>
+            </div>
+            <div class="signal-item signal-odds">
+                <span class="tag tag-odds">盘口</span> 弹幕提及“VIT让1.5” “SHFT+1.5” 分歧明显 <span class="tag tag-source">盘口/弹幕</span>
+                <div class="source-label">→ 详 §4 盘口讨论</div>
+            </div>
+            <div class="signal-item signal-consensus">
+                <span class="tag tag-consensus">共识</span> 多数弹幕认为VIT状态更优 (67条) · 但G2变数大 <span class="tag tag-source">本场弹幕</span>
+                <div class="source-label">→ 详 §5 方向板</div>
+            </div>
+        </div>
+        <div style="margin-top: 16px; padding: 12px; background: #e8f0fe; border-radius: 12px; font-size: 15px; font-weight: 500;">
+            📌 一句话决策落点: 短期偏向VIT节奏，但灰信号干扰+盘口分歧，建议观望G2中段团战后再定。
+        </div>
+    </div>
+
+    <!-- 1 比赛信息与结果总览 -->
+    <div class="card">
+        <h2><span class="no">1</span>比赛信息与结果总览</h2>
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+            <div>
+                <div style="font-weight: 600;">LEC 2026 夏季常规赛 BO3</div>
+                <div style="font-size: 14px; color: #6e6e73;">VIT vs SHFT · 北京时间 2026-08-30</div>
+                <div style="font-size: 14px; margin-top: 8px;"><span class="highlight">局中·非终局</span> 当前G2进行中</div>
+            </div>
+            <div style="text-align: right;">
+                <div style="font-size: 24px; font-weight: 700;">VIT 1 : 0 SHFT</div>
+                <div style="font-size: 13px; color: #6e6e73;">G1 VIT胜 (官方) · G2 弹幕进行中</div>
+            </div>
+        </div>
+        <div style="margin-top: 16px; padding: 12px; background: #f9f9fb; border-radius: 12px; font-size: 14px;">
+            <span style="font-weight: 600;">状态核验:</span> 官方gameWins 1:0 · 弹幕切片时间窗覆盖G2前中期 · 无终局信号
+        </div>
+    </div>
+
+    <!-- 2 灰信号汇总 -->
+    <div class="card">
+        <h2><span class="no">2</span>灰信号汇总 <span style="font-size: 13px; font-weight: 400; color: #86868b;">(观众质疑·非结论)</span></h2>
+        <p style="font-size: 14px; color: #6e6e73; margin-bottom: 12px;">词表统计: 演员/演/明演/菠菜/收米/剧本/假赛/322/送人头/买了/故意送</p>
+        <div class="grid-2">
+            <div>
+                <div style="font-weight: 600; margin-bottom: 8px;">🔴 风险信号 (共12条)</div>
+                <ul style="font-size: 14px; padding-left: 20px; color: #d70015;">
+                    <li>“这波买了” ×4</li>
+                    <li>“明演？” ×3</li>
+                    <li>“剧本吧” ×2</li>
+                    <li>“送人头” ×2</li>
+                    <li>“收米了” ×1</li>
+                </ul>
+            </div>
+            <div>
+                <div style="font-weight: 600; margin-bottom: 8px;">📊 分布时段</div>
+                <div style="font-size: 14px;">G2 12:00-15:00 (北京时间) 集中出现</div>
+                <div style="font-size: 13px; color: #86868b; margin-top: 8px;">弹幕原文摘录见下方折叠区</div>
+            </div>
+        </div>
+        <details>
+            <summary>📄 灰信号弹幕原文摘录 (折叠·含时间戳)</summary>
+            <div style="margin-top: 12px; font-size: 13px; line-height: 1.8;">
+                <span>21:14:23 [弹幕] “这波买了”</span><br>
+                <span>21:15:02 [弹幕] “明演？？”</span><br>
+                <span>21:16:47 [弹幕] “剧本吧 别搞”</span><br>
+                <span>21:18:12 [弹幕] “送人头 真下饭”</span><br>
+                <span>21:19:30 [弹幕] “收米了兄弟们”</span><br>
+                <span>21:20:05 [弹幕] “买了买了”</span>
+            </div>
+        </details>
+        <div style="margin-top: 12px; font-size: 13px; background: #fff4e5; padding: 8px 12px; border-radius: 8px;">
+            ⚠️ 以上均为观众质疑，非结论。灰信号占比约1.2% (12/980条)，未形成主流叙事。
+        </div>
+    </div>
+
+    <!-- 3 BP 锚点与选人情报 -->
+    <div class="card">
+        <h2><span class="no">3</span>BP 锚点与选人情报</h2>
+        <div style="font-size: 14px; margin-bottom: 12px;"><span class="tag">本局阵容 (G2)</span> 弹幕提及但未完整确认 · 以下为G1官方阵容</div>
+        <div class="grid-2">
+            <div style="background: #f9f9fb; padding: 12px; border-radius: 12px;">
+                <div style="font-weight: 600; color: #0071e3;">VIT (G1官方)</div>
+                <div>兰博 · 蔚 · 阿狸 · 卡莎 · 洛</div>
+            </div>
+            <div style="background: #f9f9fb; padding: 12px; border-radius: 12px;">
+                <div style="font-weight: 600; color: #d70015;">SHFT (G1官方)</div>
+                <div>杰斯 · 皇子 · 瑞兹 · 吉格斯 · 波比</div>
+            </div>
+        </div>
+        <div style="margin-top: 12px; font-size: 14px;">
+            <span class="tag">弹幕焦点</span> “VIT这阵容好” (23条) · “SHFT缺开团” (11条) · “皇子没用” (8条)
+        </div>
+        <div style="margin-top: 8px; font-size: 13px; color: #6e6e73;">BP后战绩情报: 无战绩情报提及 (弹幕未讨论G2具体BP)</div>
+        <details>
+            <summary>📄 BP相关弹幕摘录 (折叠)</summary>
+            <div style="margin-top: 12px; font-size: 13px;">
+                <span>21:05:22 “VIT这阵容无敌”</span><br>
+                <span>21:06:48 “SHFT没开团 难”</span><br>
+                <span>21:08:03 “皇子这版本不行”</span>
+            </div>
+        </details>
+    </div>
+
+    <!-- 4 盘口与市场讨论 -->
+    <div class="card">
+        <h2><span class="no">4</span>盘口与市场讨论</h2>
+        <div style="font-size: 14px; margin-bottom: 12px;">弹幕中盘口相关讨论 (共34条)</div>
+        <table>
+            <thead><tr><th>盘口主题</th><th>方向</th><th>条数</th><th>关键样本</th></tr></thead>
+            <tbody>
+                <tr><td>VIT让1.5</td><td>支持</td><td>14</td><td>“VIT稳赢”</td></tr>
+                <tr><td>SHFT+1.5</td><td>支持</td><td>9</td><td>“SHFT能翻”</td></tr>
+                <tr><td>大时间盘</td><td>模糊</td><td>6</td><td>“拖后期”</td></tr>
+                <tr><td>其他</td><td>-</td><td>5</td><td>“盘口乱”</td></tr>
+            </tbody>
+        </table>
+        <div style="font-size: 13px; color: #6e6e73; margin-top: 8px;">盘口分歧明显，无一致预期。弹幕对VIT信心略高但非压倒性。</div>
+    </div>
+
+    <!-- 5 方向性情报板 -->
+    <div class="card">
+        <h2><span class="no">5</span>方向性情报板</h2>
+        <div class="grid-3">
+            <div style="background: #f0f8f0; padding: 12px; border-radius: 12px;">
+                <div style="font-weight: 600; color: #1a7f37;">✅ 正锚</div>
+                <ul style="font-size: 13px; padding-left: 16px; margin-top: 8px;">
+                    <li>VIT G1胜势 (弹幕提及)</li>
+                    <li>VIT阵容评价正面 (23条)</li>
+                    <li>SHFT开团质疑 (11条)</li>
+                </ul>
+            </div>
+            <div style="background: #fef0f0; padding: 12px; border-radius: 12px;">
+                <div style="font-weight: 600; color: #d70015;">❌ 负锚</div>
+                <ul style="font-size: 13px; padding-left: 16px; margin-top: 8px;">
+                    <li>灰信号干扰 (12条)</li>
+                    <li>盘口分歧 (34条)</li>
+                    <li>G2变数大 (弹幕共识)</li>
+                </ul>
+            </div>
+            <div style="background: #f0f0f5; padding: 12px; border-radius: 12px;">
+                <div style="font-weight: 600;">🧠 群体共识</div>
+                <div style="font-size: 13px; margin-top: 8px;">VIT状态更优 (67条) · 但G2谨慎</div>
+                <div style="font-size: 12px; color: #86868b; margin-top: 4px;">分歧: 盘口方向 · 样本量: 980条</div>
+            </div>
+        </div>
+        <div style="margin-top: 12px; font-size: 14px; background: #f9f9fb; padding: 12px; border-radius: 12px;">
+            <span style="font-weight: 600;">灰信号条件预测:</span> 若G2中段出现异常团战 (如送头)，灰信号可能升级，需警惕。
+        </div>
+    </div>
+
+    <!-- 6 情报含义与决策落点 -->
+    <div class="card">
+        <h2><span class="no">6</span>情报含义与决策落点</h2>
+        <div style="font-size: 14px; margin-bottom: 12px;">基于当前弹幕情报 (非投资建议)</div>
+        <div class="grid-2">
+            <div style="background: #f0f8f0; padding: 12px; border-radius: 12px;">
+                <div style="font-weight: 600; color: #1a7f37;">LONG (看多VIT)</div>
+                <ul style="font-size: 13px; padding-left: 16px; margin-top: 8px;">
+                    <li>G1胜势+阵容好评</li>
+                    <li>弹幕共识偏VIT</li>
+                    <li>SHFT开团缺陷</li>
+                </ul>
+            </div>
+            <div style="background: #fef0f0; padding: 12px; border-radius: 12px;">
+                <div style="font-weight: 600; color: #d70015;">SHORT (看空VIT/谨慎)</div>
+                <ul style="font-size: 13px; padding-left: 16px; margin-top: 8px;">
+                    <li>灰信号干扰</li>
+                    <li>盘口分歧</li>
+                    <li>G2未定</li>
+                </ul>
+            </div>
+        </div>
+        <div style="margin-top: 12px; font-size: 14px; padding: 12px; background: #e8f0fe; border-radius: 12px;">
+            <span style="font-weight: 600;">决策落点:</span> 短期观望，等待G2关键团战或官方数据更新。若VIT持续压制，可轻仓倾向VIT。
+        </div>
+    </div>
+
+    <!-- 7 逐局复盘 -->
+    <div class="card">
+        <h2><span class="no">7</span>逐局复盘 (证据层)</h2>
+        <div style="font-size: 14px; margin-bottom: 12px;">G1已结束 (VIT胜) · G2进行中</div>
+        <div style="font-weight: 600;">G2 已发生片段 (弹幕时间线)</div>
+        <div style="font-size: 13px; color: #6e6e73; margin-bottom: 8px;">北京时间 · 弹幕口径</div>
+        <table>
+            <thead><tr><th>时间 (CST)</th><th>事件/弹幕焦点</th><th>量级</th></tr></thead>
+            <tbody>
+                <tr><td>21:02-21:05</td><td>开局BP讨论 · 阵容评价</td><td>45条</td></tr>
+                <tr><td>21:06-21:10</td><td>对线期 · VIT小优</td><td>120条</td></tr>
+                <tr><td>21:11-21:15</td><td>灰信号出现 · 团战质疑</td><td>80条</td></tr>
+                <tr><td>21:16-21:20</td><td>盘口讨论 · 分歧</td><td>60条</td></tr>
+                <tr><td>21:21-现在</td><td>僵持 · 弹幕观望</td><td>50条</td></tr>
+            </tbody>
+        </table>
+        <details>
+            <summary>📄 G2 完整弹幕时间线 (折叠·含原文)</summary>
+            <div style="margin-top: 12px; font-size: 13px; line-height: 1.8; max-height: 300px; overflow-y: auto;">
+                <span>21:02:15 “VIT加油”</span><br>
+                <span>21:03:42 “兰博好强”</span><br>
+                <span>21:05:20 “SHFT这阵容不行”</span><br>
+                <span>21:07:11 “对线稳了”</span><br>
+                <span>21:09:33 “皇子送？”</span><br>
+                <span>21:12:05 “这波买了”</span><br>
+                <span>21:14:48 “别演啊”</span><br>
+                <span>21:16:22 “让1.5稳吗”</span><br>
+                <span>21:18:09 “SHFT翻盘？”</span><br>
+                <span>21:20:30 “等团战”</span>
+            </div>
+        </details>
+        <div style="margin-top: 12px; font-size: 14px; color: #6e6e73;">未发生: G2终局 · 待观察</div>
+    </div>
+
+    <!-- 8 队伍/人员画像 -->
+    <div class="card">
+        <h2><span class="no">8</span>队伍/人员画像 (带提及量)</h2>
+        <div class="grid-2">
+            <div>
+                <div style="font-weight: 600; margin-bottom: 8px;">VIT 画像</div>
+                <ul style="font-size: 14px; padding-left: 16px;">
+                    <li>VIT全队: 提及 89次 · 正面评价为主</li>
+                    <li>中单 (阿狸): 提及 23次 · “操作在线”</li>
+                    <li>打野 (蔚): 提及 18次 · “节奏好”</li>
+                </ul>
+            </div>
+            <div>
+                <div style="font-weight: 600; margin-bottom: 8px;">SHFT 画像</div>
+                <ul style="font-size: 14px; padding-left: 16px;">
+                    <li>SHFT全队: 提及 56次 · 负面偏多</li>
+                    <li>上单 (杰斯): 提及 12次 · “隐身”</li>
+                    <li>打野 (皇子): 提及 20次 · “没用”</li>
+                </ul>
+            </div>
+        </div>
+        <details>
+            <summary>📄 长期画像补充 (折叠·历史库)</summary>
+            <div style="margin-top: 12px; font-size: 13px; color: #6e6e73;">
+                VIT近5场胜率60% · SHFT近5场胜率40% (历史画像·非本场)
+            </div>
+        </details>
+    </div>
+
+    <!-- 9 联赛规律与版本 -->
+    <div class="card">
+        <h2><span class="no">9</span>联赛规律与版本</h2>
+        <div style="font-size: 14px;">
+            <span class="tag">版本</span> 14.16 · 中野节奏重要
+        </div>
+        <div style="font-size: 14px; margin-top: 8px;">
+            <span class="tag">规律</span> LEC BO3 中G2变数大 (历史数据) · 弹幕共识“G2容易翻”
+        </div>
+        <div style="font-size: 13px; color: #6e6e73; margin-top: 8px;">本场弹幕提及“版本答案阿狸” (9条)</div>
+    </div>
+
+    <!-- 10 预测验证回填 -->
+    <div class="card">
+        <h2><span class="no">10</span>预测验证回填</h2>
+        <div style="font-size: 14px; background: #f9f9fb; padding: 12px; border-radius: 12px;">
+            <span style="font-weight: 600;">赛前预测 (弹幕口径):</span> VIT 2:0 SHFT (42条) · SHFT 1:2 (18条)<br>
+            <span style="font-weight: 600;">当前验证:</span> G1 VIT胜 ✅ · G2进行中 ⏳
+        </div>
+        <div style="font-size: 13px; color: #6e6e73; margin-top: 8px;">预测回填基于弹幕，非官方。</div>
+    </div>
+
+    <!-- 11 数据与溯源 -->
+    <div class="card">
+        <h2><span class="no">11</span>数据与溯源</h2>
+        <div style="font-size: 14px; margin-bottom: 12px;">情报输出时间: 2026-08-30 21:42 (北京时间)</div>
+        <table>
+            <thead><tr><th>数据完整性</th><th>实际数据源</th><th>预期数据源</th><th>缺口</th></tr></thead>
+            <tbody>
+                <tr><td>弹幕切片</td><td>huya_shuoshuo.jsonl (980条)</td><td>本场弹幕</td><td>无</td></tr>
+                <tr><td>官方数据</td><td>G1阵容/比分</td><td>G2官方数据</td><td>G2未回填</td></tr>
+                <tr><td>盘口</td><td>弹幕讨论</td><td>实时盘口</td><td>无外部盘口</td></tr>
+            </tbody>
+        </table>
+        <div style="font-size: 13px; color: #6e6e73; margin-top: 8px;">跨源一致性: 弹幕与官方G1结果一致 · G2待验证</div>
+        <div style="font-size: 13px; margin-top: 12px; background: #f0f0f5; padding: 8px; border-radius: 8px;">
+            <span style="font-weight: 600;">本场长期沉淀点:</span> 灰信号在G2中段出现频率高，建议后续比赛关注中段团战异常。样本量充足，可复用。
+        </div>
+    </div>
+
+    <div class="footer-note">
+        局中弹幕情报快照 · 非官方数据 · 仅供情报参考 · 数据来源: 虎牙弹幕/官方接口
+    </div>
+</div>
+</body>
+</html>

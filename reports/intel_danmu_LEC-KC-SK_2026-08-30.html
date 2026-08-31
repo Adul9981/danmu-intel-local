@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEC W6 · KC vs SK · G2 局中加厚版（KC 1:0 · 巴德内鬼爆点）· 2026-08-30</title>
+<style>
+  :root { --bg:#f5f5f7; --card:#fff; --ink:#1d1d1f; --sub:#6e6e73; --accent:#0b6bcb; --line:#e3e3e8; --good:#1a7f37; --bad:#c0392b; --warn:#b45309; --purple:#6d4fc4; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Microsoft YaHei",sans-serif; line-height:1.62; padding:22px 12px 56px; }
+  .wrap { max-width:960px; margin:0 auto; }
+  .card { background:var(--card); border-radius:16px; padding:20px 22px; margin:14px 0; box-shadow:0 1px 4px rgba(0,0,0,.05); }
+  h2 { font-size:16px; font-weight:650; margin:10px 0 8px; display:flex; align-items:center; gap:7px; }
+  h2 .no { flex:0 0 24px; height:24px; background:var(--accent); color:#fff; border-radius:7px; font-size:12px; display:inline-flex; align-items:center; justify-content:center; }
+  h3 { font-size:13.5px; font-weight:650; margin:10px 0 4px; }
+  .meta { color:var(--sub); font-size:12px; margin-top:6px; }
+  .badge { display:inline-block; border-radius:999px; padding:2px 9px; font-size:11px; margin:2px 4px 2px 0; white-space:nowrap; }
+  .b-pend { background:#fdf0e6; color:var(--warn); }
+  .b-ok { background:#e8f6ec; color:var(--good); }
+  .b-risk { background:#fdeaea; color:var(--bad); }
+  .b-anchor { background:#eaf2fb; color:var(--accent); }
+  .b-con { background:#f3f0fa; color:var(--purple); }
+  .speed { background:linear-gradient(180deg,#fbfcff,#f4f7fd); border:1px solid #dbe5f5; }
+  .speed .top { display:flex; flex-wrap:wrap; gap:8px; align-items:center; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .score-big { font-size:19px; font-weight:750; color:var(--accent); }
+  .sig { display:flex; gap:10px; padding:9px 0; border-bottom:1px dashed var(--line); font-size:13px; }
+  .sig:last-child { border-bottom:none; }
+  .sig .tag { flex:0 0 58px; font-size:11px; font-weight:650; padding-top:2px; }
+  table { width:100%; border-collapse:collapse; font-size:12.5px; margin-top:6px; }
+  th { text-align:left; color:var(--sub); font-weight:600; font-size:11px; padding:6px 7px; border-bottom:1px solid var(--line); }
+  td { padding:6px 7px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  ul { padding-left:20px; margin:6px 0; } li { margin:4px 0; font-size:13.5px; }
+  .warnbox { background:#fdf6ec; border-left:3px solid var(--warn); padding:8px 12px; border-radius:0 8px 8px 0; margin:8px 0; font-size:13px; }
+  .riskbox { background:#fdf0f0; border-left:3px solid var(--bad); padding:8px 12px; border-radius:0 8px 8px 0; margin:8px 0; font-size:13px; }
+  .consensus { background:#fafaff; border:1px solid #e3e3f0; }
+  .footer { color:var(--sub); font-size:11.5px; text-align:center; margin-top:18px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- 0 核心情报速览 -->
+<div class="card speed">
+  <h2><span class="no">0</span>核心情报速览</h2>
+  <div class="top">
+    <span class="score-big">KC 1:0 SK · G2 局中（00:40 快照）</span>
+    <span class="badge b-ok">官方 gameWins KC 1</span>
+    <span class="badge b-pend">G2 盘口 KC 85.5c</span>
+    <span class="badge b-anchor">LEC W6 常规赛 BO3</span>
+    <span class="badge b-con">虎牙三路齐采</span>
+  </div>
+  <div style="margin-top:8px">
+    <div class="sig"><span class="tag" style="color:var(--bad)">关键</span><span><b>SK Mikyx 巴德"内鬼"爆点（G2）</b>："救人巴德"x6、"畜生巴德"x6、"故意救对面"x3——114 条负面弹幕集中攻击 SK 辅助（官方 window 确认巴德=Mikyx，前 G2 辅助）<span class="meta">→ 详 §5/§7</span></span></div>
+    <div class="sig"><span class="tag" style="color:var(--purple)">灰信号</span><span><b>假赛/控分质疑 40 条</b>："真他妈的假""纯在刷人头""洗白犬买了减号"x6——KC 高灰信号队 + 盘口控分叙事延续（观众质疑·非结论）<span class="meta">→ 详 §2</span></span></div>
+    <div class="sig"><span class="tag" style="color:var(--accent)">盘口</span><span><b>Polymarket：KC 图二 85.5c / BO3 94.95c</b>，Over 2.5 仅 12c——市场强烈预期 KC 2-0；弹幕"加号/减号"让分盘讨论 14 条 <span class="meta">→ 详 §4</span></span></div>
+    <div class="sig"><span class="tag" style="color:var(--good)">正锚</span><span><b>KC Canna 兰博"怎么这么肥"</b>（官方确认 Canna 兰博）+ Yike 蔚——KC G2 局面占优，与盘口 85.5c 一致 <span class="meta">→ 详 §5/§7</span></span></div>
+    <div class="sig"><span class="tag" style="color:var(--warn)">背景</span><span><b>KC 灰信号高预警队</b>：08-24 榜首爆冷 SHFT、卡时间三局实锤、"欧洲倒数第一吃第一"传统——本场 1-0 领先符合预期 <span class="meta">→ 详 §9</span></span></div>
+  </div>
+  <div class="warnbox" style="margin-top:10px"><b>一句话决策落点：</b>KC 2-0 方向（盘口 94.95c + 场面占优 + 弹幕共识共振）；但本场灰信号浓度高（40 条），若 G2 出现"戏剧性逆转/拖时间"需按 KC 卡时间规律重新定价——SK 巴德内鬼是 G2 最大变量。</div>
+</div>
+
+<!-- 1 比赛信息与结果总览 -->
+<div class="card">
+  <h2><span class="no">1</span>比赛信息与结果总览</h2>
+  <table>
+    <tr><td>对阵</td><td><b>KC（Karmine Corp）</b> vs <b>SK Gaming</b> · LEC 2026 Summer W6 · BO3 · 官方 matchId 115548681803406259</td></tr>
+    <tr><td>赛程</td><td>2026-08-29 23:00 CST 开赛（跨 08-30 凌晨）</td></tr>
+    <tr><td>实时状态</td><td><b>KC 1:0 SK</b>（官方 gameWins）· G2 进行中 · G3 未开始</td></tr>
+    <tr><td>数据完整性</td><td>虎牙三路齐采（硕硕 323444 / 毛毛 149346 / Remember 528222）00:27 接入；<b>缺口：G1 弹幕未采（接入前已结束）</b>；G2 window 官方阵容已回填</td></tr>
+  </table>
+  <div class="riskbox">结果状态：<b>G2 进行中（弹幕口径·官方待回填）</b>。终局以官方 gameWins + Polymarket 结算为仲裁。</div>
+</div>
+
+<!-- 2 灰信号汇总 -->
+<div class="card">
+  <h2><span class="no">2</span>灰信号汇总（观众质疑 · 非结论）</h2>
+  <table>
+    <tr><th>对象</th><th>质疑内容</th><th>条数</th><th>等级</th></tr>
+    <tr><td>SK · Mikyx 巴德</td><td>"救人巴德/内鬼巴德/畜生巴德/故意救对面"——G2 大招/金身操作被集中质疑</td><td>114</td><td>低-中</td></tr>
+    <tr><td>KC vs SK 控分</td><td>"真他妈的假""纯在刷人头""kc真恶心就为了打加号""sk赢不了这样打只是想杀减号"——盘口控分叙事</td><td>40</td><td>低-中</td></tr>
+    <tr><td>盘口资金</td><td>"看来有洗白犬买了减号"x6——观众指向买盘资金</td><td>6</td><td>低</td></tr>
+  </table>
+  <div class="warnbox"><b>纪律声明：</b>全部为观众质疑/玩梗，非假赛结论。条件式表述：若巴德/控分质疑兑现则指向 SK 侧风险；仅作风险标注与赛后兑现统计。已登记 gray_signals 候选（2026-08-30_lec_kc_sk）。KC 为高灰信号跟踪队（08-24 曾 100 条质疑但方向未兑现=重要反例）。</div>
+</div>
+
+<!-- 3 BP 锚点与选人情报 -->
+<div class="card">
+  <h2><span class="no">3</span>BP 锚点与选人情报（官方阵容）</h2>
+  <table>
+    <tr><th>局</th><th>胜方</th><th>阵容（官方 window）</th><th>锚点解读</th></tr>
+    <tr><td>G1</td><td>KC</td><td>KC：Canna 崔斯特 / Yike 盲僧 / kyeahoo 辛德拉 / Caliste EZ / Busio 蕾欧娜；SK：Wunder 纳尔 / Skeanz 皇子 / SlowQ 蛇女 / Jopa 卡莎 / Mikyx 芮尔</td><td>KC 双C（辛德拉+EZ）体系拿下；G1 弹幕缺失（未采）</td></tr>
+    <tr><td>G2</td><td>进行中</td><td>KC：Canna 兰博 / Yike 蔚 / kyeahoo 岩雀 / Caliste 女警 / Busio 拉克丝；SK：Wunder 瑞兹 / Skeanz 赵信 / SlowQ 妖姬 / Jopa 烬 / <b>Mikyx 巴德</b></td><td><b>Mikyx 巴德=爆点核心</b>；Canna 兰博肥（正锚）；Yike 蔚/岩雀体系</td></tr>
+  </table>
+  <div class="warnbox"><b>BP 后战绩情报检查：</b>G2 转换窗口（00:27-00:40）弹幕提及"鸡兔不要的垃圾辅助"（Mikyx 前 G2 辅助身份）+"巴德是 KC 的？"（观众归属混乱，官方 window 已纠正为 SK Mikyx）——弹幕对辅助身份的误判需以官方为准。</div>
+</div>
+
+<!-- 4 盘口与市场轨迹 -->
+<div class="card">
+  <h2><span class="no">4</span>盘口与市场讨论（Polymarket 快照 00:40 CST）</h2>
+  <table>
+    <tr><th>市场</th><th>KC</th><th>SK</th><th>备注</th></tr>
+    <tr><td>G1 胜者</td><td>99.95c</td><td>0.05c</td><td>已结算 KC 胜</td></tr>
+    <tr><td>G2 胜者</td><td>85.5c</td><td>14.5c</td><td>KC 大幅领先</td></tr>
+    <tr><td>BO3 胜者</td><td>94.95c</td><td>5.05c</td><td>市场预期 KC 2-0</td></tr>
+    <tr><td>总局数 Over 2.5</td><td colspan="2">12c / 88c</td><td>强烈预期 2-0 结束</td></tr>
+    <tr><td>让分 KC -1.5</td><td colspan="2">79c / 21c</td><td>KC 让分受市场认可</td></tr>
+  </table>
+  <div class="warnbox"><b>弹幕盘口讨论（14 条，方向需谨慎）：</b>"kc真恶心就为了打加号"（质疑 KC 控分打让分盘）、"sk赢不了这样打只是想杀减号"（质疑 SK 只为杀盘）、"洗白犬买了减号"x6——观众认为盘口资金在操控比赛节奏；按纪律标注为"观众质疑·非结论"，与 Polymarket 价格（KC 94.95c）对照后未发现明显背离。</div>
+</div>
+
+<!-- 5 方向性情报板 + 共识提炼 -->
+<div class="card consensus">
+  <h2><span class="no">5</span>方向性情报板（正锚 × 负锚 × 共识提炼）</h2>
+  <h3>正锚</h3>
+  <table>
+    <tr><th>对象</th><th>锚点</th><th>条数/来源</th><th>验证</th></tr>
+    <tr><td>KC · Canna 兰博</td><td>"兰博怎么这么肥"</td><td>弹幕多路；官方 window 确认</td><td>G2 进行中（优势）</td></tr>
+    <tr><td>KC · 整体</td><td>1-0 领先 + 盘口 85.5c</td><td>官方+Polymarket</td><td>G1 应验</td></tr>
+    <tr><td>KC · Yike 蔚</td><td>"这个 yike 畜生"（强）</td><td>弹幕；单源</td><td>待定</td></tr>
+  </table>
+  <h3>负锚</h3>
+  <table>
+    <tr><th>对象</th><th>锚点</th><th>条数/来源</th><th>验证</th></tr>
+    <tr><td>SK · Mikyx 巴德</td><td>"内鬼巴德/救人巴德/故意救对面"</td><td>114 条（三路共振）</td><td>G2 进行中（负锚实锤中）</td></tr>
+    <tr><td>SK · 全队</td><td>"sk赢不了这样打"</td><td>弹幕；多路</td><td>G1 应验（0-1）</td></tr>
+    <tr><td>SK · SlowQ 妖姬</td><td>"妖姬能不在正面"（操作质疑）</td><td>弹幕；单源</td><td>待定</td></tr>
+  </table>
+  <h3>弹幕共识提炼（带量）</h3>
+  <table>
+    <tr><th>共识主题</th><th>方向</th><th>条数</th><th>关键样本</th><th>多源状态</th></tr>
+    <tr><td>巴德内鬼</td><td>SK 辅助犯罪</td><td>114</td><td>"救人巴德"x6 / "畜生巴德"x6</td><td>三路共振</td></tr>
+    <tr><td>假赛/控分</td><td>比赛"假"、盘口资金操控</td><td>40</td><td>"真他妈的假""纯在刷人头"</td><td>三路</td></tr>
+    <tr><td>KC 强度</td><td>"KC 节奏比 LPL 9 成队伍强"</td><td>3</td><td>"感觉kc的节奏比lpl9成队伍强"</td><td>单源（玩梗）</td></tr>
+    <tr><td>盘口加/减号</td><td>让分盘控分讨论</td><td>14</td><td>"买了减号"x6</td><td>多路</td></tr>
+  </table>
+  <div class="warnbox"><b>共识→信号链：</b>巴德内鬼（114 条，三路共振）+ 盘口 KC 85.5c 同向 = SK G2 难翻；但"假赛/控分"40 条是 KC 高灰队的历史敏感项——若 G2 出现离奇翻盘，按 KC 卡时间规律重新定价（08-24 曾出现高灰但方向未兑现的反例）。</div>
+</div>
+
+<!-- 6 情报含义与决策落点 -->
+<div class="card">
+  <h2><span class="no">6</span>情报含义与决策落点（LONG / SHORT 分层）</h2>
+  <table>
+    <tr><th>方向</th><th>标的</th><th>逻辑</th><th>置信</th></tr>
+    <tr><td>LONG</td><td>KC BO3 / 图二</td><td>1-0 领先 + 盘口 85.5c/94.95c + 兰博肥 + SK 巴德内鬼共振</td><td>中-高（多源共振）</td></tr>
+    <tr><td>观察</td><td>总局数 Over 2.5（12c 低）</td><td>若 G2 SK 靠巴德"犯罪"拖局/翻盘，Over 有边际价值；市场预期 2-0</td><td>低（逆市场）</td></tr>
+    <tr><td>风险</td><td>KC 卡时间/灰信号</td><td>KC 高灰队 + 40 条质疑——若 G2 异常拖长，需重估"2-0 干净收"预期</td><td>中（历史规律）</td></tr>
+  </table>
+</div>
+
+<!-- 7 逐局复盘 -->
+<div class="card">
+  <h2><span class="no">7</span>逐局复盘（官方阵容 + 弹幕印证）</h2>
+  <table>
+    <tr><th>局</th><th>胜方</th><th>复盘</th><th>印证</th></tr>
+    <tr><td>G1</td><td>KC</td><td>KC 崔斯特/盲僧/辛德拉/EZ/蕾欧娜体系拿下（G1 弹幕未采，仅官方结果+阵容）</td><td>官方 gameWins KC 1；Polymarket G1 KC 99.95c</td></tr>
+    <tr><td>G2</td><td>进行中</td><td>KC Canna 兰博肥（"怎么这么肥"）；SK Mikyx 巴德内鬼操作被三路弹幕集中攻击（"救人巴德""故意救对面"）；盘口 KC 85.5c</td><td>官方 window 阵容；弹幕 114 条负锚；Polymarket</td></tr>
+  </table>
+</div>
+
+<!-- 8 队伍/人员画像（带量） -->
+<div class="card">
+  <h2><span class="no">8</span>队伍 / 人员画像（弹幕口径 · 带量）</h2>
+  <table>
+    <tr><th>对象</th><th>提及</th><th>情绪</th><th>要点</th></tr>
+    <tr><td>SK · Mikyx（辅助）</td><td>114+</td><td>极负</td><td>巴德"救人/内鬼/畜生"；"鸡兔不要的垃圾辅助"（前 G2 辅助身份）</td></tr>
+    <tr><td>KC · Canna（上单）</td><td>10+</td><td>正</td><td>兰博"怎么这么肥"（G2 核心优势点）</td></tr>
+    <tr><td>KC · Yike（打野）</td><td>5+</td><td>正</td><td>"这个 yike 畜生"（强）</td></tr>
+    <tr><td>SK · SlowQ（中单）</td><td>3</td><td>负</td><td>妖姬"能不在正面"（操作质疑）</td></tr>
+  </table>
+  <details style="margin:6px 0;font-size:12px;color:var(--sub)"><summary>弹幕原句摘录（中文已在上表）</summary><div>"救人巴德"x6、"畜生巴德"x6、"这巴德是人啊 故意救对面？"x3、"巴德金干嘛"x3、"鸡兔不要的垃圾辅助"、"兰博怎么这么肥啊"、"看来有洗白犬买了减号哈哈哈哈"x6</div></details>
+</div>
+
+<!-- 9 联赛规律与版本 -->
+<div class="card">
+  <h2><span class="no">9</span>联赛规律与版本（沉淀层）</h2>
+  <ul>
+    <li><b>KC 灰信号高预警队延续：</b>08-18 卡时间 69 条 → 08-24 KC-SHFT 100 条（方向未兑现反例）→ 今日控分质疑 40 条——KC 是 LEC 灰信号浓度最高的队伍，需持续兑现统计。</li>
+    <li><b>辅助位 BP 变量：</b>Mikyx 巴德 vs Busio 拉克丝——巴德这类"高操作高风险"辅助一旦犯罪即成为弹幕共识焦点，是 BP 价值评估的反向样本。</li>
+    <li><b>"欧洲倒数第一吃第一"传统：</b>SK 为弱队（弹幕"sk赢不了"），KC 榜首——本场符合强队 1-0 预期，若 SK 翻盘则再现榜尾爆冷传统。</li>
+  </ul>
+</div>
+
+<!-- 10 预测验证回填 -->
+<div class="card">
+  <h2><span class="no">10</span>预测验证回填明细（闭环）</h2>
+  <table>
+    <tr><th>预测/锚点</th><th>方向</th><th>验证</th></tr>
+    <tr><td>KC 1-0 领先（盘口 94.95c）</td><td>KC 胜</td><td>G1 应验</td></tr>
+    <tr><td>巴德内鬼负锚（114 条）</td><td>SK G2 难翻</td><td>G2 进行中，待回填</td></tr>
+    <tr><td>假赛/控分质疑（40 条）</td><td>条件式风险</td><td>待兑现统计（gray-tracking）</td></tr>
+    <tr><td>Polymarket KC 图二 85.5c</td><td>KC G2 胜</td><td>G2 结算回填</td></tr>
+  </table>
+</div>
+
+<!-- 11 关键信息 TOP -->
+<div class="card">
+  <h2><span class="no">11</span>关键信息 TOP（共识 × 价值）</h2>
+  <table>
+    <tr><th>#</th><th>类型</th><th>关键信息</th><th>来源/置信</th></tr>
+    <tr><td>1</td><td>结果</td><td>KC 1:0 SK（官方 gameWins），G2 进行中</td><td>官方 · 确认</td></tr>
+    <tr><td>2</td><td>胜负手</td><td>SK Mikyx 巴德"内鬼"操作（114 条三路共振）——G2 最大变量</td><td>弹幕+官方 window · 多源</td></tr>
+    <tr><td>3</td><td>盘口</td><td>KC 图二 85.5c / BO3 94.95c——市场预期 2-0</td><td>Polymarket · 确认</td></tr>
+    <tr><td>4</td><td>灰信号</td><td>假赛/控分质疑 40 条（"真他妈的假""洗白犬买了减号"）——观众质疑·非结论</td><td>三路弹幕 · 待兑现统计</td></tr>
+    <tr><td>5</td><td>正锚</td><td>KC Canna 兰博优势（"怎么这么肥"）+ Yike 蔚</td><td>官方 window+弹幕 · 应验中</td></tr>
+  </table>
+</div>
+
+<!-- 12 数据与溯源 -->
+<div class="card">
+  <h2><span class="no">12</span>数据与溯源</h2>
+  <table>
+    <tr><td>官方源</td><td>Riot esports-api（getEventDetails：KC 1:0，G1/G2 阵容 window 已回填）；patch 16.17</td></tr>
+    <tr><td>弹幕源</td><td>docs/data/danmu/huya/2026-08-30_huya_{shuoshuo,maomao,remember}.jsonl · 00:27 接入 · 会话 lec_2026-08-29</td></tr>
+    <tr><td>盘口源</td><td>Polymarket gamma lol-kc-sk-2026-08-29（00:40 快照）</td></tr>
+    <tr><td>数据缺口</td><td>① G1 弹幕未采（00:27 接入前已结束，仅官方结果）；② G2 window 击杀/经济字段未填充（仅阵容）；③ 灰信号词表需赛后全量复核</td></tr>
+  </table>
+  <p class="meta">生成时间：2026-08-30 00:42 CST · 情报原则：事实层=官方 window，弹幕=三路待验证，灰信号不升格。</p>
+</div>
+
+<p class="footer">弹幕情报 · 观众质疑非结论 · 比分以官方源为准 · Polymarket 电竞情报项目</p>
+</div>
+</body>
+</html>

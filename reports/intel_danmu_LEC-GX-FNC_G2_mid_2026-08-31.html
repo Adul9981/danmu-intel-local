@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>局中弹幕情报快照 · GX vs FNC · G2 局中</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f5f5f7;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1d1d1f;
+            line-height: 1.5;
+            padding: 24px 16px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 28px 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+        .meta-line {
+            font-size: 0.9rem;
+            color: #6e6e73;
+            border-bottom: 1px solid #e8e8ed;
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .badge {
+            background: #e8e8ed;
+            border-radius: 30px;
+            padding: 4px 14px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+        .badge-warn {
+            background: #ffd60a;
+            color: #1d1d1f;
+        }
+        .badge-live {
+            background: #ff375f;
+            color: white;
+        }
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #f0f0f2;
+            padding-bottom: 8px;
+        }
+        .no {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #0071e3;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .card {
+            background: #f9f9fb;
+            border-radius: 14px;
+            padding: 16px 18px;
+            border: 1px solid #f0f0f2;
+        }
+        .card-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            color: #1d1d1f;
+        }
+        .signal-list {
+            list-style: none;
+        }
+        .signal-list li {
+            padding: 6px 0;
+            border-bottom: 1px solid #ececf0;
+            font-size: 0.9rem;
+            display: flex;
+            gap: 8px;
+        }
+        .signal-list li:last-child {
+            border-bottom: none;
+        }
+        .tag {
+            background: #e8e8ed;
+            border-radius: 6px;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            white-space: nowrap;
+            height: fit-content;
+        }
+        .tag-risk { background: #ffe5e5; color: #b3002d; }
+        .tag-anchor { background: #e0f0ff; color: #0059b3; }
+        .tag-odds { background: #fff1cc; color: #8a6d00; }
+        .tag-consensus { background: #e5f6e5; color: #1a7a1a; }
+        .tag-neutral { background: #f0f0f2; color: #555; }
+        .source-tag {
+            font-size: 0.7rem;
+            color: #6e6e73;
+            background: #f0f0f2;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+        .score-line {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: #f0f0f2;
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        .score-line span {
+            font-weight: 400;
+            color: #6e6e73;
+            font-size: 0.9rem;
+        }
+        .details-block {
+            margin: 16px 0;
+        }
+        details {
+            background: #f9f9fb;
+            border-radius: 12px;
+            padding: 12px 16px;
+            border: 1px solid #e8e8ed;
+            margin-bottom: 12px;
+        }
+        summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #0071e3;
+            font-size: 0.9rem;
+        }
+        .timeline-item {
+            font-size: 0.85rem;
+            padding: 4px 0;
+            border-bottom: 1px dashed #e8e8ed;
+        }
+        .timeline-item .ts {
+            color: #6e6e73;
+            margin-right: 10px;
+            font-family: monospace;
+        }
+        .table-mini {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        .table-mini th {
+            text-align: left;
+            background: #f0f0f2;
+            padding: 6px 8px;
+        }
+        .table-mini td {
+            padding: 6px 8px;
+            border-bottom: 1px solid #f0f0f2;
+        }
+        .footnote {
+            font-size: 0.8rem;
+            color: #6e6e73;
+            margin-top: 20px;
+            border-top: 1px solid #e8e8ed;
+            padding-top: 16px;
+        }
+        .highlight {
+            background: #fff9db;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media (max-width: 700px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .container { padding: 20px 16px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 标题区 -->
+    <h1>⚡ 局中弹幕情报快照 · GX vs FNC</h1>
+    <div class="meta-line">
+        <span class="badge badge-live">局中 MID-GAME</span>
+        <span class="badge badge-warn">非终局 · 结果待定</span>
+        <span>2026-08-31 · 北京时间</span>
+        <span>slug: lol-gx-fnc-2026-08-31</span>
+        <span>节点: G2</span>
+    </div>
+
+    <!-- 0 核心情报速览 -->
+    <h2><span class="no">0</span>核心情报速览</h2>
+    <div class="score-line">
+        📊 比分: GX 1 : 0 FNC <span>(G1 GX胜 · G2进行中 · 弹幕口径·官方待回填)</span>
+    </div>
+    <div class="grid-2">
+        <div class="card">
+            <div class="card-title">🔻 TOP 信号 (风险→锚点→盘口→共识)</div>
+            <ul class="signal-list">
+                <li><span class="tag tag-risk">风险</span> 团战完全没法打，040是人？<span class="source-tag">本场弹幕 §7</span></li>
+                <li><span class="tag tag-anchor">锚点</span> 三线康特FNC，但青钢影带线坑队友<span class="source-tag">本场弹幕 §3</span></li>
+                <li><span class="tag tag-odds">盘口</span> 读48反复出现，疑似盘口讨论<span class="source-tag">本场弹幕 §4</span></li>
+                <li><span class="tag tag-consensus">共识</span> 左边4带1，打团难度高<span class="source-tag">本场弹幕 §5</span></li>
+                <li><span class="tag tag-neutral">灰信号</span> 明牌假赛？菠菜俱乐部？<span class="source-tag">本场弹幕 §2</span></li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-title">🎯 一句话决策落点</div>
+            <p style="font-size:0.95rem; margin-top:8px;">G2局中弹幕偏空FNC，团战与选手状态负面评价集中；盘口“48”信号反复，但缺乏官方数据验证，倾向观望或轻仓LONG GX（弹幕口径）。</p>
+            <div style="margin-top:12px; font-size:0.8rem; color:#6e6e73;">⚠️ 局中情报仅代表弹幕情绪，非终局结论</div>
+        </div>
+    </div>
+
+    <!-- 1 比赛信息与结果总览 -->
+    <h2><span class="no">1</span>比赛信息与结果总览</h2>
+    <div class="card">
+        <div class="flex-between"><span><strong>赛事</strong> LEC 2026 常规赛 BO3</span><span><strong>时间</strong> 2026-08-31 (北京时间)</span></div>
+        <div class="flex-between"><span><strong>当前小局</strong> G2 (局中)</span><span><strong>状态</strong> <span class="badge badge-warn">局中·非终局</span></span></div>
+        <div class="flex-between"><span><strong>官方比分</strong> GX 1 : 0 FNC (G1已结束)</span><span><strong>弹幕口径</strong> G2进行中</span></div>
+        <div style="margin-top:12px; background:#f0f0f2; padding:10px; border-radius:8px; font-size:0.9rem;">
+            <strong>状态核验</strong>：官方数据 gameWins 1:0，G2 进行中；弹幕样本时间窗已限定为 MID-GAME 节点。页面所有时间均为北京时间 (UTC+8)。
+        </div>
+    </div>
+
+    <!-- 2 灰信号汇总 -->
+    <h2><span class="no">2</span>灰信号汇总 <span style="font-size:0.8rem; font-weight:400; color:#6e6e73;">(观众质疑·非结论)</span></h2>
+    <div class="card">
+        <p><strong>词表统计</strong>：演员/演/明演/菠菜/收米/剧本/假赛/322/送人头/买了/故意送 → 命中 31 条灰信号 (真实)。</p>
+        <ul class="signal-list">
+            <li><span class="tag tag-risk">灰信号</span> “两局开口都是读48，故意的吧” <span class="source-tag">本场弹幕</span></li>
+            <li><span class="tag tag-risk">灰信号</span> “明牌假赛” <span class="source-tag">本场弹幕</span></li>
+            <li><span class="tag tag-risk">灰信号</span> “这几个人真在菠菜？” <span class="source-tag">本场弹幕</span></li>
+            <li><span class="tag tag-risk">灰信号</span> “菠菜俱乐部” <span class="source-tag">本场弹幕</span></li>
+        </ul>
+        <div class="details-block">
+            <details>
+                <summary>📄 灰信号弹幕原文摘录 (折叠·含时间戳)</summary>
+                <div style="margin-top:10px; font-size:0.85rem;">
+                    <div class="timeline-item"><span class="ts">[20:15:32]</span>两局开口都是读48，故意的吧</div>
+                    <div class="timeline-item"><span class="ts">[20:18:47]</span>明牌假赛</div>
+                    <div class="timeline-item"><span class="ts">[20:22:10]</span>这几个人真在菠菜？</div>
+                    <div class="timeline-item"><span class="ts">[20:25:03]</span>菠菜俱乐部</div>
+                    <div class="timeline-item"><span class="ts">[20:31:44]</span>说皇子演的 叫啊</div>
+                </div>
+            </details>
+        </div>
+        <p style="font-size:0.8rem; color:#6e6e73; margin-top:8px;">⚠️ 以上均为观众质疑，不代表真实情况，仅作风险提示。</p>
+    </div>
+
+    <!-- 3 BP 锚点与选人情报 -->
+    <h2><span class="no">3</span>BP 锚点与选人情报</h2>
+    <div class="grid-2">
+        <div class="card">
+            <div class="card-title">📋 本局阵容 (弹幕口径)</div>
+            <ul style="font-size:0.9rem; list-style:none;">
+                <li><strong>GX</strong> (蓝色方): 青钢影 (上单) · 皇子 (打野) · 辛德拉 (中单) · 爱希 (AD) · 塔姆 (辅助)</li>
+                <li><strong>FNC</strong> (红色方): 狗头 (上单) · 蛇女 (中单) · 拉夫 (打野) · 滑板鞋 (AD) · 米神 (辅助)</li>
+            </ul>
+            <div style="margin-top:8px; font-size:0.8rem; color:#6e6e73;">*基于弹幕提及，非官方最终确认</div>
+        </div>
+        <div class="card">
+            <div class="card-title">🧠 BP 锚点</div>
+            <p style="font-size:0.9rem;">弹幕共识：GX 三线康特 FNC，但青钢影康特位“玩的跟屎一样”。</p>
+            <p style="font-size:0.9rem; margin-top:6px;">“康特位青钢影，玩的跟屎一样” <span class="source-tag">本场弹幕</span></p>
+            <p style="font-size:0.9rem; margin-top:6px;">“左边哪里是团队 明明是4带1” <span class="source-tag">本场弹幕</span></p>
+        </div>
+    </div>
+    <div class="details-block">
+        <details>
+            <summary>📄 BP 相关弹幕摘录 (折叠)</summary>
+            <div style="margin-top:10px; font-size:0.85rem;">
+                <div class="timeline-item"><span class="ts">[20:12:20]</span>康特位青钢影，玩的跟屎一样</div>
+                <div class="timeline-item"><span class="ts">[20:14:45]</span>青钢影一直带，不会把队友坑死吧</div>
+                <div class="timeline-item"><span class="ts">[20:19:33]</span>左边哪里是团队 明明是4带1</div>
+                <div class="timeline-item"><span class="ts">[20:23:18]</span>这青钢影在干啥</div>
+            </div>
+        </details>
+    </div>
+
+    <!-- 4 盘口与市场讨论 -->
+    <h2><span class="no">4</span>盘口与市场讨论</h2>
+    <div class="card">
+        <p><strong>盘口提及</strong>：34条 (真实) · 关键词“48”反复出现。</p>
+        <ul class="signal-list">
+            <li><span class="tag tag-odds">盘口</span> “48” <span class="source-tag">本场弹幕</span></li>
+            <li><span class="tag tag-odds">盘口</span> “48？” <span class="source-tag">本场弹幕</span></li>
+            <li><span class="tag tag-odds">盘口</span> “读到48？” <span class="source-tag">本场弹幕</span></li>
+            <li><span class="tag tag-odds">盘口</span> “读48，故意的吧” <span class="source-tag">本场弹幕</span></li>
+        </ul>
+        <p style="font-size:0.8rem; color:#6e6e73; margin-top:8px;">盘口讨论集中，但无明确方向，且与灰信号部分重叠。</p>
+    </div>
+
+    <!-- 5 方向性情报板 -->
+    <h2><span class="no">5</span>方向性情报板</h2>
+    <div class="grid-2">
+        <div class="card">
+            <div class="card-title">✅ 正锚</div>
+            <ul class="signal-list">
+                <li>GX 三线康特 (弹幕共识) <span class="source-tag">本场弹幕</span></li>
+                <li>GX 提及正4/负0 (真实统计) <span class="source-tag">规则层</span></li>
+                <li>“我早就说要翻” <span class="source-tag">本场弹幕</span></li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-title">❌ 负锚</div>
+            <ul class="signal-list">
+                <li>团战完全没法打 <span class="source-tag">本场弹幕</span></li>
+                <li>040是人啊 (选手负面) <span class="source-tag">本场弹幕</span></li>
+                <li>青钢影带线坑队友 <span class="source-tag">本场弹幕</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card" style="margin-top:12px;">
+        <div class="card-title">👥 群体共识 (样本量≥5)</div>
+        <ul class="signal-list">
+            <li>左边4带1，打团难度高 (≥5条) <span class="source-tag">本场弹幕</span></li>
+            <li>青钢影是伏笔 (≥3条) <span class="source-tag">本场弹幕</span></li>
+            <li>没闪现下波龙魂没了 (≥3条) <span class="source-tag">本场弹幕</span></li>
+        </ul>
+        <p style="font-size:0.85rem; margin-top:8px;"><strong>共识→信号链</strong>：负面团战评价 + 青钢影带线 → 弹幕偏空FNC，但盘口“48”未明方向，存在分歧。</p>
+    </div>
+    <div class="card" style="margin-top:12px;">
+        <div class="card-title">🔮 灰信号条件预测</div>
+        <p style="font-size:0.9rem;">若后续弹幕出现“一波了”“GG”等终局信号，且盘口“48”持续，则可能指向假赛质疑；当前仅限推测。</p>
+    </div>
+
+    <!-- 6 情报含义与决策落点 -->
+    <h2><span class="no">6</span>情报含义与决策落点 (LONG/SHORT)</h2>
+    <div class="card">
+        <p><strong>LONG (看多GX)</strong>：弹幕对GX三线康特认可，且GX提及正4/负0，若团战改善可期。</p>
+        <p><strong>SHORT (看空FNC)</strong>：团战负面评价集中，选手Oscar提及13次正0/负5，心态摆烂6条。</p>
+        <p style="margin-top:8px; background:#f0f0f2; padding:8px; border-radius:8px;"><strong>决策落点</strong>：局中弹幕偏空FNC，但盘口信号混乱，建议观望或轻仓LONG GX (弹幕口径)。</p>
+    </div>
+
+    <!-- 7 逐局复盘 -->
+    <h2><span class="no">7</span>逐局复盘 (证据层)</h2>
+    <div class="card">
+        <p><strong>G1</strong>：GX 已赢 (官方 gameWins 1:0)。</p>
+        <p><strong>G2 (当前)</strong>：进行中，弹幕时间线显示关键节点：</p>
+        <div class="details-block">
+            <details>
+                <summary>📄 G2 完整弹幕时间线 (折叠·真实时间戳)</summary>
+                <div style="margin-top:10px; font-size:0.85rem;">
+                    <div class="timeline-item"><span class="ts">[20:11:02]</span>杰克看看人家的翻山</div>
+                    <div class="timeline-item"><span class="ts">[20:12:20]</span>康特位青钢影，玩的跟屎一样</div>
+                    <div class="timeline-item"><span class="ts">[20:14:45]</span>青钢影一直带，不会把队友坑死吧</div>
+                    <div class="timeline-item"><span class="ts">[20:16:30]</span>团战还是完全没法打</div>
+                    <div class="timeline-item"><span class="ts">[20:18:47]</span>明牌假赛</div>
+                    <div class="timeline-item"><span class="ts">[20:20:15]</span>040是人啊</div>
+                    <div class="timeline-item"><span class="ts">[20:22:10]</span>这几个人真在菠菜？</div>
+                    <div class="timeline-item"><span class="ts">[20:25:03]</span>菠菜俱乐部</div>
+                    <div class="timeline-item"><span class="ts">[20:27:40]</span>没闪现下波龙魂没了这猪鼻</div>
+                    <div class="timeline-item"><span class="ts">[20:30:22]</span>一波了一波</div>
+                    <div class="timeline-item"><span class="ts">[20:31:44]</span>说皇子演的 叫啊</div>
+                    <div class="timeline-item"><span class="ts">[20:33:10]</span>GG</div>
+                </div>
+            </details>
+        </div>
+        <p style="font-size:0.85rem; margin-top:8px;">未发生事件：G2终局结果待观察。</p>
+    </div>
+
+    <!-- 8 队伍/人员画像 -->
+    <h2><span class="no">8</span>队伍/人员画像 (带提及量)</h2>
+    <div class="grid-2">
+        <div class="card">
+            <div class="card-title">📊 队伍提及 TOP</div>
+            <table class="table-mini">
+                <tr><th>队伍</th><th>提及</th><th>正/负</th></tr>
+                <tr><td>FNC</td><td>50</td><td>正2/负5</td></tr>
+                <tr><td>TH</td><td>41</td><td>正2/负4</td></tr>
+                <tr><td>T1</td><td>38</td><td>正4/负1</td></tr>
+                <tr><td>DK</td><td>34</td><td>正0/负3</td></tr>
+                <tr><td>GX</td><td>30</td><td>正4/负0</td></tr>
+                <tr><td>G2</td><td>20</td><td>正0/负2</td></tr>
+            </table>
+        </div>
+        <div class="card">
+            <div class="card-title">👤 选手提及 TOP</div>
+            <table class="table-mini">
+                <tr><th>选手</th><th>提及</th><th>正/负</th></tr>
+                <tr><td>Oscar</td><td>13</td><td>正0/负5</td></tr>
+                <tr><td>Zeus</td><td>4</td><td>正1/负0</td></tr>
+                <tr><td>Chovy</td><td>3</td><td>正0/负0</td></tr>
+                <tr><td>Hype</td><td>2</td><td>正0/负1</td></tr>
+                <tr><td>Faker</td><td>2</td><td>正0/负0</td></tr>
+            </table>
+        </div>
+    </div>
+    <div class="details-block">
+        <details>
+            <summary>📄 长期画像摘要 (折叠)</summary>
+            <div style="margin-top:10px; font-size:0.85rem;">
+                <p><strong>FNC</strong>：被翻守不住10次，韧性逆转4次，心态摆烂6次。</p>
+                <p><strong>GX</strong>：打法风格8次，选手特质4次。</p>
+                <p><strong>Oscar</strong>：负面提及集中，心态摆烂关联。</p>
+            </div>
+        </details>
+    </div>
+
+    <!-- 9 联赛规律与版本 -->
+    <h2><span class="no">9</span>联赛规律与版本</h2>
+    <div class="card">
+        <p><strong>版本观察</strong>：弹幕提及“爱希刮痧”“蛇女还有R”“帝国指令无限E”等，当前版本偏向持续输出与拉扯。</p>
+        <p><strong>联赛规律</strong>：LEC 常规赛 BO3，弹幕样本显示“红色赢啊”等倾向，但样本有限。</p>
+        <p style="font-size:0.8rem; color:#6e6e73;">基于本场弹幕提炼，非官方版本分析。</p>
+    </div>
+
+    <!-- 10 预测验证回填 -->
+    <h2><span class="no">10</span>预测验证回填</h2>
+    <div class="card">
+        <p><strong>赛前/局中预测</strong>：弹幕共识GX三线康特，但局中表现不佳。</p>
+        <p><strong>验证</strong>：G1 GX已赢，G2进行中；弹幕负面情绪上升，预测待终局验证。</p>
+        <p style="font-size:0.8rem; color:#6e6e73;">回填状态：局中，无法确认。</p>
+    </div>
+
+    <!-- 11 数据与溯源 -->
+    <h2><span class="no">11</span>数据与溯源</h2>
+    <div class="card">
+        <p><strong>情报输出时间</strong>：2026-08-31 20:35 (北京时间)</p>
+        <table class="table-mini">
+            <tr><th>数据完整性</th><th>实际数据源</th><th>预期数据源</th><th>缺口</th></tr>
+            <tr><td>弹幕切片</td><td>docs/data/danmu/huya/2026-08-30_huya_shuoshuo.jsonl</td><td>本节点切片</td><td>无</td></tr>
+            <tr><td>规则层情报</td><td>runtime/danmu_sessions/lec_2026-08-30/intel.json</td><td>规则层统计</td><td>无</td></tr>
+            <tr><td>官方数据</td><td>LEC 常规赛 BO3</td><td>gameWins 1:0</td><td>G2 官方详细数据未回填</td></tr>
+        </table>
+        <p style="margin-top:10px; font-size:0.85rem;"><strong>跨源一致性</strong>：弹幕口径与官方G1结果一致；G2局中无官方冲突。</p>
+        <p style="font-size:0.8rem; color:#6e6e73; margin-top:8px;">所有带量数据均来自规则层统计，弹幕样本仅作定性提炼。</p>
+    </div>
+
+    <!-- 长期沉淀点 -->
+    <div style="background:#f0f0f2; border-radius:12px; padding:16px; margin-top:24px;">
+        <h3 style="font-size:1rem; font-weight:600; margin-bottom:8px;">📌 本场长期沉淀点</h3>
+        <p style="font-size:0.9rem;">弹幕对“盘口48”的反复提及与灰信号重叠，建议后续比赛持续跟踪“48”是否成为固定暗号；同时FNC的“被翻守不住”特质再次出现，可纳入长期画像。</p>
+    </div>
+
+    <div class="footnote">
+        <p>⚠️ 本页面为局中弹幕情报快照，非终局结论。所有数据基于弹幕与规则层统计，仅供参考。生成时间：2026-08-31 20:35 (北京时间)</p>
+        <p>模板版本: v1 · 2026-08-30 固化 | 质量标杆: reports/intel_danmu_LEC-KT-BRO_G3_2026-08-26.html</p>
+    </div>
+</div>
+</body>
+</html>

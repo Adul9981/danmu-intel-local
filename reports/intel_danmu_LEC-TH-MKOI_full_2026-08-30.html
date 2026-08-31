@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>整场弹幕情报 · LEC TH vs MKOI · 2026-08-30</title>
+    <style>
+        :root {
+            --bg: #f5f5f7;
+            --card: #ffffff;
+            --accent: #0071e3;
+            --text: #1d1d1f;
+            --secondary: #6e6e73;
+            --border: #d2d2d7;
+            --risk: #d70015;
+            --anchor: #0066cc;
+            --consensus: #34c759;
+            --grey: #8e8e93;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--text);
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .card {
+            background: var(--card);
+            border-radius: 18px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+        .subhead {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        .meta-line {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .meta-line span { background: #f0f0f2; padding: 0.2rem 0.8rem; border-radius: 20px; }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2.2rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.4rem;
+        }
+        h2 .no {
+            background: var(--accent);
+            color: white;
+            border-radius: 10px;
+            width: 2rem;
+            height: 2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+        .score-banner {
+            background: linear-gradient(135deg, #f0f4ff, #e8edfc);
+            border-radius: 16px;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        .score-banner .result {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        .score-banner .status {
+            background: #fff;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            border: 1px solid var(--border);
+        }
+        .signal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin: 1.2rem 0;
+        }
+        .signal-item {
+            background: #f9f9fb;
+            border-radius: 14px;
+            padding: 1rem 1.2rem;
+            border-left: 4px solid var(--accent);
+        }
+        .signal-item .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            background: #e8e8ed;
+            color: var(--secondary);
+            margin-bottom: 0.4rem;
+        }
+        .signal-item .tag.risk { background: #ffe5e8; color: var(--risk); }
+        .signal-item .tag.anchor { background: #e0f0ff; color: var(--anchor); }
+        .signal-item .tag.consensus { background: #e3f9e5; color: #1a7f37; }
+        .signal-item .tag.odds { background: #fff3d9; color: #b37400; }
+        .signal-item p { font-size: 0.95rem; margin: 0.3rem 0; }
+        .signal-item .meta { font-size: 0.8rem; color: var(--secondary); }
+        .table-wrap { overflow-x: auto; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+        }
+        th {
+            background: #f5f5f7;
+            font-weight: 600;
+            text-align: left;
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+        td {
+            padding: 0.7rem 0.8rem;
+            border-bottom: 1px solid #f0f0f2;
+            vertical-align: top;
+        }
+        .details-block {
+            background: #fafafc;
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+        }
+        details {
+            background: #fafafc;
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+        }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--accent);
+            padding: 0.3rem 0;
+        }
+        .quote {
+            background: #f0f0f5;
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 1rem;
+            margin: 0.6rem 0;
+            font-size: 0.9rem;
+            border-radius: 0 8px 8px 0;
+        }
+        .source-tag {
+            font-size: 0.7rem;
+            background: #e8e8ed;
+            padding: 0.15rem 0.5rem;
+            border-radius: 12px;
+            color: var(--secondary);
+            margin-left: 0.4rem;
+            white-space: nowrap;
+        }
+        .footer-note {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+            padding-top: 1rem;
+            text-align: center;
+        }
+        .flex-row { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+        .flex-col { flex: 1 1 300px; }
+        .highlight { background: #fffbea; padding: 0.2rem 0.4rem; border-radius: 4px; }
+        .grey-text { color: var(--grey); font-size: 0.85rem; }
+        .anchor-list { list-style: none; padding-left: 0; }
+        .anchor-list li { padding: 0.4rem 0; border-bottom: 1px dashed #e5e5e8; }
+        .anchor-list li:last-child { border-bottom: none; }
+        .pill {
+            display: inline-block;
+            background: #e8f0fe;
+            color: #0066cc;
+            border-radius: 30px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .risk-pill { background: #ffe5e8; color: var(--risk); }
+        .cons-pill { background: #e3f9e5; color: #1a7f37; }
+        .odds-pill { background: #fff3d9; color: #b37400; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 标题区 -->
+    <div style="margin-bottom: 1rem;">
+        <h1>⚡ 整场弹幕情报 · LEC 2026</h1>
+        <div class="subhead">TH vs MKOI · 系列复盘 · 2026-08-30</div>
+        <div class="meta-line">
+            <span>📅 北京时间 2026-08-30</span>
+            <span>🏷️ slug: lol-th-mkoi-2026-08-30</span>
+            <span>🔞 节点: FINAL / SERIES-REVIEW</span>
+            <span>✅ 结果: MKOI 2:0 TH (官方)</span>
+        </div>
+    </div>
+
+    <!-- 0 核心情报速览 -->
+    <div class="card">
+        <h2><span class="no">0</span>核心情报速览</h2>
+        <div class="score-banner">
+            <div class="result">MKOI 2 : 0 TH</div>
+            <div class="status">✅ 官方确认 · Polymarket 结算</div>
+        </div>
+        <div class="signal-grid">
+            <div class="signal-item">
+                <span class="tag risk">风险</span>
+                <p>弹幕出现“演/收了”等灰词，但无实据</p>
+                <div class="meta">→ 详 §2 · 决策: 不改变结果判断</div>
+            </div>
+            <div class="signal-item">
+                <span class="tag anchor">锚点</span>
+                <p>MKOI 下路对线压制，G1 15分钟推一塔</p>
+                <div class="meta">→ 详 §3/§7 · 决策: LONG MKOI</div>
+            </div>
+            <div class="signal-item">
+                <span class="tag odds">盘口</span>
+                <p>赛前盘口 MKOI 1.45 vs TH 2.75，市场偏 MKOI</p>
+                <div class="meta">→ 详 §4 · 决策: 盘口与结果同向</div>
+            </div>
+            <div class="signal-item">
+                <span class="tag consensus">共识</span>
+                <p>弹幕共识 MKOI 运营更优，TH 失误频繁</p>
+                <div class="meta">→ 详 §5/§10 · 决策: 共识与结果一致</div>
+            </div>
+        </div>
+        <p style="font-size:0.85rem; color:var(--secondary); margin-top:0.8rem;">※ 速览卡均为意译，非弹幕原文。核心情报全部来自本场弹幕，历史画像仅作辅助。</p>
+    </div>
+
+    <!-- 1 比赛信息与结果总览 -->
+    <div class="card">
+        <h2><span class="no">1</span>比赛信息与结果总览</h2>
+        <div class="table-wrap">
+            <table>
+                <tr><th>项目</th><th>内容</th></tr>
+                <tr><td>比赛全称</td><td>LEC 2026 夏季常规赛 BO3</td></tr>
+                <tr><td>League / Slug</td><td>LEC / lol-th-mkoi-2026-08-30</td></tr>
+                <tr><td>赛制</td><td>BO3 (三局两胜)</td></tr>
+                <tr><td>最终比分</td><td><strong>MKOI 2 : 0 TH</strong> (G1 MKOI, G2 MKOI, G3 unneeded)</td></tr>
+                <tr><td>结果来源</td><td>Riot esports-api / Liquipedia / Polymarket 结算</td></tr>
+                <tr><td>弹幕口径</td><td>弹幕多信号确认比赛结束，结果与官方一致</td></tr>
+            </table>
+        </div>
+        <p style="font-size:0.85rem; color:var(--secondary);">※ 页面时间均为北京时间 (UTC+8)。弹幕原始时间戳已换算。</p>
+    </div>
+
+    <!-- 2 灰信号汇总 -->
+    <div class="card">
+        <h2><span class="no">2</span>灰信号汇总（风险·观众质疑非结论）</h2>
+        <p>按词表统计（演员/演/明演/开演/菠菜/收米/剧本/假赛/322/黑帮/送人头/买了/故意送等），共命中 <strong>7 条</strong>相关弹幕，均为观众情绪化表达，无任何实据。</p>
+        <div class="table-wrap">
+            <table>
+                <tr><th>灰词</th><th>条数</th><th>关键样本（北京时间）</th></tr>
+                <tr><td>演/明演</td><td>3</td><td>20:41:22 “这TH中单在演？”；20:58:07 “明演吧”</td></tr>
+                <tr><td>收了/买了</td><td>2</td><td>21:12:44 “收了收了”；21:15:19 “买了买了”</td></tr>
+                <tr><td>剧本</td><td>1</td><td>21:03:31 “剧本都不敢这么写”</td></tr>
+                <tr><td>送人头</td><td>1</td><td>20:47:58 “上单送人头”</td></tr>
+            </table>
+        </div>
+        <details>
+            <summary>📄 灰信号弹幕原文摘录（折叠）</summary>
+            <div class="quote">20:41:22 这TH中单在演？ (弹幕ID: 8f3a2)</div>
+            <div class="quote">20:58:07 明演吧，这打野不放大 (弹幕ID: 9c1e4)</div>
+            <div class="quote">21:12:44 收了收了，MKOI稳了 (弹幕ID: 2b7d9)</div>
+            <div class="quote">21:15:19 买了买了，TH没戏 (弹幕ID: 5a3f8)</div>
+            <div class="quote">21:03:31 剧本都不敢这么写，翻中翻 (弹幕ID: 7e2b1)</div>
+        </details>
+        <p style="color:var(--grey); font-size:0.85rem; margin-top:0.8rem;">⚠️ 以上均为观众质疑，非结论。未发现任何假赛实据，结果以官方为准。</p>
+    </div>
+
+    <!-- 3 BP 锚点与选人情报 -->
+    <div class="card">
+        <h2><span class="no">3</span>BP 锚点与选人情报</h2>
+        <h3>G1 阵容（北京时间 20:15 开始）</h3>
+        <div class="table-wrap">
+            <table>
+                <tr><th>队伍</th><th>上单</th><th>打野</th><th>中单</th><th>ADC</th><th>辅助</th></tr>
+                <tr><td>TH</td><td>纳尔</td><td>蔚</td><td>阿狸</td><td>泽丽</td><td>璐璐</td></tr>
+                <tr><td>MKOI</td><td>鳄鱼</td><td>大树</td><td>沙皇</td><td>滑板鞋</td><td>烈娜塔</td></tr>
+            </table>
+        </div>
+        <h3>G2 阵容（北京时间 21:05 开始）</h3>
+        <div class="table-wrap">
+            <table>
+                <tr><th>队伍</th><th>上单</th><th>打野</th><th>中单</th><th>ADC</th><th>辅助</th></tr>
+                <tr><td>TH</td><td>酒桶</td><td>猴子</td><td>辛德拉</td><td>厄斐琉斯</td><td>锤石</td></tr>
+                <tr><td>MKOI</td><td>格温</td><td>波比</td><td>维克托</td><td>EZ</td><td>卡尔玛</td></tr>
+            </table>
+        </div>
+        <p><strong>BP 锚点：</strong>MKOI 连续两局下路选择对线强势组合（滑板鞋+烈娜塔 / EZ+卡尔玛），弹幕多次提及“MKOI下路压制力强”。TH 中单两局均为 AP 核，但未能在团战端打出效果。</p>
+        <p><strong>战绩情报：</strong>弹幕中无提及两队近期 BP 后胜率数据，故无战绩情报提及。</p>
+        <details>
+            <summary>📄 BP 相关弹幕摘录（折叠）</summary>
+            <div class="quote">20:12:08 MKOI这滑板鞋选出来就感觉下路要穿线</div>
+            <div class="quote">20:14:33 TH拿泽丽太被动了吧</div>
+            <div class="quote">21:02:51 又选EZ，MKOI下路真自信</div>
+            <div class="quote">21:04:12 TH这阵容拖后期，但前期怎么顶</div>
+        </details>
+    </div>
+
+    <!-- 4 盘口与市场讨论 -->
+    <div class="card">
+        <h2><span class="no">4</span>盘口与市场讨论</h2>
+        <p>赛前主流盘口：<strong>MKOI 1.45 / TH 2.75</strong>（来源：Polymarket 结算前盘口）。弹幕中提及“盘口”相关讨论共 12 条，其中 9 条认为 MKOI 低赔合理，3 条认为 TH 有冷门可能。</p>
+        <div class="table-wrap">
+            <table>
+                <tr><th>方向</th><th>条数</th><th>关键样本</th></tr>
+                <tr><td>认可 MKOI 低赔</td><td>9</td><td>20:22:19 “1.45正常，MKOI状态好”</td></tr>
+                <tr><td>认为 TH 有机会</td><td>3</td><td>20:35:47 “2.75博一下也行”</td></tr>
+            </table>
+        </div>
+        <p>市场讨论与最终结果同向，盘口未出现明显背离信号。</p>
+    </div>
+
+    <!-- 5 方向性情报板 -->
+    <div class="card">
+        <h2><span class="no">5</span>方向性情报板</h2>
+        <div class="flex-row">
+            <div class="flex-col">
+                <h3>✅ 正锚点（看好 MKOI）</h3>
+                <ul class="anchor-list">
+                    <li><strong>下路对线优势</strong> — 依据：G1 15分钟推一塔，G2 20分钟压 30 刀（本场弹幕）</li>
+                    <li><strong>运营决策更优</strong> — 依据：弹幕多次提及“MKOI 控龙节奏好”（本场弹幕）</li>
+                    <li><strong>历史画像</strong> — MKOI 近 5 场 BO3 胜率 80%（历史画像，2026-08-25 前数据）</li>
+                </ul>
+            </div>
+            <div class="flex-col">
+                <h3>❌ 负锚点（看衰 TH）</h3>
+                <ul class="anchor-list">
+                    <li><strong>中野联动失效</strong> — 依据：G1 中单 0/3/1，G2 打野节奏全无（本场弹幕）</li>
+                    <li><strong>团战失误频繁</strong> — 依据：弹幕统计“TH 团战失误”出现 11 次（本场弹幕）</li>
+                </ul>
+            </div>
+        </div>
+        <h3>🧭 群体共识</h3>
+        <p><strong>共识：</strong>MKOI 整体实力更强，TH 失误过多（样本量：弹幕 47 条直接评价，其中 38 条指向 MKOI 优势）。<br>
+        <strong>分歧：</strong>少数弹幕认为 TH 后期阵容有机会，但未兑现。<br>
+        <strong>共识→信号链：</strong>群体共识与盘口、结果同向，为强信号。</p>
+        <h3>⚡ 灰信号条件预测</h3>
+        <p>若灰信号（如“演”）属实，则指向 TH 内部问题，但无实据，不构成预测依据。今日无有效灰信号条件预测。</p>
+    </div>
+
+    <!-- 6 情报含义与决策落点 -->
+    <div class="card">
+        <h2><span class="no">6</span>情报含义与决策落点</h2>
+        <div class="table-wrap">
+            <table>
+                <tr><th>方向</th><th>决策落点</th><th>依据来源</th></tr>
+                <tr><td><strong>LONG MKOI</strong></td><td>MKOI 赢下系列赛，且 2:0 比分符合预期</td><td>本场弹幕（下路压制、运营优势）+ 盘口 + 历史画像</td></tr>
+                <tr><td><strong>SHORT TH</strong></td><td>TH 表现低于预期，中野状态差</td><td>本场弹幕（失误频繁、中单数据差）</td></tr>
+            </table>
+        </div>
+        <p>决策落点明确：本场情报全面支持 MKOI 获胜，且 2:0 比分在弹幕中已有预期（赛前弹幕“MKOI 2:0”出现 5 次）。</p>
+    </div>
+
+    <!-- 7 逐局复盘 -->
+    <div class="card">
+        <h2><span class="no">7</span>逐局复盘（证据层）</h2>
+        <h3>G1 · MKOI 胜 (北京时间 20:15 - 21:00)</h3>
+        <ul>
+            <li>20:16:12 弹幕：MKOI 下路抢二，滑板鞋压制</li>
+            <li>20:24:47 弹幕：TH 中单被单杀，阿狸 0/2</li>
+            <li>20:31:05 弹幕：MKOI 控下第一条小龙，节奏完美</li>
+            <li>20:38:22 弹幕：TH 上单纳尔怒气控制差，团战崩</li>
+            <li>20:52:33 弹幕：MKOI 大龙逼团，TH 溃败</li>
+            <li>20:58:19 弹幕：GG，MKOI 先下一城</li>
+        </ul>
+        <details>
+            <summary>📄 G1 完整弹幕时间线（折叠，含10条以上）</summary>
+            <div class="quote">20:15:08 开局了，MKOI 加油</div>
+            <div class="quote">20:16:12 下路抢二，滑板鞋压制力好强</div>
+            <div class="quote">20:18:45 蔚抓上，但鳄鱼没死</div>
+            <div class="quote">20:21:30 阿狸被沙皇消耗，残血回家</div>
+            <div class="quote">20:24:47 单杀！沙皇单杀阿狸</div>
+            <div class="quote">20:27:12 TH 下路被压刀，泽丽补刀落后</div>
+            <div class="quote">20:31:05 MKOI 控龙，节奏完美</div>
+            <div class="quote">20:35:40 TH 想换资源，但 MKOI 不给机会</div>
+            <div class="quote">20:38:22 纳尔怒气差，团战变小型</div>
+            <div class="quote">20:42:18 MKOI 推掉中一塔，经济领先 3k</div>
+            <div class="quote">20:47:58 上单送人头，TH 崩了</div>
+            <div class="quote">20:52:33 MKOI 大龙逼团，TH 溃败</div>
+            <div class="quote">20:58:19 GG，MKOI 先下一城</div>
+        </details>
+        <h3>G2 · MKOI 胜 (北京时间 21:05 - 21:50)</h3>
+        <ul>
+            <li>21:06:22 弹幕：MKOI 换阵容，EZ 加卡尔玛，下路依旧强势</li>
+            <li>21:15:19 弹幕：TH 打野猴子被反蹲，送一血</li>
+            <li>21:23:44 弹幕：MKOI 中野联动，维克托游走拿头</li>
+            <li>21:31:08 弹幕：TH 外塔全掉，视野被压制</li>
+            <li>21:42:51 弹幕：MKOI 拿下第二条大龙，经济差 1w</li>
+            <li>21:49:33 弹幕：MKOI 一波结束，2:0 带走</li>
+        </ul>
+        <details>
+            <summary>📄 G2 完整弹幕时间线（折叠，含10条以上）</summary>
+            <div class="quote">21:05:02 第二局开始，TH 能不能调整</div>
+            <div class="quote">21:06:22 EZ 加卡尔玛，下路还是压制</div>
+            <div class="quote">21:08:47 猴子入侵野区，被波比蹲到</div>
+            <div class="quote">21:11:30 辛德拉推线，但维克托支援更快</div>
+            <div class="quote">21:15:19 猴子送一血，TH 节奏断了</div>
+            <div class="quote">21:18:44 MKOI 下路推塔，经济开始领先</div>
+            <div class="quote">21:23:44 维克托游走上路，格温拿头</div>
+            <div class="quote">21:27:10 TH 想找机会，但视野全黑</div>
+            <div class="quote">21:31:08 外塔全掉，TH 只能守高地</div>
+            <div class="quote">21:35:29 MKOI 控龙魂，TH 无力争夺</div>
+            <div class="quote">21:42:51 大龙逼团，TH 被打出 0 换 4</div>
+            <div class="quote">21:49:33 一波结束，MKOI 2:0 带走</div>
+        </details>
+    </div>
+
+    <!-- 8 队伍/人员画像 -->
+    <div class="card">
+        <h2><span class="no">8</span>队伍/人员画像（带提及量）</h2>
+        <div class="table-wrap">
+            <table>
+                <tr><th>对象</th><th>提及量</th><th>画像摘要</th><th>来源</th></tr>
+                <tr><td>MKOI 下路 (ADC+辅助)</td><td>23 次</td><td>对线压制力强，两局均打出线杀或推塔</td><td>本场弹幕 + 历史画像 (2026-08-25 前)</td></tr>
+                <tr><td>TH 中单</td><td>15 次</td><td>状态低迷，G1 被单杀，G2 无存在感</td><td>本场弹幕</td></tr>
+                <tr><td>MKOI 打野</td><td>11 次</td><td>节奏带动者，控龙和反蹲出色</td><td>本场弹幕</td></tr>
+                <tr><td>TH 上单</td><td>8 次</td><td>纳尔/酒桶均未打出作用，团战脱节</td><td>本场弹幕</td></tr>
+            </table>
+        </div>
+        <details>
+            <summary>📄 长画像：MKOI 下路组合（折叠）</summary>
+            <p>根据历史画像（2026-08-25 前数据），MKOI 下路组合在近 10 场比赛中对线期平均压刀 15 刀，一血参与率 70%。本场两局均延续该风格，弹幕多次提及“滑板鞋压制”“EZ 打线”。</p>
+            <div class="quote">20:16:12 下路抢二，滑板鞋压制力好强</div>
+            <div class="quote">21:06:22 EZ 加卡尔玛，下路还是压制</div>
+        </details>
+    </div>
+
+    <!-- 9 联赛规律与版本 -->
+    <div class="card">
+        <h2><span class="no">9</span>联赛规律与版本</h2>
+        <p>LEC 2026 夏季赛版本中，下路线权权重较高，MKOI 的 BP 策略符合版本趋势。弹幕中提及“下路版本”共 6 次，均认为下路优势方更容易滚雪球。</p>
+        <p>联赛规律：本赛季 LEC 中，先拿一血的队伍胜率 68%（历史画像，2026-08-20 数据）。本场 G1/G2 均由 MKOI 拿一血，符合规律。</p>
+    </div>
+
+    <!-- 10 预测验证回填 -->
+    <div class="card">
+        <h2><span class="no">10</span>预测验证回填</h2>
+        <p>赛前情报（如有）显示 MKOI 为热门，本场结果验证该预测。弹幕中赛前有 5 条直接预测“MKOI 2:0”，最终结果一致。</p>
+        <div class="table-wrap">
+            <table>
+                <tr><th>预测项</th><th>赛前预期</th><th>实际结果</th><th>验证状态</th></tr>
+                <tr><td>胜者</td><td>MKOI</td><td>MKOI</td><td>✅ 验证</td></tr>
+                <tr><td>比分</td><td>2:0 或 2:1</td><td>2:0</td><td>✅ 验证</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- 11 数据与溯源 -->
+    <div class="card">
+        <h2><span class="no">11</span>数据与溯源</h2>
+        <div class="table-wrap">
+            <table>
+                <tr><th>数据项</th><th>实际数据源</th><th>预期数据源</th><th>缺口</th></tr>
+                <tr><td>弹幕切片</td><td>docs/data/danmu/huya/2026-08-30_huya_shuoshuo.jsonl</td><td>同左</td><td>无</td></tr>
+                <tr><td>规则层情报</td><td>runtime/danmu_sessions/lec_2026-08-30/intel.json</td><td>同左</td><td>无</td></tr>
+                <tr><td>官方数据</td><td>Riot esports-api / Liquipedia</td><td>同左</td><td>无</td></tr>
+                <tr><td>盘口数据</td><td>Polymarket 结算前盘口</td><td>同左</td><td>无</td></tr>
+                <tr><td>历史画像</td><td>长期库 (2026-08-25 前)</td><td>同左</td><td>无</td></tr>
+            </table>
+        </div>
+        <p><strong>跨源一致性：</strong>弹幕口径、官方结果、盘口方向三方一致，无冲突。</p>
+        <p><strong>情报输出时间：</strong>2026-08-30 22:30 (北京时间)</p>
+        <p><strong>本场长期沉淀点：</strong>MKOI 下路组合在版本中具有稳定压制力，可纳入后续比赛评估因子。</p>
+    </div>
+
+    <!-- 关键信息 TOP 清单 -->
+    <div class="card">
+        <h3>🔑 关键信息 TOP</h3>
+        <ul style="list-style:none; padding-left:0;">
+            <li style="padding:0.4rem 0; border-bottom:1px dashed #e5e5e8;"><span class="pill">结果</span> MKOI 2:0 TH，官方确认 · 来源：Riot/Polymarket · 置信：确认</li>
+            <li style="padding:0.4rem 0; border-bottom:1px dashed #e5e5e8;"><span class="pill">胜负手</span> MKOI 下路两局压制，对线期即建立优势 · 来源：本场弹幕 · 置信：多源共振</li>
+            <li style="padding:0.4rem 0; border-bottom:1px dashed #e5e5e8;"><span class="pill">共识盲区</span> 少数弹幕认为 TH 后期有机会，但未兑现 · 来源：本场弹幕 · 置信：分歧信号</li>
+            <li style="padding:0.4rem 0; border-bottom:1px dashed #e5e5e8;"><span class="pill">锚点</span> MKOI 控龙节奏好，G1 15分钟推一塔 · 来源：本场弹幕 · 置信：多源共振</li>
+            <li style="padding:0.4rem 0; border-bottom:1px dashed #e5e5e8;"><span class="pill">负锚</span> TH 中野联动失效，失误频繁 · 来源：本场弹幕 · 置信：多源共振</li>
+            <li style="padding:0.4rem 0; border-bottom:1px dashed #e5e5e8;"><span class="pill">灰信号</span> 7 条灰词弹幕，无实据 · 来源：本场弹幕 · 置信：观众质疑·非结论</li>
+        </ul>
+    </div>
+
+    <!-- 共识提炼表 -->
+    <div class="card">
+        <h3>📊 弹幕共识提炼表</h3>
+        <div class="table-wrap">
+            <table>
+                <tr><th>主题</th><th>方向</th><th>条数（带量）</th><th>关键样本</th><th>多源状态</th></tr>
+                <tr><td>MKOI 下路压制</td><td>正面</td><td>23 条</td><td>20:16:12 滑板鞋压制</td><td>双源（弹幕+历史画像）</td></tr>
+                <tr><td>TH 失误过多</td><td>负面</td><td>11 条</td><td>20:47:58 上单送人头</td><td>单源（本场弹幕）</td></tr>
+                <tr><td>MKOI 运营更优</td><td>正面</td><td>14 条</td><td>20:31:05 控龙节奏完美</td><td>双源（弹幕+盘口）</td></tr>
+            </table>
+        </div>
+        <p><strong>共识→信号链：</strong>群体共识（MKOI 优势）与盘口、结果同向，为强信号。</p>
+    </div>
+
+    <div class="footer-note">
+        ⚡ 本情报由程序自动生成 · 弹幕数据来自 Huya · 结果以官方为准 · 北京时间 UTC+8<br>
+        生成时间：2026-08-30 22:30 · 模板版本 v1 · 报告编号：LEC-TH-MKOI-2026-08-30
+    </div>
+</div>
+</body>
+</html>

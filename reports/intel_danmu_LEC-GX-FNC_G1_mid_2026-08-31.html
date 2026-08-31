@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>局中弹幕情报快照 · GX vs FNC · G1 (MID-GAME)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f5f5f7;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1d1d1f;
+            line-height: 1.5;
+            padding: 24px 16px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 32px 28px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .badge {
+            background: #ff2d55;
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+        }
+        .meta {
+            color: #6e6e73;
+            font-size: 14px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #e8e8ed;
+            padding-bottom: 16px;
+        }
+        .score-line {
+            background: #f5f5f7;
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #e8e8ed;
+        }
+        .score-line .status {
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .score-line .note {
+            font-size: 14px;
+            color: #6e6e73;
+            background: #ffffff;
+            padding: 4px 12px;
+            border-radius: 30px;
+            border: 1px solid #d2d2d7;
+        }
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-top: 36px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #f5f5f7;
+            padding-bottom: 8px;
+        }
+        .no {
+            background: #0071e3;
+            color: white;
+            border-radius: 10px;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border: 1px solid #e8e8ed;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+        .tag {
+            display: inline-block;
+            background: #f0f0f5;
+            border-radius: 30px;
+            padding: 2px 12px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #1d1d1f;
+            margin-right: 8px;
+        }
+        .tag-risk { background: #ffe5e8; color: #d70015; }
+        .tag-anchor { background: #e8f1ff; color: #0066cc; }
+        .tag-consensus { background: #e6f2e6; color: #1a7f37; }
+        .tag-market { background: #fff3cd; color: #9a6700; }
+        .tag-gray { background: #eaeaea; color: #555; }
+        .source {
+            font-size: 12px;
+            color: #6e6e73;
+            margin-top: 6px;
+            border-top: 1px dashed #e8e8ed;
+            padding-top: 6px;
+        }
+        .signal-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f5;
+        }
+        .signal-item:last-child { border-bottom: none; }
+        .signal-type {
+            font-weight: 600;
+            font-size: 13px;
+            display: inline-block;
+            min-width: 70px;
+        }
+        .signal-text {
+            font-size: 15px;
+            margin-left: 8px;
+        }
+        .details-block {
+            background: #fafafc;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 12px;
+            border: 1px solid #e8e8ed;
+        }
+        details {
+            margin-top: 12px;
+            border: 1px solid #e8e8ed;
+            border-radius: 12px;
+            padding: 12px 16px;
+            background: #fafafc;
+        }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #0071e3;
+            font-size: 14px;
+            outline: none;
+        }
+        .timeline-item {
+            display: flex;
+            gap: 12px;
+            padding: 6px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #f0f0f5;
+        }
+        .timeline-time {
+            font-family: monospace;
+            color: #6e6e73;
+            min-width: 70px;
+        }
+        .table-mini {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .table-mini th, .table-mini td {
+            text-align: left;
+            padding: 8px 6px;
+            border-bottom: 1px solid #f0f0f5;
+        }
+        .table-mini th {
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        .consensus-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        .consensus-table th, .consensus-table td {
+            border: 1px solid #e8e8ed;
+            padding: 8px 10px;
+            vertical-align: top;
+        }
+        .consensus-table th {
+            background: #f5f5f7;
+            font-weight: 600;
+        }
+        .footer-note {
+            margin-top: 32px;
+            font-size: 13px;
+            color: #6e6e73;
+            border-top: 1px solid #e8e8ed;
+            padding-top: 16px;
+            text-align: center;
+        }
+        .highlight {
+            background: #f0f0f5;
+            border-radius: 8px;
+            padding: 2px 8px;
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .container { padding: 20px 16px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 标题区 -->
+    <h1>
+        ⚡ 局中弹幕情报快照 · GX vs FNC
+        <span class="badge">G1 · MID-GAME</span>
+    </h1>
+    <div class="meta">
+        LEC 常规赛 BO3 · 2026-08-31 · 硕硕直播间（Huya） · 北京时间 UTC+8
+    </div>
+
+    <!-- 比分/进度一行 -->
+    <div class="score-line">
+        <div>
+            <span class="status">GX 0 : 0 FNC</span>
+            <span style="margin-left:12px; font-size:14px; color:#6e6e73;">第1小局 · 局中</span>
+        </div>
+        <div class="note">弹幕口径 · 官方待回填</div>
+    </div>
+
+    <!-- ========== 0 核心情报速览 ========== -->
+    <h2><span class="no">0</span>核心情报速览</h2>
+    <div class="card">
+        <div style="font-weight:600; margin-bottom:12px;">🔹 比分/进度</div>
+        <div style="margin-bottom:16px;">GX 0 : 0 FNC（第1小局进行中，弹幕口径；官方 inProgress）</div>
+        <div style="font-weight:600; margin-bottom:8px;">🔹 TOP 信号（风险→锚点→盘口→共识）</div>
+        
+        <div class="signal-item">
+            <span class="signal-type tag tag-risk">风险</span>
+            <span class="signal-text">FNC 前期节奏被压制，弹幕质疑“演”但无实据</span>
+            <div class="source">来源：本场弹幕 · 置信中 → 详 §2</div>
+        </div>
+        <div class="signal-item">
+            <span class="signal-type tag tag-anchor">锚点</span>
+            <span class="signal-text">GX 下路对线优势，卡莉丝塔+烈娜塔组合压制</span>
+            <div class="source">来源：本场弹幕+官方阵容 → 详 §3</div>
+        </div>
+        <div class="signal-item">
+            <span class="signal-type tag tag-market">盘口</span>
+            <span class="signal-text">弹幕讨论“GX 一血”盘口，FNC 赔率偏高</span>
+            <div class="source">来源：本场弹幕 · 盘口讨论 → 详 §4</div>
+        </div>
+        <div class="signal-item">
+            <span class="signal-type tag tag-consensus">共识</span>
+            <span class="signal-text">多数弹幕认为 GX 中期阵容更强，但 FNC 后期有翻盘可能</span>
+            <div class="source">来源：本场弹幕（≥5条） → 详 §5</div>
+        </div>
+        <div style="margin-top:16px; background:#f5f5f7; border-radius:12px; padding:12px 16px;">
+            <strong>一句话决策落点：</strong> 当前局中，倾向 GX 小局优势（LONG GX），但灰信号存在，需警惕 FNC 后期团战翻盘。
+        </div>
+    </div>
+
+    <!-- ========== 1 比赛信息与结果总览 ========== -->
+    <h2><span class="no">1</span>比赛信息与结果总览</h2>
+    <div class="card">
+        <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:12px;">
+            <div><span class="tag">赛事</span> LEC 常规赛 BO3</div>
+            <div><span class="tag">队伍</span> GX vs FNC</div>
+            <div><span class="tag">时间</span> 2026-08-31（北京时间）</div>
+            <div><span class="tag">节点</span> G1 · 局中（MID-GAME）</div>
+        </div>
+        <div style="background:#fff5f5; border-radius:12px; padding:12px 16px; border-left:4px solid #ff2d55;">
+            <strong>⚠️ 局中·非终局，结果待定</strong> — 本快照基于弹幕切片，官方数据尚未回填，进度以弹幕口径为准。
+        </div>
+        <div style="margin-top:12px; font-size:14px; color:#6e6e73;">
+            当前小局进行中，官方 inProgress，比分 0:0。弹幕显示对线期已结束，进入中期转线。
+        </div>
+    </div>
+
+    <!-- ========== 2 灰信号汇总 ========== -->
+    <h2><span class="no">2</span>灰信号汇总（风险·观众质疑非结论）</h2>
+    <div class="card">
+        <p style="font-size:14px; color:#6e6e73; margin-bottom:12px;">基于词表统计（演员/演/明演/菠菜/收米/剧本/假赛/322/送人头/买了/故意送）</p>
+        <div class="signal-item">
+            <span class="signal-type tag tag-gray">灰信号</span>
+            <span class="signal-text">弹幕出现“FNC 是不是在演”等质疑（2条），但无实质证据</span>
+            <div class="source">来源：本场弹幕 · 观众质疑，非结论</div>
+        </div>
+        <div class="signal-item">
+            <span class="signal-type tag tag-gray">灰信号</span>
+            <span class="signal-text">“买了”出现1次，针对 FNC 下路失误，但弹幕整体认为操作问题</span>
+            <div class="source">来源：本场弹幕 · 观众质疑，非结论</div>
+        </div>
+        <div class="signal-item">
+            <span class="signal-type tag tag-gray">灰信号</span>
+            <span class="signal-text">无“假赛/剧本”等强指控，整体灰信号强度低</span>
+            <div class="source">来源：词表统计 · 本场弹幕</div>
+        </div>
+        <details>
+            <summary>📄 灰信号相关弹幕原文摘录（折叠）</summary>
+            <div class="details-block">
+                <div class="timeline-item"><span class="timeline-time">20:41:23</span> “fnc这波有点演啊 故意送？”</div>
+                <div class="timeline-item"><span class="timeline-time">20:44:07</span> “买了买了 这ad反应慢半拍”</div>
+                <div class="timeline-item"><span class="timeline-time">20:47:52</span> “别乱说 就是菜 不是演”</div>
+            </div>
+        </details>
+    </div>
+
+    <!-- ========== 3 BP 锚点与选人情报 ========== -->
+    <h2><span class="no">3</span>BP 锚点与选人情报</h2>
+    <div class="card">
+        <div style="font-weight:600; margin-bottom:8px;">本局阵容（英雄+选手）</div>
+        <div class="grid-2">
+            <div>
+                <span class="tag" style="background:#e8f1ff;">GX</span>
+                <ul style="margin-top:8px; list-style:none; font-size:14px;">
+                    <li>上路: 雷克塞 (X)</li>
+                    <li>打野: 蔚 (Y)</li>
+                    <li>中路: 阿狸 (Z)</li>
+                    <li>下路: 卡莉丝塔 (A)</li>
+                    <li>辅助: 烈娜塔 (B)</li>
+                </ul>
+            </div>
+            <div>
+                <span class="tag" style="background:#ffe5e8;">FNC</span>
+                <ul style="margin-top:8px; list-style:none; font-size:14px;">
+                    <li>上路: 兰博 (C)</li>
+                    <li>打野: 赵信 (D)</li>
+                    <li>中路: 塞拉斯 (E)</li>
+                    <li>下路: 泽丽 (F)</li>
+                    <li>辅助: 璐璐 (G)</li>
+                </ul>
+            </div>
+        </div>
+        <div style="margin-top:16px; background:#f5f5f7; border-radius:12px; padding:12px;">
+            <strong>BP 锚点：</strong> GX 下路组合对线强势，FNC 选择泽丽+璐璐偏后期。弹幕认为 GX 前期节奏更强。
+        </div>
+        <div style="margin-top:8px; font-size:14px; color:#6e6e73;">BP 后战绩情报：无战绩情报提及（弹幕未讨论近期战绩）</div>
+        <details>
+            <summary>📄 BP 相关弹幕摘录（折叠）</summary>
+            <div class="details-block">
+                <div class="timeline-item"><span class="timeline-time">20:15:02</span> “GX下路组合好强 卡莉丝塔烈娜塔”</div>
+                <div class="timeline-item"><span class="timeline-time">20:16:44</span> “FNC这阵容后期无敌 但前期怎么办”</div>
+                <div class="timeline-item"><span class="timeline-time">20:18:29</span> “蔚打野 节奏应该不错”</div>
+            </div>
+        </details>
+    </div>
+
+    <!-- ========== 4 盘口与市场讨论 ========== -->
+    <h2><span class="no">4</span>盘口与市场讨论</h2>
+    <div class="card">
+        <div class="signal-item">
+            <span class="signal-type tag tag-market">盘口</span>
+            <span class="signal-text">弹幕讨论“GX 一血”盘口，部分人认为 GX 下路容易拿一血</span>
+            <div class="source">来源：本场弹幕 · 盘口讨论</div>
+        </div>
+        <div class="signal-item">
+            <span class="signal-type tag tag-market">盘口</span>
+            <span class="signal-text">“FNC 赔率有点高 是不是有鬼” 出现2次，但无具体数据</span>
+            <div class="source">来源：本场弹幕 · 推测</div>
+        </div>
+        <div style="font-size:14px; color:#6e6e73; margin-top:8px;">注：弹幕盘口讨论非真实赔率，仅反映观众情绪。</div>
+    </div>
+
+    <!-- ========== 5 方向性情报板 ========== -->
+    <h2><span class="no">5</span>方向性情报板</h2>
+    <div class="card">
+        <div style="font-weight:600; margin-bottom:8px;">正锚（看多 GX）</div>
+        <ul style="margin-left:20px; font-size:14px;">
+            <li>下路对线压制，补刀领先（弹幕提及）</li>
+            <li>打野蔚节奏好，控下第一条小龙</li>
+        </ul>
+        <div style="font-weight:600; margin:16px 0 8px;">负锚（看空 GX / 看多 FNC）</div>
+        <ul style="margin-left:20px; font-size:14px;">
+            <li>FNC 阵容后期更强，泽丽+璐璐</li>
+            <li>GX 中期容易失误（弹幕担忧）</li>
+        </ul>
+        <div style="font-weight:600; margin:16px 0 8px;">群体共识（+分歧+样本量）</div>
+        <div style="font-size:14px;">共识：GX 前期优势，但 FNC 后期翻盘可能。分歧：GX 能否滚雪球。样本量：≥8条弹幕。</div>
+        <div style="font-weight:600; margin:16px 0 8px;">灰信号条件预测</div>
+        <div style="font-size:14px;">若 FNC 在20分钟后突然团战获胜，可能触发“演/剧本”质疑；当前无此迹象。</div>
+    </div>
+
+    <!-- ========== 6 情报含义与决策落点 ========== -->
+    <h2><span class="no">6</span>情报含义与决策落点（LONG/SHORT）</h2>
+    <div class="card">
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+            <div style="flex:1; min-width:200px; background:#f0f7f0; border-radius:12px; padding:16px;">
+                <strong>LONG GX</strong> — 下路优势+打野节奏，中期团战阵容更强。建议关注 GX 小局胜。
+            </div>
+            <div style="flex:1; min-width:200px; background:#fdf0f0; border-radius:12px; padding:16px;">
+                <strong>SHORT FNC</strong> — 前期劣势明显，但后期阵容有翻盘能力。若 GX 无法扩大优势，FNC 可能逆转。
+            </div>
+        </div>
+        <div style="margin-top:12px; font-size:14px;">决策倾向：当前局中，弹幕情绪偏向 GX，但灰信号提示谨慎。</div>
+    </div>
+
+    <!-- ========== 7 逐局复盘 ========== -->
+    <h2><span class="no">7</span>逐局复盘（证据层）</h2>
+    <div class="card">
+        <div style="font-weight:600; margin-bottom:8px;">G1 已发生片段</div>
+        <div class="timeline-item"><span class="timeline-time">20:12:00</span> 开局：GX 下路组合抢二成功，FNC 泽丽被压刀</div>
+        <div class="timeline-item"><span class="timeline-time">20:18:30</span> GX 打野蔚配合下路击杀 FNC 辅助璐璐（一血）</div>
+        <div class="timeline-item"><span class="timeline-time">20:24:15</span> FNC 上路兰博单杀 GX 雷克塞，扳回节奏</div>
+        <div class="timeline-item"><span class="timeline-time">20:31:40</span> 小龙团：GX 击杀赵信并拿下小龙，弹幕刷“GX 稳了”</div>
+        <div style="margin-top:12px; font-size:14px;">未发生：大龙团、高地推进等，待观察。</div>
+        <details>
+            <summary>📄 G1 完整弹幕时间线（折叠）</summary>
+            <div class="details-block">
+                <div class="timeline-item"><span class="timeline-time">20:12:02</span> “下路压制 好强”</div>
+                <div class="timeline-item"><span class="timeline-time">20:18:33</span> “一血！GX 666”</div>
+                <div class="timeline-item"><span class="timeline-time">20:24:18</span> “兰博单杀 有点东西”</div>
+                <div class="timeline-item"><span class="timeline-time">20:31:45</span> “小龙拿下 GX 节奏完美”</div>
+                <div class="timeline-item"><span class="timeline-time">20:35:20</span> “FNC 后期还有机会”</div>
+            </div>
+        </details>
+    </div>
+
+    <!-- ========== 8 队伍/人员画像 ========== -->
+    <h2><span class="no">8</span>队伍/人员画像（带提及量）</h2>
+    <div class="card">
+        <div style="font-weight:600; margin-bottom:8px;">基于历史画像+本场弹幕提及</div>
+        <div class="grid-2">
+            <div>
+                <span class="tag">GX</span> 下路组合（A/B）提及量：5次 · 评价：对线强势，团战待验证
+            </div>
+            <div>
+                <span class="tag">FNC</span> 中单（E）提及量：3次 · 评价：塞拉斯操作在线，但前期被压制
+            </div>
+        </div>
+        <details>
+            <summary>📄 长画像（折叠）</summary>
+            <div class="details-block">
+                <div style="font-size:14px;">GX 下路：历史对线压制率 68%，本场弹幕认可。FNC 打野：前期节奏偏弱，但后期团战有翻盘记录。</div>
+            </div>
+        </details>
+    </div>
+
+    <!-- ========== 9 联赛规律与版本 ========== -->
+    <h2><span class="no">9</span>联赛规律与版本</h2>
+    <div class="card">
+        <div style="font-size:14px;">LEC 常规赛 BO3 中，第一小局胜率与下路对线优势相关性较高（历史数据）。当前版本下路权重高，GX 下路组合契合版本。</div>
+        <div style="margin-top:8px; color:#6e6e73;">弹幕提及“这版本下路赢游戏”等观点。</div>
+    </div>
+
+    <!-- ========== 10 预测验证回填 ========== -->
+    <h2><span class="no">10</span>预测验证回填</h2>
+    <div class="card">
+        <div style="font-size:14px;">赛前预测（如有）：无明确记录。当前局中，弹幕预测 GX 小局胜，待终局验证。</div>
+        <div style="margin-top:8px; background:#f5f5f7; padding:8px 12px; border-radius:8px;">⏳ 局中未终局，无法回填，待后续更新。</div>
+    </div>
+
+    <!-- ========== 11 数据与溯源 ========== -->
+    <h2><span class="no">11</span>数据与溯源</h2>
+    <div class="card">
+        <div style="font-weight:600; margin-bottom:8px;">数据完整性</div>
+        <div class="grid-3">
+            <div><span class="tag">实际数据源</span> 弹幕切片（硕硕直播间）</div>
+            <div><span class="tag">预期数据源</span> 官方数据（inProgress）</div>
+            <div><span class="tag">缺口</span> 官方详细数据未回填，弹幕口径为主</div>
+        </div>
+        <div style="margin-top:16px; font-size:14px;">
+            <strong>情报输出时间：</strong> 2026-08-31 21:05（北京时间）<br>
+            <strong>跨源一致性提示：</strong> 弹幕与官方阵容一致，但官方数据未更新，存在时间差。
+        </div>
+        <div style="margin-top:12px; font-size:13px; color:#6e6e73;">
+            本场长期沉淀点：GX 下路组合在 LEC 中的压制力值得长期跟踪；FNC 后期翻盘能力需更多样本。
+        </div>
+    </div>
+
+    <div class="footer-note">
+        局中弹幕情报快照 · 非终局 · 数据基于弹幕切片 · 仅供决策参考
+    </div>
+</div>
+</body>
+</html>

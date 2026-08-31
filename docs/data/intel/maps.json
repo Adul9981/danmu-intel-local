@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-08-30",
+  "description": "CS2 地图维度情报库（2026-08-30 建立）：地图基本数据 + 队伍×地图锚（强图/弱图/心理），锚点带 match + verified，跨场累计。",
+  "maps": [
+    {
+      "id": "anubis",
+      "name": "阿努比斯（Anubis）",
+      "pool": "竞技图池",
+      "team_anchors": [
+        {
+          "team_id": "fut",
+          "label": "强图（FUT 自选碾压）",
+          "evidence": "HLTV'FUT Anubis 75-0/70-30 胜率'；2026-08-29 FUT 13:3 LVG（上半场 10:2）",
+          "verified": "应验"
+        },
+        {
+          "team_id": "lvg",
+          "label": "弱图口径（中国队伍 Anubis 弱）→证伪",
+          "evidence": "弹幕'阿努比斯被 bna 后一蹶不振'；实为 FUT 强图而非普遍弱图",
+          "verified": "口径证伪"
+        }
+      ]
+    },
+    {
+      "id": "ancient",
+      "name": "远古遗迹（Ancient）",
+      "pool": "竞技图池",
+      "team_anchors": [
+        {
+          "team_id": "legacy",
+          "label": "强图（下半场 CT 连追）",
+          "evidence": "2026-08-30 Legacy 13:10 Falcons（半场 7:5 落后→连追 8 分）；对 FUT 13:10",
+          "verified": "应验"
+        },
+        {
+          "team_id": "fut",
+          "label": "强图（历史 69.2%）",
+          "evidence": "2026-08-29 FUT 13:7 LVG（Ancient 剩图）",
+          "verified": "应验"
+        },
+        {
+          "team_id": "flc",
+          "label": "心理关口（昨日 10:13 丢图）",
+          "evidence": "2026-08-29 Falcons 对 LVG Ancient 10:13；2026-08-30 自选 Ancient 13:10 输 Legacy",
+          "verified": "应验（连续丢图）"
+        }
+      ]
+    },
+    {
+      "id": "dust2",
+      "name": "沙二（Dust II）",
+      "pool": "竞技图池",
+      "team_anchors": [
+        {
+          "team_id": "legacy",
+          "label": "历史强图（当日未兑现）",
+          "evidence": "EWC 13:10 Falcons、对 FUT 13:11；try CT 数据好——但 2026-08-30 G3 仅 6 分（Falcons 13:6）",
+          "verified": "未兑现（当日状态>历史图池）"
+        },
+        {
+          "team_id": "lvg",
+          "label": "强图（自选兑现）",
+          "evidence": "2026-08-29 LVG 13:10 FUT（T 侧强 5-0/半场 7:5）",
+          "verified": "应验"
+        },
+        {
+          "team_id": "flc",
+          "label": "自选/剩图火力兜底",
+          "evidence": "2026-08-30 G3 Falcons 13:6 Legacy（'沙二看小孩怎么狙'）",
+          "verified": "应验"
+        }
+      ]
+    },
+    {
+      "id": "mirage",
+      "name": "炼狱小镇（Mirage）",
+      "pool": "竞技图池",
+      "team_anchors": [
+        {
+          "team_id": "flc",
+          "label": "强图（13:6 碾压）",
+          "evidence": "2026-08-30 Falcons 13:6 Legacy（kyousuke 22 杀 1.96 MVP）",
+          "verified": "应验"
+        },
+        {
+          "team_id": "legacy",
+          "label": "自选强图口径未兑现",
+          "evidence": "2026-08-30 Legacy 自选 Mirage 13:6 输（5v2 被翻）",
+          "verified": "未兑现"
+        }
+      ]
+    },
+    {
+      "id": "nuke",
+      "name": "核子危机（Nuke）",
+      "pool": "竞技图池",
+      "team_anchors": []
+    },
+    {
+      "id": "inferno",
+      "name": "炼狱小镇·Inferno",
+      "pool": "竞技图池",
+      "team_anchors": []
+    },
+    {
+      "id": "overpass",
+      "name": "死亡游乐园（Overpass）",
+      "pool": "竞技图池",
+      "team_anchors": []
+    }
+  ]
+}
