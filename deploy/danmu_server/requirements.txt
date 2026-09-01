@@ -1,4 +1,0 @@
-aiohttp>=3.9
-requests>=2.31
-websockets>=12.0
-pycryptodome>=3.20
