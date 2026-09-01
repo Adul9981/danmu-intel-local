@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>弹幕情报库 · 功能点导航（迁移交接说明）</title>
+<style>
+:root{--bg:#f5f5f7;--card:#fff;--ink:#1d1d1f;--sub:#86868b;--accent:#0071e3;--line:#e8e8ed;--warn:#b25000;--warnbg:#fff8ec;--ok:#1d7a46;--okbg:#e6f6ec}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Arial,sans-serif;line-height:1.7;padding:28px 16px 60px}
+.wrap{max-width:920px;margin:0 auto}
+h1{font-size:26px;font-weight:700;margin-bottom:6px}
+h2{font-size:19px;margin:28px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+h3{font-size:15px;margin:16px 0 6px;color:var(--accent)}
+.sub{color:var(--sub);font-size:13px;margin-bottom:20px}
+.card{background:var(--card);border-radius:16px;padding:20px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.tag{display:inline-block;background:#e8f1fd;color:var(--accent);border-radius:6px;padding:2px 8px;font-size:12px;margin-right:6px}
+.tag2{display:inline-block;background:#e6f6ec;color:var(--ok);border-radius:6px;padding:2px 8px;font-size:12px;margin-right:6px}
+.tag3{display:inline-block;background:#fff8ec;color:var(--warn);border-radius:6px;padding:2px 8px;font-size:12px;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+th{text-align:left;padding:8px;border-bottom:2px solid var(--line);color:var(--sub);font-weight:600;background:#fafafa}
+td{padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+code{background:#f0f0f2;border-radius:5px;padding:1px 6px;font-size:12px;color:#444}
+.flow{background:#f8f8fa;border-radius:12px;padding:14px 16px;font-size:13px;font-family:ui-monospace,Menlo,monospace;margin:10px 0;color:#333}
+.ok{background:var(--okbg);border-left:4px solid var(--ok);padding:10px 14px;border-radius:8px;font-size:13px;margin:8px 0}
+.warn{background:var(--warnbg);border-left:4px solid var(--warn);padding:10px 14px;border-radius:8px;font-size:13px;margin:8px 0}
+.small{color:var(--sub);font-size:12px}
+ul,ol{margin:6px 0 6px 20px;font-size:13.5px}
+li{margin:4px 0}
+</style>
+</head>
+<body><div class="wrap">
+
+<h1>弹幕情报库 · 功能点导航</h1>
+<div class="sub">danmu-intel-local ｜ 迁移交接说明 ｜ 本文帮你快速定位：这是什么、有哪些功能、去哪找、哪些对你（接手云迁移）最有价值</div>
+
+<div class="card">
+<h3>一句话定位</h3>
+<p>把电竞直播弹幕，变成<strong>可溯源、可支持决策的情报</strong>，并且越攒越值钱。</p>
+<div class="flow">
+多路直播间弹幕（虎牙为主）→ 按比赛×节点切片 → 规则统计（词表/提及量/密度/灰信号）
+→ LLM 提炼（固定提示词）→ 门禁校验 → HTML+MD 情报输出 → 结构化情报库沉淀 → 验证回填
+</div>
+<p class="small">事实层（时间/队伍/比分/选手×英雄·地图/结算）一律以官方源校准（Riot / Liquipedia / HLTV / Polymarket 结算），弹幕只提供"观众怎么看、有什么信号、有什么质疑"。</p>
+</div>
+
+<div class="card">
+<h3>核心链路与对应文件</h3>
+<table>
+<tr><th>环节</th><th>做什么</th><th>入口文件</th><th>产出</th></tr>
+<tr><td>① 采集</td><td>虎牙/SOOP 多直播间常驻采集、断线重连、完整性记录</td><td><code>tools/run_danmu_session.py</code>、<code>fetch_huya_danmu.py</code>、<code>vps_capture.py</code></td><td>原始弹幕 JSONL（按日期落盘）</td></tr>
+<tr><td>② 赛程/事件</td><td>每日赛程清单、节点事件触发（开播/BP/局中/局末/加时/结束）</td><td><code>tools/export_today_matches.py</code>、<code>match_manager.py</code>、<code>register_match.py</code></td><td>matches_today.json、事件状态</td></tr>
+<tr><td>③ 切片</td><td>按比赛×节点时间窗切片，联赛源硬隔离（防混源）</td><td><code>tools/slice_danmu_by_match.py</code></td><td>切片 JSONL（带窗口元数据）</td></tr>
+<tr><td>④ 规则统计</td><td>词表命中、提及量（正/负）、密度时间线、灰信号识别、团队特质</td><td><code>tools/danmu_intel.py</code></td><td>intel.json（固定 schema）</td></tr>
+<tr><td>⑤ LLM 提炼</td><td>固定提示词直连 DeepSeek，产出情报段落（LLM 只当打字员）</td><td><code>tools/generate_intel_report.py</code>、<code>llm_client.py</code>、<code>prompts/</code></td><td>情报内容 + usage 记录</td></tr>
+<tr><td>⑥ 门禁校验</td><td>终局四信号、四道闸（时间/结构源/反讽/比分滞后）、反编造、灰信号纪律</td><td><code>tools/match_state_guard.py</code>、<code>verify_match_end.py</code>、<code>verify_match_result.py</code></td><td>通过/拦截结论</td></tr>
+<tr><td>⑦ 输出</td><td>旧 10 段框架模板，HTML+MD 双格式，快报→完整版同 URL 升级</td><td><code>tools/danmu_report.py</code>、<code>build_node_page.py</code>、<code>html_to_intel_md.py</code></td><td>情报页（HTML + MD 镜像）</td></tr>
+<tr><td>⑧ 情报库沉淀</td><td>队伍/选手/英雄/联赛四维资产，幂等合并、趋势延伸、验证回填</td><td><code>tools/accumulate_team_intel.py</code>、<code>accumulate_player_intel.py</code>、<code>extract_intel_anchors.py</code></td><td>docs/data/intel/ 结构化库</td></tr>
+<tr><td>⑨ 发布</td><td>今日页/历史库/画像/灰信号/验证闭环、付费墙注入、时间轴壳、审计</td><td><code>tools/vps_publish.py</code>、<code>publish_intel_pages.py</code>、<code>add_paywall.py</code>、<code>build_history_index.py</code></td><td>静态站点 → GitHub Pages/nginx</td></tr>
+<tr><td>⑩ 监控</td><td>自检、SLA 时间戳、成本统计、TG 告警</td><td><code>tools/vps_self_check.py</code>、<code>daily_intel_check.py</code>、<code>resource_watchdog.py</code></td><td>日报 + 告警</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h3>去哪找什么（目录地图）</h3>
+<table>
+<tr><th>想看什么</th><th>去哪找</th></tr>
+<tr><td>情报输出模板（唯一标准 · 旧 10 段框架）</td><td><code>knowledge/INTEL_TEMPLATE_OLD_2026-08-31.md</code></td></tr>
+<tr><td>完整工作流（五阶段 SOP）</td><td><code>knowledge/DANMU_WORKFLOW.md</code></td></tr>
+<tr><td>采集与防错规则</td><td><code>knowledge/DANMU_CAPTURE_RULES.md</code></td></tr>
+<tr><td>结果验证方法论（终局判定/防误）</td><td><code>knowledge/VERIFICATION_METHODOLOGY.md</code></td></tr>
+<tr><td>直播间注册与主播档案</td><td><code>knowledge/STREAMER_PROFILES.md</code></td></tr>
+<tr><td>官方数据源（Riot leagueId / Liquipedia / HLTV）</td><td><code>knowledge/OFFICIAL_DATA_SOURCES.md</code></td></tr>
+<tr><td>情报页样例（模板样页 / 实战样例）</td><td><code>reports/</code>（8 个样例页）</td></tr>
+<tr><td>结构化情报库（matches/teams/players/gray/bp/leagues）</td><td><code>docs/data/intel/</code></td></tr>
+<tr><td>云端工程 PRD（给开发者的完整设计）</td><td><code>docs/task/DANMU_INTEL_CLOUD_PYTHON_PROJECT_PRD.md</code></td></tr>
+<tr><td>云端部署手册（逐步命令）</td><td><code>docs/task/CLOUD_DEPLOY_RUNBOOK.md</code>、<code>SERVER_SETUP_STEP_BY_STEP.md</code>、<code>deploy/</code></td></tr>
+<tr><td>产品决策（免费/付费边界、定价、信任机制）</td><td><code>docs/task/DANMU_INTEL_PRODUCT_DECISIONS.md</code></td></tr>
+<tr><td>固定提示词（LLM 调用）</td><td><code>prompts/</code></td></tr>
+</table>
+</div>
+
+<div class="card">
+<h3>对你（接手云迁移）最有价值的部分</h3>
+<div class="ok"><b>① 云端工程 PRD v2.0</b> —— 整个项目的"设计蓝图"：架构分层、12 个模块详设（输入/输出/验收）、数据设计、部署剧本、测试清单、里程碑 M0-M5、验收标准。先读它，再动代码。</div>
+<div class="ok"><b>② 部署手册 + deploy/</b> —— systemd 单元、采集服务、发布定时器、nginx 配置，按步执行即可在 VPS 跑起来。</div>
+<div class="ok"><b>③ 核心代码路径</b> —— 采集（run_danmu_session）→ 切片（slice_danmu_by_match）→ 统计（danmu_intel）→ 生成（generate_intel_report/danmu_report）→ 发布（vps_publish）。这条链路读通 = 项目读通。</div>
+<div class="ok"><b>④ 门禁与防错</b> —— match_state_guard 四道闸 + 终局四信号，是本项目质量的生命线（弹幕提前庆祝/预测 ≠ 终局，CS2 加时制参数化），迁移时务必保留并回归测试。</div>
+<div class="ok"><b>⑤ 模板与样例</b> —— 先看样页（LCKCL 整场、CS2 Aurora-G2 三加时/决胜局/整场），再对照模板，快速理解"一份合格情报长什么样"。</div>
+<div class="warn"><b>注意</b>：原始弹幕大数据、密钥/Token、runtime 状态不在仓库内（隐私与体积考虑）；结构化情报库（docs/data/intel/）已包含脱敏统计。Twitch 明确不采集，虎牙为主源。</div>
+</div>
+
+<div class="card">
+<h3>仓库分支结构（已梳理）</h3>
+<table>
+<tr><th>分支</th><th>内容</th><th>用途</th></tr>
+<tr><td><code>main</code></td><td>弹幕情报库（采集/切片/规则/提炼/门禁/输出/情报库/发布）</td><td><b>本次迁移的主体</b>，只装弹幕情报功能</td></tr>
+<tr><td><code>archive/original-snapshot-2026-08-31</code></td><td>项目原始完整快照（含一切内容）</td><td>保底，任何内容可随时找回</td></tr>
+<tr><td><code>archive/historical-intel-reports</code></td><td>历史弹幕情报页存档（reports + intel_pages + 结构化库 + 弹幕知识）</td><td>情报数据资产，不随主代码迁移</td></tr>
+<tr><td><code>trading/btc5m</code></td><td>比特币 5 分钟涨跌分析（bar_monitor 监控 + 深水反转回测）</td><td>独立主题归档</td></tr>
+<tr><td><code>trading/backtest-strategy</code></td><td>回测/策略研究/形态/价格路径 + 交易框架与研究文档</td><td>独立主题归档</td></tr>
+<tr><td><code>trading/forensics</code></td><td>交易者拆解（方法论/案例/钱包跟踪/交易复盘知识库）</td><td>独立主题归档</td></tr>
+<tr><td><code>trading/grid-execution</code></td><td>网格交易执行（订单/扫描/风控配置/执行手册）</td><td>独立主题归档</td></tr>
+</table>
+<p class="small">trading/* 与 archive/* 均为归档分支，不参与弹幕情报库迁移；需要时切换分支即可取用。</p>
+</div>
+
+<div class="card">
+<h3>快速开始（本地验证）</h3>
+<div class="flow">
+# 1. 采集（多直播间同场会话）
+python3 tools/run_danmu_session.py --session &lt;name&gt; --room &lt;source&gt;=&lt;url&gt; ...
+
+# 2. 切片（比赛×节点时间窗）
+python3 tools/slice_danmu_by_match.py --manifest &lt;manifest.json&gt;
+
+# 3. 规则层统计
+python3 tools/danmu_intel.py --input &lt;slice.jsonl&gt; --out intel.json
+
+# 4. 生成情报页（A 型整场 / B 型局中 / 赛前）
+python3 tools/danmu_report.py --input intel.json --template full
+</div>
+<p class="small">完整工作流见 <code>knowledge/DANMU_WORKFLOW.md</code>；云端版设计见 <code>docs/task/DANMU_INTEL_CLOUD_PYTHON_PROJECT_PRD.md</code>。</p>
+</div>
+
+</div></body></html>
